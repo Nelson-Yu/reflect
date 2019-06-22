@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return Promise.all([
     knex.schema.createTable('rescuetime_categories', table => {
       table.increments('id');
-      table.ingeger('user_id').references('users.id')
+      table.integer('user_id').references('users.id')
       table.string('category');
       table.integer('percentage');
     })
