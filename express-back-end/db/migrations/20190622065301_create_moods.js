@@ -5,8 +5,8 @@ exports.up = function(knex, Promise) {
       table.increments('id');
       table.integer('user_id').references('users.id')
       table.date('date');
-      table.integer('rank');
-      table.integer('emoji_rank');
+      table.float('rank');
+      table.float('emoji_rank');
     })
   ])
 };
