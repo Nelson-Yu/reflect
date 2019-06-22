@@ -26,12 +26,6 @@ class App extends Component {
 
   render() {
     return (
-      //       <menu>
-      //       <Menu.Item>Menu</Menu.Item>
-      //       <SubMenu title="SubMenu">
-      //         <Menu.Item>SubMenuItem</Menu.Item>
-      //       </SubMenu>
-      // </menu>
       <div className="App">
         <h1>{this.state.message}</h1>
         <button onClick={this.fetchData}>Fetch Data</button>
