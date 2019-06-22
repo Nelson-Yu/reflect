@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       table.integer('user_id').references('users.id')
       table.date('date');
       table.string('exercise');
-      table.integer('time_sec');
+      table.integer('time_min');
     })
   ])
 };
