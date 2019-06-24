@@ -22,27 +22,35 @@ import {
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
+// const apiKey = "B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD";
+const API_URL = "http://localhost:8080/api/daily_summary";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       message: "Click the button to load data!"
+      info: [],
+      isLoading: true
     };
   }
 
   fetchData = () => {
+    const url = `${API_URL}`;
     axios
-      .get("/api/data") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        // handle success
-        console.log(response.data); // The entire response from the Rails API
-
-        console.log(response.data.message); // Just the message
+      .get(url) // You can simply make your requests to "/api/whatever you want"
+      .then(response => response.data)
+      .then(data => {
         this.setState({
-          message: response.data.message
+          info: data,
+          isLoading: false
         });
       });
   };
+
+  componentDidMount() {
+    this.fetchData();
+  }
 
   render() {
     return (
@@ -93,8 +101,7 @@ class App extends Component {
             </Layout>
         </Layout>
       </>
-    );
-  }
+
 }
 
 export default App;
