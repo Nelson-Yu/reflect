@@ -3,33 +3,64 @@ import axios from "axios";
 import "./styles/App.css";
 import SideBar from "./component/Menu.jsx";
 
+// const apiKey = "B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD";
+const API_URL = "http://localhost:8080/api/daily_summary";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "Click the button to load data!"
+      info: [],
+      isLoading: true
     };
   }
 
-  fetchData = () => {
-    axios
-      .get("/api/data") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        // handle success
-        console.log(response.data); // The entire response from the Rails API
+  // componentDidMount() {
+  //   this.setState({ loading: true });
+  //   fetch(`https://www.rescuetime.com/anapi/daily_summary_feed`)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       this.setState({
+  //         loading: false,
+  //         info: data
+  //       });
+  //     });
+  // }
 
-        console.log(response.data.message); // Just the message
+  fetchData = () => {
+    const url = `${API_URL}`;
+    axios
+      .get(url) // You can simply make your requests to "/api/whatever you want"
+      .then(response => response.data)
+      .then(data => {
         this.setState({
-          message: response.data.message
+          info: data,
+          isLoading: false
         });
       });
   };
 
+  componentDidMount() {
+    this.fetchData();
+  }
+
   render() {
     return (
-      <menu>
-        <SideBar />
-      </menu>
+      <div>
+        <nav className="Topnav">Welcome to Reflect Homie</nav>
+
+        <menu>
+          <SideBar />
+        </menu>
+        <div className="App">
+          {this.state.info.map(
+            RTdata =>
+              `Software Dev =  ${
+                RTdata.software_development_duration_formatted
+              }, `
+          )}
+        </div>
+      </div>
     );
   }
 }
