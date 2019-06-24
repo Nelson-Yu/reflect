@@ -10,6 +10,8 @@ import { Layout,
   Col,
 } from 'antd';
 
+import ReflectionForm from "./forms/ReflectionForm"
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -48,6 +50,7 @@ class Reflection extends Component {
                 <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
               </Breadcrumb>
               <h3> This Will Be The Reflection Form</h3>
+              <ReflectionForm/>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>
           </Layout>
