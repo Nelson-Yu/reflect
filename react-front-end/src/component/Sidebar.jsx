@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link, Switch, Route } from 'react-router-dom';
-import "antd/dist/antd.css";
 
 // import { Line, Pie } from "react-chartjs-2";
 

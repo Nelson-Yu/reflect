@@ -10,6 +10,8 @@ import { Layout,
   Col,
 } from 'antd';
 
+import ReflectionForm from "./forms/ReflectionForm"
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -38,19 +40,20 @@ class Reflection extends Component {
   render() {
     return (
       <>
-          <Layout>
-            <Header style={{ background: '#fff', padding: 0 }} >
-            <h3>Reflection Page</h3>
-            </Header>
-            <Content style={{ margin: '0 16px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>User</Breadcrumb.Item>
-                <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
-              </Breadcrumb>
-              <h3> This Will Be The Reflection Form</h3>
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>
-          </Layout>
+        <Layout style={{ marginLeft: 200 }}>
+          <Header style={{ background: '#fff', padding: 0 }} >
+          <h3>Reflection Page</h3>
+          </Header>
+          <Content style={{ margin: '0 16px' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
+            </Breadcrumb>
+            <h3> This Will Be The Reflection Form</h3>
+            <ReflectionForm/>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>
+        </Layout>
       </>
     );
   }

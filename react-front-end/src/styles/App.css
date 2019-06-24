@@ -35,3 +35,7 @@
 .ant-layout {
     height: 100%;
 }
+
+.ant-menu-item {
+    height: 50px;
+}
