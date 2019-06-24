@@ -32,7 +32,6 @@
     }
 }
 
-.Topnav {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 100px;
+.ant-layout {
+    height: 100%;
 }

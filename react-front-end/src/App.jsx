@@ -15,18 +15,6 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.setState({ loading: true });
-  //   fetch(`https://www.rescuetime.com/anapi/daily_summary_feed`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       this.setState({
-  //         loading: false,
-  //         info: data
-  //       });
-  //     });
-  // }
-
   fetchData = () => {
     const url = `${API_URL}`;
     axios
