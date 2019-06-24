@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Input, Form, Button } from 'antd';
+import { Input, Form, Button, Radio } from 'antd';
 
 const { TextArea } = Input
 
@@ -45,6 +45,16 @@ class Answer extends Component {
     return (
       <>
         <Form layout={formLayout}>
+          <div>
+            <Radio.Group size="large">
+              <Radio.Button value="-1"><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+              <Radio.Button value="-0.5"><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+              <Radio.Button value="0"><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+              <Radio.Button value="0.5"><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+              <Radio.Button value="1"><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+            </Radio.Group>
+          </div>
+
           <Form.Item label="Field A" {...formItemLayout}>
             <TextArea 
             placeholder="input placeholder" 
