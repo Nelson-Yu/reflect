@@ -1,7 +1,7 @@
 const dashboardproductivityChart = {
   data: canvas => {
     return {
-      labels: [1, 2, 3],
+      labels: ["Productive", "Distracting", "Neutral", "Unclassified"],
       datasets: [
         {
           label: "Emails",
@@ -16,7 +16,7 @@ const dashboardproductivityChart = {
   },
   options: {
     legend: {
-      display: false
+      display: true
     },
 
     pieceLabel: {
@@ -107,7 +107,50 @@ const dashboardMoodCorrelationChart = {
   }
 };
 
+const dashboardMoodChart = {
+  data: {
+    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    datasets: [{
+      label: '#Mood',
+      backgroundColor: '#fbc757',
+      borderColor: '#fbc757',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [5, 4, 3, 2, 1, 0, 3]
+    }]
+  },
+  options: {
+    legend: {
+      display: false
+    }
+  }
+}
+
+const dashboardCategoryChart = {
+  data: {
+    type: 'horizontalBar',
+    labels: ['Reference & Learning', 'Powerline', 'News & Opinion', 'Business', 'Communication'],
+    datasets: [{
+      label: 'Categories',
+      backgroundColor: '#51cbcf',
+      borderColor: '#51cbcf',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [31, 14, 13, 12, 9]
+    }]
+  },
+  options: {
+    legend: {
+      display: false
+    }
+  }
+}
+
 module.exports = {
   dashboardproductivityChart,
-  dashboardMoodCorrelationChart
+  dashboardMoodCorrelationChart,
+  dashboardMoodChart,
+  dashboardCategoryChart,
 };
