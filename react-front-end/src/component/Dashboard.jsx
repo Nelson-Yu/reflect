@@ -29,6 +29,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       message: "Click the button to load data!"
+
     };
   }
 
@@ -49,7 +50,7 @@ class Dashboard extends Component {
   render() {
     return (
       <>
-          <Layout>
+          <Layout style={{ marginLeft: 200 }}>
             <Header style={{ background: '#fff', padding: 0 }} >
             <h3>Welcome to your Dashboard</h3>
             </Header>

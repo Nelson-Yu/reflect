@@ -41,7 +41,7 @@ class Fitness extends Component {
   render() {
     return (
       <>
-          <Layout>
+          <Layout style={{ marginLeft: 200 }}>
             <Header style={{ background: '#fff', padding: 0 }} >
             <h3>Fitness Page</h3>
             </Header>
