@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import SideBar from "./Menu";
+// import SideBar from "./Menu";
 import Siderbar from "./Sidebar";
 
 import { Layout,

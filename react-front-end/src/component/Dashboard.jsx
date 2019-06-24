@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import SideBar from "./Menu";
-import Siderbar from "./Sidebar";
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
 import {
