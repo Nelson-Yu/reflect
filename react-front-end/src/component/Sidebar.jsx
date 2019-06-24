@@ -65,7 +65,7 @@ class Siderbar extends Component {
           </Menu>
         </Sider>
 
-        <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+        <Content style={{background: '#fff', minHeight: 280 }}>
             <Route exact path="/" component={Dashboard} />
             <Route path="/reflection" component={Reflection} />
             <Route path="/fitness" component={Fitness} />
