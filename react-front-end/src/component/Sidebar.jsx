@@ -4,6 +4,8 @@ import { Link, Switch, Route } from 'react-router-dom';
 
 import Dashboard from './Dashboard';
 import Reflection from './Reflection';
+import Fitness from "./Fitness";
+import Sleep from "./Sleep";
 
 import { Layout,
   Menu,
@@ -40,12 +42,12 @@ class Siderbar extends Component {
             <Menu.Item key="1">
               <Icon type="pie-chart" />
               <span>Dashboard</span>
-              <Link to='/' />>
+              <Link to='/' />
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="desktop" />
               <span>Reflection</span>
-              <Link to='/reflection' />>
+              <Link to='/reflection' />
             </Menu.Item>
 
             <SubMenu
@@ -57,8 +59,8 @@ class Siderbar extends Component {
                 </span>
               }
             >
-              <Menu.Item key="3">Fitness</Menu.Item>
-              <Menu.Item key="4">Sleep</Menu.Item>
+              <Menu.Item key="3">Fitness<Link to='/fitness' /></Menu.Item>
+              <Menu.Item key="4">Sleep<Link to='/sleep' /></Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>
@@ -66,6 +68,8 @@ class Siderbar extends Component {
         <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
             <Route exact path="/" component={Dashboard} />
             <Route path="/reflection" component={Reflection} />
+            <Route path="/fitness" component={Fitness} />
+            <Route path="/sleep" component={Sleep} />            
         </Content>
 
       </Layout>
