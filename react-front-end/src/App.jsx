@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Switch } from  'react-router-dom'
+import { Switch } from "react-router-dom";
 import axios from "axios";
 import "./styles/App.css";
 import "antd/dist/antd.css";
-import Siderbar from './component/Sidebar';
+import Siderbar from "./component/Sidebar";
+import API from "./API/API_helper.jsx";
+import Productivity from "./component/ProductivityPulse";
 
 // const apiKey = "B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD";
 const API_URL = "http://localhost:8080/api/daily_summary";
@@ -36,15 +38,15 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <>
         <Switch>
-          <Siderbar/>
+          <Siderbar />
         </Switch>
+        <Productivity />
       </>
-    )}
-
+    );
+  }
 }
 
 export default App;

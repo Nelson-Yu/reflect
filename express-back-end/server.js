@@ -11,7 +11,7 @@ const knex = require("knex")(knexConfig[ENV]);
 
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
-App.use(Express.static("public"));
+App.use(Express.json());
 App.use(cors());
 
 // GET ROUTE FOR CATEGORY DATA
@@ -37,6 +37,11 @@ App.get("/api/productivity_pulse", (req, res) =>
         }
     )
 );
+
+App.post("/api/new-reflection", (req, res) => {
+    console.log(req.body);
+    res.end("Success");
+});
 
 App.listen(PORT, () => {
     // eslint-disable-next-line no-console
