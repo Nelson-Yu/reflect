@@ -29,7 +29,6 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       message: "Click the button to load data!"
-
     };
   }
 
