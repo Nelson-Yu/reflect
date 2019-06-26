@@ -58,8 +58,21 @@ class Categories extends Component {
       });
   };
 
+  fetchLabelData = () => {
+    axios
+      .get("api/categories") // You can simply make your requests to "/api/whatever you want"
+      .then(response => {
+        console.log("FDSAFDSAFSDA", response.data.rows);
+        const mappedData = response.data.rows.map(catData => catData[3]);
+        const catLabels = this.dashboardCategoryChart.data(mappedData);
+        this.setState({
+          categoryData: catLabels
+        });
+      });
+  };
+
   componentWillMount() {
-    this.fetchCategoryData();
+    this.fetchCategoryData() && this.fetchCategoryData();
   }
 
   render() {
