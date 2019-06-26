@@ -11,6 +11,10 @@ const natural = require("./natural");
 const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
+const knexLogger  = require('knex-logger');
+
+//Log knex query to stdout
+App.use(knexLogger(knex));
 
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
@@ -24,7 +28,7 @@ App.get("/api/categories", (req, res) =>
         (error, response) => {
             res.send(JSON.parse(response.body).rows);
 
-            console.log("This is the response: ", JSON.parse(response.body).rows);
+            // console.log("This is the response: ", JSON.parse(response.body).rows);
         }
     )
 );
@@ -36,7 +40,7 @@ App.get("/api/productivity_pulse", (req, res) =>
         (error, response) => {
             res.send(JSON.parse(response.body));
 
-            console.log("This is the response: ", JSON.parse(response.body));
+            // console.log("This is the response: ", JSON.parse(response.body));
         }
     )
 );
@@ -53,7 +57,7 @@ App.get("/api/questions", (req, res) => {
             data = {
                 questions: results
             };
-            console.log(data);
+            // console.log(data);
             res.json(data);
         });
 });
@@ -62,14 +66,22 @@ App.get("/api/questions", (req, res) => {
 
 App.post("/api/new-reflection", (req, res) => {
     console.log(req.body.data);
-    console.log(
-        natural.getSentimentRank(
-            req.body.data.emoji_rank,
-            req.body.data.answer_1,
-            req.body.data.answer_2,
-            req.body.data.answer_3
-        )
-    );
+    // console.log(natural.getSentimentRank(req.body.data.emoji_rank, req.body.data.answer_1, req.body.data.answer_2, req.body.data.answer_3));
+
+    moodRank = natural.getSentimentRank (
+                req.body.data.emoji_rank,
+                req.body.data.answer_1,
+                req.body.data.answer_2,
+                req.body.data.answer_3
+              );
+
+    knex('moods')
+      .insert({rank: moodRank, emoji_rank: req.body.data.emoji_rank})
+      .catch(function(err){
+        console.log(err)
+      })
+
+
     res.end("Success");
 });
 
