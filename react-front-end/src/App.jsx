@@ -34,7 +34,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchData();
+    // this.fetchData();
   }
 
   render() {
@@ -43,7 +43,6 @@ class App extends Component {
         <Switch>
           <Siderbar />
         </Switch>
-        <Productivity />
       </>
     );
   }

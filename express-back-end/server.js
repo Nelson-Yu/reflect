@@ -4,6 +4,9 @@ const BodyParser = require("body-parser");
 const PORT = 8080;
 const request = require("request");
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
+const natural = require("./natural");
 
 const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
@@ -39,7 +42,15 @@ App.get("/api/productivity_pulse", (req, res) =>
 );
 
 App.post("/api/new-reflection", (req, res) => {
-    console.log(req.body);
+    console.log(req.body.data);
+    console.log(
+        natural.getSentimentRank(
+            req.body.data.emoji_rank,
+            req.body.data.answer_1,
+            req.body.data.answer_2,
+            req.body.data.answer_3
+        )
+    );
     res.end("Success");
 });
 
