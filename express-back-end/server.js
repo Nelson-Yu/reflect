@@ -42,22 +42,22 @@ App.get("/api/productivity_pulse", (req, res) =>
     )
 );
 
-//GET ROUTE FOR QUESTIONS
-App.get("/api/questions", (req, res) => {
-    console.log("FETCHING");
+// //GET ROUTE FOR QUESTIONS
+// App.get("/api/questions", (req, res) => {
+//     console.log("FETCHING");
 
-    let data = {};
-    knex
-        .select()
-        .table("questions")
-        .then(results => {
-            data = {
-                questions: results
-            };
-            console.log(data);
-            res.json(data);
-        });
-});
+//     let data = {};
+//     knex
+//         .select()
+//         .table("questions")
+//         .then(results => {
+//             data = {
+//                 questions: results
+//             };
+//             console.log(data);
+//             res.json(data);
+//         });
+// });
 
 //POST ROUTE FOR REFLECTION ANSWERS
 
