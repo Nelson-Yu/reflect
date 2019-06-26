@@ -13,7 +13,6 @@ import { Layout,
 } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 
 class Fitness extends Component {
   constructor(props) {

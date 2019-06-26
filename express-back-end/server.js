@@ -74,6 +74,11 @@ App.post("/api/new-reflection", (req, res) => {
     res.end("Success");
 });
 
+//POST ROUTE FOR FITNESS FORM
+App.post("/api/new-workouts", (req, res) => {
+    console.log(req.body.data);
+})
+
 App.listen(PORT, () => {
     // eslint-disable-next-line no-console
     console.log(
