@@ -40,7 +40,26 @@ App.get("/api/productivity_pulse", (req, res) =>
         }
     )
 );
-("https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json");
+
+//GET ROUTE FOR QUESTIONS
+App.get("/api/questions", (req, res) => {
+    console.log("FETCHING");
+
+    let data = {};
+    knex
+        .select()
+        .table("questions")
+        .then(results => {
+            data = {
+                questions: results
+            };
+            console.log(data);
+            res.json(data);
+        });
+});
+
+//POST ROUTE FOR REFLECTION ANSWERS
+
 App.post("/api/new-reflection", (req, res) => {
     console.log(req.body.data);
     console.log(

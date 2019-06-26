@@ -39,3 +39,10 @@
 .ant-menu-item {
     height: 50px;
 }
+
+.ant-form {
+    text-align: center;
+}
+.ant-radio-group-large .ant-radio-button-wrapper {
+    height: 100%;
+}
