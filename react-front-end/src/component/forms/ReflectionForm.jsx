@@ -10,6 +10,9 @@ class Answer extends Component {
     super(props);
     this.state = {
       formLayout: 'horizontal',
+      question_1: '',
+      question_2: '',
+      question_3: '',
       emoji_rank: null,
       answer_1: '',
       answer_2: '',
@@ -17,19 +20,25 @@ class Answer extends Component {
     };
   }
 
-  // fetchData = () => {
-  //   axios
-  //     .get("/api/data") // You can simply make your requests to "/api/whatever you want"
-  //     .then(response => {
-  //       // handle success
-  //       console.log(response.data); // The entire response from the Rails API
+  fetchData = () => {
+    axios
+      .get("/api/questions") // You can simply make your requests to "/api/whatever you want"
+      .then(response => {
+        // handle success
+        console.log(response.data.questions[0]['question']); // The entire response from the Rails API
+        // console.log(response.data.message); // Just the message
+        this.setState({
+          question_1: response.data.questions[0]['question'],
+          question_2: response.data.questions[1]['question'],
+          question_3: response.data.questions[2]['question']
+        });
+      });
+  };
 
-  //       console.log(response.data.message); // Just the message
-  //       this.setState({
-  //         message: response.data.message
-  //       });
-  //     });
-  // };
+  componentDidMount() {
+    this.fetchData();
+  }
+
 
   handleEmoji = event => {
     this.setState({ emoji_rank: event.target.value })
@@ -93,19 +102,19 @@ class Answer extends Component {
             </Radio.Group>
           </Form.Item>
 
-          <Form.Item label="Field A" {...formItemLayout}>
+          <Form.Item label={this.state.question_1} {...formItemLayout}>
             <TextArea 
             placeholder="input placeholder" 
             onChange={this.handleAnswer1}
             autosize={{ minRows: 2, maxRows: 4 }}/>
           </Form.Item>
-          <Form.Item label="Field B" {...formItemLayout}>
+          <Form.Item label={this.state.question_2} {...formItemLayout}>
             <TextArea 
             placeholder="input placeholder" 
             onChange={this.handleAnswer2}
             autosize={{ minRows: 2, maxRows: 4 }}/>
           </Form.Item>
-          <Form.Item label="Field C" {...formItemLayout}>
+          <Form.Item label={this.state.question_3} {...formItemLayout}>
             <TextArea 
             placeholder="input placeholder" 
             onChange={this.handleAnswer3}
