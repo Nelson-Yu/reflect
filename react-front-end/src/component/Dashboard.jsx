@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Productivity from "./ProductivityPulse";
+import Categories from "./CategoryChart";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
@@ -134,12 +135,7 @@ class Dashboard extends Component {
                 </Col>
                 <Col span={10}>
                   <Card title="Category Chart" bordered={true}>
-                    <HorizontalBar
-                      data={dashboardCategoryChart.data}
-                      options={dashboardCategoryChart.options}
-                      width={300}
-                      height={200}
-                    />
+                    <Categories />
                   </Card>
                 </Col>
               </Row>

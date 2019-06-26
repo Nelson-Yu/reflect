@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { builtinModules } from "module";
-import { Pie, Doughnut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 import {
   Layout,
@@ -109,7 +109,6 @@ class Productivity extends Component {
         this.setState({
           productivity: productivityData
         });
-        console.log("Data:", mappedData);
       });
   };
 
@@ -118,7 +117,6 @@ class Productivity extends Component {
   }
 
   render() {
-    console.log("a", this.state.productivity && this.state.productivity.data);
     return (
       <div className="App">
         {this.state.productivity && (

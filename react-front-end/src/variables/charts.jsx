@@ -75,38 +75,9 @@ const dashboardMoodChart = {
   }
 };
 
-const dashboardCategoryChart = {
-  data: {
-    type: "horizontalBar",
-    labels: [
-      "Reference & Learning",
-      "Powerline",
-      "News & Opinion",
-      "Business",
-      "Communication"
-    ],
-    datasets: [
-      {
-        label: "Categories",
-        backgroundColor: "#51cbcf",
-        borderColor: "#51cbcf",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
-        data: [31, 14, 13, 12, 9]
-      }
-    ]
-  },
-  options: {
-    legend: {
-      display: false
-    }
-  }
-};
-
 module.exports = {
   // dashboardproductivityChart,
   dashboardMoodCorrelationChart,
-  dashboardMoodChart,
-  dashboardCategoryChart
+  dashboardMoodChart
+  // dashboardCategoryChart
 };
