@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { builtinModules } from "module";
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 import {
   Layout,
@@ -16,7 +16,8 @@ import {
 
 const chartOptions = {
   legend: {
-    display: true
+    display: true,
+    position: "bottom"
   },
 
   pieceLabel: {
@@ -108,7 +109,6 @@ class Productivity extends Component {
         this.setState({
           productivity: productivityData
         });
-        console.log("Data:", mappedData);
       });
   };
 
@@ -117,11 +117,10 @@ class Productivity extends Component {
   }
 
   render() {
-    console.log("a", this.state.productivity && this.state.productivity.data);
     return (
       <div className="App">
         {this.state.productivity && (
-          <Pie
+          <Doughnut
             data={this.state.productivity}
             options={chartOptions}
             height={250}

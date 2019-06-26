@@ -26,9 +26,16 @@ App.get("/api/categories", (req, res) =>
     request.get(
         "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=overview&restrict_begin=2019-06-24&restrict_end=2019-06-24&format=json", {},
         (error, response) => {
-            res.send(JSON.parse(response.body).rows);
+            res.send(JSON.parse(response.body));
+
 
             // console.log("This is the response: ", JSON.parse(response.body).rows);
+
+            // console.log(
+            //     "This is the categories response: ",
+            //     JSON.parse(response.body).rows[3]
+            // );
+
         }
     )
 );
@@ -41,6 +48,7 @@ App.get("/api/productivity_pulse", (req, res) =>
             res.send(JSON.parse(response.body));
 
             // console.log("This is the response: ", JSON.parse(response.body));
+
         }
     )
 );
