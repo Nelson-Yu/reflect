@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-// import SideBar from "./Menu";
-import Siderbar from "./Sidebar";
+import Workout from "./forms/FitnessForm";
 
 import { Layout,
   Menu,
@@ -51,6 +50,7 @@ class Fitness extends Component {
                 <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
               </Breadcrumb>
               <h3> This Will Be The Fitness Form</h3>
+              <Workout/>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>
           </Layout>
