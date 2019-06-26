@@ -40,7 +40,7 @@ App.get("/api/productivity_pulse", (req, res) =>
         }
     )
 );
-
+("https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json");
 App.post("/api/new-reflection", (req, res) => {
     console.log(req.body.data);
     console.log(

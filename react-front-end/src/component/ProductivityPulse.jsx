@@ -70,13 +70,25 @@ class Productivity extends Component {
   dashboardProductivityChart = {
     data: canvas => {
       return {
-        labels: ["Productive", "Distracting", "Neutral", "Unclassified"],
+        labels: [
+          "Very Productive",
+          "Productive",
+          "Neutral",
+          "Distracting",
+          "Very Disctracting"
+        ],
         datasets: [
           {
-            label: "Emails",
+            label: "Productivity",
             pointRadius: 0,
             pointHoverRadius: 0,
-            backgroundColor: ["#e3e3e3", "#4acccd", "#fcc468", "#ef8157"],
+            backgroundColor: [
+              "Magenta",
+              "#4acccd",
+              "#fcc468",
+              "#ef8157",
+              "#e3e3e3"
+            ],
             borderWidth: 0,
             data: canvas
           }
@@ -96,6 +108,7 @@ class Productivity extends Component {
         this.setState({
           productivity: productivityData
         });
+        console.log("Data:", mappedData);
       });
   };
 
@@ -111,7 +124,7 @@ class Productivity extends Component {
           <Pie
             data={this.state.productivity}
             options={chartOptions}
-            height={168}
+            height={250}
           />
         )}
       </div>
