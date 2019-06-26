@@ -7,6 +7,7 @@ import Dashboard from './Dashboard';
 import Reflection from './Reflection';
 import Fitness from "./Fitness";
 import Sleep from "./Sleep";
+import Archive from "./Calendar";
 
 import { Layout,
   Menu,
@@ -14,7 +15,8 @@ import { Layout,
   Icon,
   Card,
   Row,
-  Col, } from 'antd';
+  Col,
+  Calendar, } from 'antd';
 
 // import {
 //   dashboardEmailStatisticsChart,
@@ -75,6 +77,11 @@ class Siderbar extends Component {
               <Menu.Item key="3">Fitness<Link to='/fitness' /></Menu.Item>
               <Menu.Item key="4">Sleep<Link to='/sleep' /></Menu.Item>
             </SubMenu>
+            <Menu.Item key="5">
+              <Icon type="calendar" />
+              <span>Calender</span>
+              <Link to='/calender' />
+            </Menu.Item>
           </Menu>
         </Sider>
 
@@ -83,6 +90,7 @@ class Siderbar extends Component {
             <Route path="/reflection" component={Reflection} />
             <Route path="/fitness" component={Fitness} />
             <Route path="/sleep" component={Sleep} />
+            <Route path="/calender" component={Archive} />
         </Content>
 
       </Layout>
