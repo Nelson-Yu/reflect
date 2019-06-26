@@ -6,6 +6,7 @@ const request = require('request');
 const cors = require('cors');
 const dotenv = require('dotenv')
 dotenv.config()
+const natural = require('./natural');
 
 
 
@@ -23,11 +24,12 @@ App.get('/api/daily_summary', (req, res) =>
     request.get("https://www.rescuetime.com/anapi/daily_summary_feed?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD", {},
         (error, response) => {
             res.send(response.body);
-            console.log(response);
+            // console.log(response);
         }));
 
 App.post('/api/new-reflection', (req, res) => {
-    console.log(req.body);
+    console.log(req.body.data);
+    console.log(natural.getSentimentRank(req.body.data.emoji_rank, req.body.data.answer_1, req.body.data.answer_2, req.body.data.answer_3))
     res.end("Success");
 });
 
