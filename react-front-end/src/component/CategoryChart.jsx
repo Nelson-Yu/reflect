@@ -6,15 +6,18 @@ const chartOptions = {
   legend: {
     display: false
   },
-  scales: {
-    xAxes: [
-      {
-        scaleLabel: {
-          display: true,
-          labelString: "Time Logged in Hours"
-        }
+
+  tooltips: {
+    enabled: true,
+    callbacks: {
+      label: function(categoryPercent, data) {
+        console.log("Daaattaaaaa: ", data);
+        const index = categoryPercent.index;
+        const dataset = data.datasets[0].data;
+        const percentage = dataset[index];
+        return `${percentage.toFixed(2)}%`;
       }
-    ]
+    }
   }
 };
 
@@ -32,6 +35,7 @@ class Categories extends Component {
         labels,
         datasets: [
           {
+            label: "Categories",
             backgroundColor: "#51cbcf",
             borderColor: "#51cbcf",
             borderWidth: 1,
@@ -48,12 +52,16 @@ class Categories extends Component {
     axios
       .get("api/categories") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
-        const mappedData = response.data.rows.map(
-          catData => catData[1] * 0.000277778
-        );
+        console.log("FDSAFDSAFSDA", response.data.rows);
+        const mappedData = response.data.rows.map(catData => catData[1]);
         const labelData = response.data.rows.map(catData => catData[3]);
+        const overallTime = mappedData.reduce(
+          (accumulator, currentValue, currentIndex, array) =>
+            accumulator + currentValue
+        );
+        const dataPercentage = mappedData.map(i => (i / overallTime) * 100);
         const timeSpent = this.dashboardCategoryChart.data(
-          mappedData,
+          dataPercentage,
           labelData
         );
         this.setState({
@@ -61,18 +69,6 @@ class Categories extends Component {
         });
       });
   };
-
-  // fetchLabelData = () => {
-  //   axios
-  //     .get("api/categories") // You can simply make your requests to "/api/whatever you want"
-  //     .then(response => {
-  //       const mappedData = response.data.rows.each(catData => catData[3]);
-  //       const catLabels = this.dashboardCategoryChart.data(mappedData);
-  //       this.setState({
-  //         categoryData: catLabels
-  //       });
-  //     });
-  // };
 
   componentWillMount() {
     this.fetchCategoryData();
@@ -84,8 +80,8 @@ class Categories extends Component {
         <HorizontalBar
           data={this.state.categoryData}
           options={chartOptions}
-          width={400}
-          height={300}
+          width={300}
+          height={200}
         />
       </>
     );
