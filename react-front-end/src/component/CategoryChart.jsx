@@ -51,9 +51,7 @@ class Categories extends Component {
         const mappedData = response.data.rows.map(
           catData => catData[1] * 0.000277778
         );
-        console.log("Mapped :", mappedData);
         const labelData = response.data.rows.map(catData => catData[3]);
-
         const timeSpent = this.dashboardCategoryChart.data(
           mappedData,
           labelData
@@ -64,20 +62,20 @@ class Categories extends Component {
       });
   };
 
-  fetchLabelData = () => {
-    axios
-      .get("api/categories") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        const mappedData = response.data.rows.each(catData => catData[3]);
-        const catLabels = this.dashboardCategoryChart.data(mappedData);
-        this.setState({
-          categoryData: catLabels
-        });
-      });
-  };
+  // fetchLabelData = () => {
+  //   axios
+  //     .get("api/categories") // You can simply make your requests to "/api/whatever you want"
+  //     .then(response => {
+  //       const mappedData = response.data.rows.each(catData => catData[3]);
+  //       const catLabels = this.dashboardCategoryChart.data(mappedData);
+  //       this.setState({
+  //         categoryData: catLabels
+  //       });
+  //     });
+  // };
 
   componentWillMount() {
-    this.fetchCategoryData() && this.fetchCategoryData();
+    this.fetchCategoryData();
   }
 
   render() {

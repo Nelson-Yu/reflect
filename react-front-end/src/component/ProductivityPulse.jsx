@@ -9,12 +9,17 @@ const chartOptions = {
   },
 
   tooltips: {
-    enabled: true
-    // callbacks: {
-    //   label: function(productivityPercent, data) {
-    //     const totalTime =
-    //   }
-    // }
+    enabled: true,
+    callbacks: {
+      label: function(productivityPercent, data) {
+        console.log("Data", data);
+        console.log("PP:", productivityPercent);
+        const index = productivityPercent.index;
+        const dataset = data.datasets[0].data;
+        const percentage = dataset[index];
+        return `${percentage.toFixed(2)}%`;
+      }
+    }
   },
 
   pieceLabel: {
@@ -96,15 +101,22 @@ class Productivity extends Component {
       .get("/api/productivity_pulse") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         const mappedData = response.data.rows.map(RTdata => RTdata[1]);
-
         const overallTime = mappedData.reduce(
           (accumulator, currentValue, currentIndex, array) =>
             accumulator + currentValue
         );
+        const dataPercentage = mappedData.map(i => (i / overallTime) * 100);
         const productivityData = this.dashboardProductivityChart.data(
-          mappedData
+          dataPercentage
         );
-        console.log("individual time", productivityData);
+
+        console.log("Percentages:", dataPercentage);
+        // let percent = 0;
+        // for (let i of mappedData) {
+        //   let percent = (i / overallTime) * 100;
+        //   console.log("percent", percent);
+        // }
+        // console.log("individual time", percent);
         console.log("Overall time", overallTime);
         this.setState({
           productivity: productivityData
