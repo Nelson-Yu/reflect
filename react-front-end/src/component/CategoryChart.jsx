@@ -19,9 +19,10 @@ const chartOptions = {
         const time = dataset[index];
 
         console.log("fdsafdsafdsafdsa", dataset);
-
-        const formatted = moment(time * 1000).format("h:mm");
-        return `${formatted}hrs`;
+        const milliseconds = (time / 0.000277778) * 1000;
+        const hours = moment.duration(milliseconds).asHours();
+        const minutes = moment.duration(milliseconds).minutes();
+        return `${hours.toFixed(0)}hr ${minutes}min`;
       }
     }
   },
@@ -69,8 +70,7 @@ class Categories extends Component {
       .get("api/categories") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         const mappedData = response.data.rows.map(
-          catData => catData[1]
-          // * 0.000277778
+          catData => catData[1] * 0.000277778
         );
         const labelData = response.data.rows.map(catData => catData[3]);
         const timeSpent = this.dashboardCategoryChart.data(
