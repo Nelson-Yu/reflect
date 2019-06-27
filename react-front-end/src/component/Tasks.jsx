@@ -21,7 +21,7 @@ class Tasks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "Click the button to load data!"
+      todo: []
     };
   }
 
@@ -39,6 +39,40 @@ class Tasks extends Component {
   //     });
   // };
 
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then(res => this.setState({ todo: res.data }))
+  }
+
+  markComplete = id => {
+    this.setState({
+      todo: this.state.todo.map(task => {
+        if (task.id === id) {
+          task.completed = !task.completed;
+        }
+        return task;
+      })
+    });
+  }
+
+  deleteTask = id => {
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .then(res => this.setState({
+        todo: [...this.state.todo.filter(task => task.id !== id)]
+      }));
+  }
+
+  addToDo = title => {
+    axios.post('https://jsonplaceholder.typicode.com/todos', {
+      title: title,
+      completed: false
+    })
+      .then(res => this.setState({
+        todo: [...this.state.todo, res.data]
+      }));
+  }
+
+
   render() {
     return (
       <>
@@ -52,6 +86,8 @@ class Tasks extends Component {
                 <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
               </Breadcrumb>
               <h3> This Will Be The Tasks Form</h3>
+              <AddToDo addToDo={this.addToDo} />
+              <ToDo todo={this.state.todo} markComplete={this.markComplete} deleteTask={this.deleteTask}/>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>
           </Layout>
