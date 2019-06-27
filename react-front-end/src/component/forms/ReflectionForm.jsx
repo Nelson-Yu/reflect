@@ -10,9 +10,6 @@ class Answer extends Component {
     super(props);
     this.state = {
       formLayout: 'horizontal',
-      question_1: '',
-      question_2: '',
-      question_3: '',
       emoji_rank: null,
       answer_1: '',
       answer_2: '',
@@ -20,24 +17,24 @@ class Answer extends Component {
     };
   }
 
-  fetchData = () => {
-    axios
-      .get("/api/questions") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        // handle success
-        console.log(response.data.questions[0]['question']); // The entire response from the Rails API
-        // console.log(response.data.message); // Just the message
-        this.setState({
-          question_1: response.data.questions[0]['question'],
-          question_2: response.data.questions[1]['question'],
-          question_3: response.data.questions[2]['question']
-        });
-      });
-  };
+  // fetchData = () => {
+  //   axios
+  //     .get("/api/questions") // You can simply make your requests to "/api/whatever you want"
+  //     .then(response => {
+  //       // handle success
+  //       console.log(response.data.questions[0]['question']); // The entire response from the Rails API
+  //       // console.log(response.data.message); // Just the message
+  //       this.setState({
+  //         question_1: response.data.questions[0]['question'],
+  //         question_2: response.data.questions[1]['question'],
+  //         question_3: response.data.questions[2]['question']
+  //       });
+  //     });
+  // };
 
-  componentDidMount() {
-    this.fetchData();
-  }
+  // componentDidMount() {
+  //   this.fetchData();
+  // }
 
 
   handleEmoji = event => {
@@ -102,19 +99,22 @@ class Answer extends Component {
             </Radio.Group>
           </Form.Item>
 
-          <Form.Item label={this.state.question_1} {...formItemLayout}>
+          <Form.Item {...formItemLayout}>
+            <p>How was your day?</p>
             <TextArea 
             placeholder="input placeholder" 
             onChange={this.handleAnswer1}
             autosize={{ minRows: 2, maxRows: 4 }}/>
           </Form.Item>
-          <Form.Item label={this.state.question_2} {...formItemLayout}>
+          <Form.Item {...formItemLayout}>
+            <p>What was the most impactful thing you did today?</p>
             <TextArea 
             placeholder="input placeholder" 
             onChange={this.handleAnswer2}
             autosize={{ minRows: 2, maxRows: 4 }}/>
           </Form.Item>
-          <Form.Item label={this.state.question_3} {...formItemLayout}>
+          <Form.Item {...formItemLayout}>
+            <p>Is there anything exciting happening tomorrow?</p>
             <TextArea 
             placeholder="input placeholder" 
             onChange={this.handleAnswer3}
