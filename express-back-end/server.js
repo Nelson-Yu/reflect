@@ -75,7 +75,7 @@ App.get("/api/questions", (req, res) => {
 App.post("/api/new-reflection", (req, res) => {
     console.log(req.body.data);
     // console.log(natural.getSentimentRank(req.body.data.emoji_rank, req.body.data.answer_1, req.body.data.answer_2, req.body.data.answer_3));
-
+    console.log
     moodRank = natural.getSentimentRank (
                 req.body.data.emoji_rank,
                 req.body.data.answer_1,
@@ -84,7 +84,7 @@ App.post("/api/new-reflection", (req, res) => {
               );
 
     knex('moods')
-      .insert({rank: moodRank, emoji_rank: req.body.data.emoji_rank})
+      .insert({rank: moodRank, emoji_rank: req.body.data.emoji_rank, date: NOW()})
       .catch(function(err){
         console.log(err)
       })
