@@ -22,6 +22,7 @@ App.use(BodyParser.urlencoded({ extended: false }));
 App.use(Express.json());
 App.use(cors());
 
+const current_date = moment().tz("America/Vancouver").format("YYYY-MM-DD");
 // GET ROUTE FOR CATEGORY DATA
 App.get("/api/categories", (req, res) =>
     request.get(
@@ -99,7 +100,7 @@ App.post("/api/new-reflection", (req, res) => {
               );
 
     knex('moods')
-      .insert({rank: moodRank, emoji_rank: req.body.data.emoji_rank, date: NOW()})
+      .insert({rank: moodRank, emoji_rank: req.body.data.emoji_rank, date: current_date})
       .catch(function(err){
         console.log(err)
       })
@@ -112,7 +113,6 @@ App.post("/api/new-reflection", (req, res) => {
 App.post("/api/new-workouts", (req, res) => {
     console.log(req.body.data.exercises);
     let exercises = req.body.data.exercises;
-    let current_date = moment().tz("America/Vancouver").format("YYYY-MM-DD");
     console.log(current_date)
 
     exercises.forEach(exercise => {
