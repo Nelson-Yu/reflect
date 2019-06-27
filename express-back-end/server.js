@@ -7,7 +7,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 const natural = require("./natural");
-const moment = require("moment");
+const moment = require("moment-timezone");
 
 const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
@@ -79,7 +79,7 @@ App.post("/api/new-reflection", (req, res) => {
 App.post("/api/new-workouts", (req, res) => {
     console.log(req.body.data.exercises);
     let exercises = req.body.data.exercises;
-    let current_date = moment().format("YYYY-MM-DD");
+    let current_date = moment().tz("America/Vancouver").format("YYYY-MM-DD");
     console.log(current_date)
 
     exercises.forEach(exercise => {
