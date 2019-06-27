@@ -38,61 +38,78 @@ class Siderbar extends Component {
   render() {
     return (
       <Layout>
+{/*        <Header className="header" style={{background: 'white', paddingLeft: 0 }}>
+          <div style={{background: 'red', width: 200, float: 'left', paddingLeft: 20}}>
+            <h3 >
+              REFLECT
+            </h3>
+          </div>
+          <div style={{color: 'black', float: 'left', paddingLeft: 20}}>
+            <h3>Welcome to your Dashboard</h3>
+          </div>
+        </Header>*/}
 
-        <Sider
-          collapsible
-          collapsed={this.state.collapsed}
-          onCollapse={this.onCollapse}
-          trigger={null}
-          style={{
-            overflow: 'hidden',
-            height: '100vh',
-            position: 'fixed',
-            left: 0,
-          }}
-          >
+        <Layout>
 
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1">
-              <Icon type="pie-chart" />
-              <span>Dashboard</span>
-              <Link to='/' />
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="desktop" />
-              <span>Reflection</span>
-              <Link to='/reflection' />
-            </Menu.Item>
-
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="user" />
-                  <span>Health</span>
-                </span>
-              }
+          <Sider
+            collapsible
+            collapsed={this.state.collapsed}
+            onCollapse={this.onCollapse}
+            trigger={null}
+            style={{
+              overflow: 'hidden',
+              height: '100vh',
+              position: 'fixed',
+              left: 0,
+            }}
             >
-              <Menu.Item key="3">Fitness<Link to='/fitness' /></Menu.Item>
-              <Menu.Item key="4">Sleep<Link to='/sleep' /></Menu.Item>
-            </SubMenu>
-            <Menu.Item key="5">
-              <Icon type="calendar" />
-              <span>Calender</span>
-              <Link to='/calender' />
-            </Menu.Item>
-          </Menu>
-        </Sider>
 
-        <Content style={{background: '#fff', minHeight: 280 }}>
-            <Route exact path="/" component={Dashboard} />
-            <Route path="/reflection" component={Reflection} />
-            <Route path="/fitness" component={Fitness} />
-            <Route path="/sleep" component={Sleep} />
-            <Route path="/calender" component={Archive} />
-        </Content>
+            <div className="logo" />
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+              <Menu.Item key="6" style={{height:100 }}>
+                <span>Reflect</span>
+                <Link to='/' />
+              </Menu.Item>
+              <Menu.Item key="1">
+                <Icon type="pie-chart" />
+                <span>Dashboard</span>
+                <Link to='/' />
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Icon type="desktop" />
+                <span>Reflection</span>
+                <Link to='/reflection' />
+              </Menu.Item>
 
+              <SubMenu
+                key="sub1"
+                title={
+                  <span>
+                    <Icon type="user" />
+                    <span>Health</span>
+                  </span>
+                }
+              >
+                <Menu.Item key="3">Fitness<Link to='/fitness' /></Menu.Item>
+                <Menu.Item key="4">Sleep<Link to='/sleep' /></Menu.Item>
+              </SubMenu>
+              <Menu.Item key="5">
+                <Icon type="calendar" />
+                <span>Calender</span>
+                <Link to='/calender' />
+              </Menu.Item>
+            </Menu>
+          </Sider>
+
+          <Content style={{background: '#fff', minHeight: 280 }}>
+              <Route exact path="/" component={Dashboard} />
+              <Route path="/reflection" component={Reflection} />
+              <Route path="/fitness" component={Fitness} />
+              <Route path="/sleep" component={Sleep} />
+              <Route path="/calender" component={Archive} />
+          </Content>
+
+        </Layout>
       </Layout>
     );
   }

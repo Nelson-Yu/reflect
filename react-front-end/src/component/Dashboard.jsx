@@ -57,7 +57,7 @@ class Dashboard extends Component {
       <>
         <Layout style={{ marginLeft: 200 }}>
           <Header style={{ background: "#fff", padding: 0 }}>
-            <h3>Welcome to your Dashboard</h3>
+            <h3>yeet</h3>
           </Header>
           <Content style={{ margin: "0 16px" }}>
             <Breadcrumb style={{ margin: "16px 0" }}>
