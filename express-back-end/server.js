@@ -12,12 +12,17 @@ const moment = require("moment-timezone");
 const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
+const knexLogger  = require('knex-logger');
+
+//Log knex query to stdout
+App.use(knexLogger(knex));
 
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(Express.json());
 App.use(cors());
 
+const current_date = moment().tz("America/Vancouver").format("YYYY-MM-DD");
 // GET ROUTE FOR CATEGORY DATA
 App.get("/api/categories", (req, res) =>
     request.get(
@@ -25,10 +30,14 @@ App.get("/api/categories", (req, res) =>
         (error, response) => {
             res.send(JSON.parse(response.body));
 
-            console.log(
-                "This is the categories response: ",
-                JSON.parse(response.body).rows[3]
-            );
+
+            // console.log("This is the response: ", JSON.parse(response.body).rows);
+
+            // console.log(
+            //     "This is the categories response: ",
+            //     JSON.parse(response.body).rows[3]
+            // );
+
         }
     )
 );
@@ -39,6 +48,9 @@ App.get("/api/productivity_pulse", (req, res) =>
         "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
+
+            // console.log("This is the response: ", JSON.parse(response.body));
+
         }
     )
 );
@@ -55,23 +67,45 @@ App.get("/api/productivity_pulse", (req, res) =>
 //             data = {
 //                 questions: results
 //             };
+//             // console.log(data);
+//             res.json(data);
+//         });
+// });
+
+//     let data = {};
+//     knex
+//         .select()
+//         .table("questions")
+//         .then(results => {
+//             data = {
+//                 questions: results
+//             };
 //             console.log(data);
 //             res.json(data);
 //         });
 // });
 
+
 //POST ROUTE FOR REFLECTION ANSWERS
 
 App.post("/api/new-reflection", (req, res) => {
     console.log(req.body.data);
-    console.log(
-        natural.getSentimentRank(
-            req.body.data.emoji_rank,
-            req.body.data.answer_1,
-            req.body.data.answer_2,
-            req.body.data.answer_3
-        )
-    );
+    // console.log(natural.getSentimentRank(req.body.data.emoji_rank, req.body.data.answer_1, req.body.data.answer_2, req.body.data.answer_3));
+    console.log
+    moodRank = natural.getSentimentRank (
+                req.body.data.emoji_rank,
+                req.body.data.answer_1,
+                req.body.data.answer_2,
+                req.body.data.answer_3
+              );
+
+    knex('moods')
+      .insert({rank: moodRank, emoji_rank: req.body.data.emoji_rank, date: current_date})
+      .catch(function(err){
+        console.log(err)
+      })
+
+
     res.end("Success");
 });
 
@@ -79,7 +113,6 @@ App.post("/api/new-reflection", (req, res) => {
 App.post("/api/new-workouts", (req, res) => {
     console.log(req.body.data.exercises);
     let exercises = req.body.data.exercises;
-    let current_date = moment().tz("America/Vancouver").format("YYYY-MM-DD");
     console.log(current_date)
 
     exercises.forEach(exercise => {
