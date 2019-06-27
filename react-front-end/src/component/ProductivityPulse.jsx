@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { builtinModules } from "module";
 import { Doughnut } from "react-chartjs-2";
-
-import {
-  Layout,
-  Menu,
-  Breadcrumb,
-  Icon,
-  Card,
-  Row,
-  Col,
-  Statistic
-} from "antd";
 
 const chartOptions = {
   legend: {
@@ -20,14 +8,19 @@ const chartOptions = {
     position: "bottom"
   },
 
+  tooltips: {
+    enabled: true
+    // callbacks: {
+    //   label: function(productivityPercent, data) {
+    //     const totalTime =
+    //   }
+    // }
+  },
+
   pieceLabel: {
     render: "percentage",
     fontColor: ["white"],
     precision: 2
-  },
-
-  tooltips: {
-    enabled: false
   },
 
   scales: {
@@ -103,9 +96,16 @@ class Productivity extends Component {
       .get("/api/productivity_pulse") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         const mappedData = response.data.rows.map(RTdata => RTdata[1]);
+
+        const overallTime = mappedData.reduce(
+          (accumulator, currentValue, currentIndex, array) =>
+            accumulator + currentValue
+        );
         const productivityData = this.dashboardProductivityChart.data(
           mappedData
         );
+        console.log("individual time", productivityData);
+        console.log("Overall time", overallTime);
         this.setState({
           productivity: productivityData
         });
