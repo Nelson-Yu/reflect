@@ -17,19 +17,9 @@ class Categories extends Component {
   }
 
   dashboardCategoryChart = {
-    data: categorizedData => {
+    data: (categorizedData, labels) => {
       return {
-        labels: [
-          "Software Development",
-          "Uncategorized",
-          "Reference & Learning",
-          "Entertainment",
-          "Business",
-          "Utilities",
-          "News & Opinion",
-          "Communication & Scheduling",
-          "Design & Composition"
-        ],
+        labels,
         datasets: [
           {
             label: "Categories",
@@ -51,15 +41,33 @@ class Categories extends Component {
       .then(response => {
         console.log("FDSAFDSAFSDA", response.data.rows);
         const mappedData = response.data.rows.map(catData => catData[1]);
-        const timeSpent = this.dashboardCategoryChart.data(mappedData);
+        const labelData = response.data.rows.map(catData => catData[3]);
+
+        const timeSpent = this.dashboardCategoryChart.data(
+          mappedData,
+          labelData
+        );
         this.setState({
           categoryData: timeSpent
         });
       });
   };
 
+  fetchLabelData = () => {
+    axios
+      .get("api/categories") // You can simply make your requests to "/api/whatever you want"
+      .then(response => {
+        console.log("FDSAFDSAFSDA", response.data.rows);
+        const mappedData = response.data.rows.map(catData => catData[3]);
+        const catLabels = this.dashboardCategoryChart.data(mappedData);
+        this.setState({
+          categoryData: catLabels
+        });
+      });
+  };
+
   componentWillMount() {
-    this.fetchCategoryData();
+    this.fetchCategoryData() && this.fetchCategoryData();
   }
 
   render() {
