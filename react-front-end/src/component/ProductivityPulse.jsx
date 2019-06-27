@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { builtinModules } from "module";
 import { Doughnut } from "react-chartjs-2";
-
-import {
-  Layout,
-  Menu,
-  Breadcrumb,
-  Icon,
-  Card,
-  Row,
-  Col,
-  Statistic
-} from "antd";
 
 const chartOptions = {
   legend: {
@@ -20,14 +8,24 @@ const chartOptions = {
     position: "bottom"
   },
 
+  tooltips: {
+    enabled: true,
+    callbacks: {
+      label: function(productivityPercent, data) {
+        console.log("Data", data);
+        console.log("PP:", productivityPercent);
+        const index = productivityPercent.index;
+        const dataset = data.datasets[0].data;
+        const percentage = dataset[index];
+        return `${percentage.toFixed(2)}%`;
+      }
+    }
+  },
+
   pieceLabel: {
     render: "percentage",
     fontColor: ["white"],
     precision: 2
-  },
-
-  tooltips: {
-    enabled: false
   },
 
   scales: {
@@ -103,9 +101,23 @@ class Productivity extends Component {
       .get("/api/productivity_pulse") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         const mappedData = response.data.rows.map(RTdata => RTdata[1]);
-        const productivityData = this.dashboardProductivityChart.data(
-          mappedData
+        const overallTime = mappedData.reduce(
+          (accumulator, currentValue, currentIndex, array) =>
+            accumulator + currentValue
         );
+        const dataPercentage = mappedData.map(i => (i / overallTime) * 100);
+        const productivityData = this.dashboardProductivityChart.data(
+          dataPercentage
+        );
+
+        console.log("Percentages:", dataPercentage);
+        // let percent = 0;
+        // for (let i of mappedData) {
+        //   let percent = (i / overallTime) * 100;
+        //   console.log("percent", percent);
+        // }
+        // console.log("individual time", percent);
+        console.log("Overall time", overallTime);
         this.setState({
           productivity: productivityData
         });

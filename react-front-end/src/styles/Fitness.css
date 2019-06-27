@@ -1,3 +1,7 @@
+#root {
+  height: 100%;
+}
+
 .activity-container {
   list-style-type: none;
 }
@@ -11,9 +15,9 @@ input[type="checkbox"][id^="cb"] {
 }
 
 .activity-icon {
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   border-radius: 50%;
-  background: yellow;
+  background: #FFFD82;
   padding: 10px;
   display: block;
   position: relative;
@@ -22,17 +26,37 @@ input[type="checkbox"][id^="cb"] {
 }
 
 .activity-icon img {
-  height: 100px;
-  width: 100px;
-  transition-duration: 0.2s;
+  height: 75px;
+  width: 75px;
+  /* transition-duration: 0.2s;
   transform: scale(0.8);
-  transform-origin: 50% 50%;
+  transform-origin: 50% 50%; */
 }
 
 :checked + .activity-icon {
   border-color: #ddd;
+  background-color: #E84855;
 }
 
 :checked + .activity-icon img {
-  transform: scale(1.0);
+  /* transform: scale(1.0); */
+}
+
+.activity-icon span {
+  position: relative;
+  display: none;
+  height: 75px;
+  width: 75px;
+  text-align: center;
+  padding: 25px 0px;
+  text-transform: uppercase;
+  font-weight: 600;
+} 
+
+.activity-icon:hover img {
+  display: none;
+}
+
+.activity-icon:hover span {
+  display: block;
 }

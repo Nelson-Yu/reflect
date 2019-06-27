@@ -1,10 +1,41 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { HorizontalBar } from "react-chartjs-2";
+import moment from "moment";
 
 const chartOptions = {
   legend: {
     display: false
+  },
+
+  tooltips: {
+    enabled: true,
+    callbacks: {
+      label: function(categoryTime, data) {
+        console.log("data", data);
+        const index = categoryTime.index;
+        console.log("Cat Time: ", categoryTime);
+        const dataset = data.datasets[categoryTime.datasetIndex].data;
+        const time = dataset[index];
+
+        console.log("fdsafdsafdsafdsa", dataset);
+        const milliseconds = (time / 0.000277778) * 1000;
+        const hours = moment.duration(milliseconds).asHours();
+        const minutes = moment.duration(milliseconds).minutes();
+        return `${hours.toFixed(0)}hr ${minutes}min`;
+      }
+    }
+  },
+
+  scales: {
+    xAxes: [
+      {
+        scaleLabel: {
+          display: true,
+          labelString: "Time Logged in Hours"
+        }
+      }
+    ]
   }
 };
 
@@ -22,7 +53,6 @@ class Categories extends Component {
         labels,
         datasets: [
           {
-            label: "Categories",
             backgroundColor: "#51cbcf",
             borderColor: "#51cbcf",
             borderWidth: 1,
@@ -39,10 +69,10 @@ class Categories extends Component {
     axios
       .get("api/categories") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
-        console.log("FDSAFDSAFSDA", response.data.rows);
-        const mappedData = response.data.rows.map(catData => catData[1]);
+        const mappedData = response.data.rows.map(
+          catData => catData[1] * 0.000277778
+        );
         const labelData = response.data.rows.map(catData => catData[3]);
-
         const timeSpent = this.dashboardCategoryChart.data(
           mappedData,
           labelData
@@ -53,21 +83,20 @@ class Categories extends Component {
       });
   };
 
-  fetchLabelData = () => {
-    axios
-      .get("api/categories") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        console.log("FDSAFDSAFSDA", response.data.rows);
-        const mappedData = response.data.rows.map(catData => catData[3]);
-        const catLabels = this.dashboardCategoryChart.data(mappedData);
-        this.setState({
-          categoryData: catLabels
-        });
-      });
-  };
+  // fetchLabelData = () => {
+  //   axios
+  //     .get("api/categories") // You can simply make your requests to "/api/whatever you want"
+  //     .then(response => {
+  //       const mappedData = response.data.rows.each(catData => catData[3]);
+  //       const catLabels = this.dashboardCategoryChart.data(mappedData);
+  //       this.setState({
+  //         categoryData: catLabels
+  //       });
+  //     });
+  // };
 
   componentWillMount() {
-    this.fetchCategoryData() && this.fetchCategoryData();
+    this.fetchCategoryData();
   }
 
   render() {
@@ -76,8 +105,8 @@ class Categories extends Component {
         <HorizontalBar
           data={this.state.categoryData}
           options={chartOptions}
-          width={300}
-          height={200}
+          width={400}
+          height={300}
         />
       </>
     );
