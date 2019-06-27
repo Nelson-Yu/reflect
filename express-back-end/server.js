@@ -12,7 +12,7 @@ const moment = require("moment-timezone");
 const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
-const knexLogger  = require('knex-logger');
+const knexLogger = require('knex-logger');
 
 //Log knex query to stdout
 App.use(knexLogger(knex));
@@ -26,7 +26,7 @@ const current_date = moment().tz("America/Vancouver").format("YYYY-MM-DD");
 // GET ROUTE FOR CATEGORY DATA
 App.get("/api/categories", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=overview&restrict_begin=2019-06-24&restrict_end=2019-06-24&format=json", {},
+        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=overview&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
 
@@ -92,18 +92,18 @@ App.post("/api/new-reflection", (req, res) => {
     console.log(req.body.data);
     // console.log(natural.getSentimentRank(req.body.data.emoji_rank, req.body.data.answer_1, req.body.data.answer_2, req.body.data.answer_3));
     console.log
-    moodRank = natural.getSentimentRank (
-                req.body.data.emoji_rank,
-                req.body.data.answer_1,
-                req.body.data.answer_2,
-                req.body.data.answer_3
-              );
+    moodRank = natural.getSentimentRank(
+        req.body.data.emoji_rank,
+        req.body.data.answer_1,
+        req.body.data.answer_2,
+        req.body.data.answer_3
+    );
 
     knex('moods')
-      .insert({rank: moodRank, emoji_rank: req.body.data.emoji_rank, date: current_date})
-      .catch(function(err){
-        console.log(err)
-      })
+        .insert({ rank: moodRank, emoji_rank: req.body.data.emoji_rank, date: current_date })
+        .catch(function(err) {
+            console.log(err)
+        })
 
 
     res.end("Success");
@@ -117,12 +117,12 @@ App.post("/api/new-workouts", (req, res) => {
 
     exercises.forEach(exercise => {
         if (exercise.isChecked) {
-          console.log(exercise)
-          knex('workouts')
-            .insert({user_id: 1, date: current_date, exercise: exercise.value})
-            .catch(function(err){
-                console.log(err)
-              })
+            console.log(exercise)
+            knex('workouts')
+                .insert({ user_id: 1, date: current_date, exercise: exercise.value })
+                .catch(function(err) {
+                    console.log(err)
+                })
         } else {
             console.log("did not insert")
         }
