@@ -13,8 +13,11 @@ class Workout extends Component {
     super(props);
     this.state = {
       activities: [
-        {id: 'cb1', value: 'Running', image: "https://img.icons8.com/ios/100/000000/high-jump-filled.png", isChecked: false },
-        {id: 'cb2', value: 'Jumping', image: "https://img.icons8.com/ios/100/000000/high-jump-filled.png", isChecked: false }
+        {id: 'cb1', value: 'Running', image: "https://img.icons8.com/ios/100/000000/treadmill-filled.png", isChecked: false },
+        {id: 'cb2', value: 'Biking', image: "https://img.icons8.com/ios/100/000000/cycling-road-filled.png", isChecked: false },
+        {id: 'cb3', value: 'Workout', image: "https://img.icons8.com/ios/100/000000/bench-press-filled.png", isChecked: false },
+        {id: 'cb4', value: 'Swimming', image: "https://img.icons8.com/ios/100/000000/swimming-filled.png", isChecked: false },
+        {id: 'cb5', value: 'Yoga', image: "https://img.icons8.com/ios/100/000000/yoga-filled.png", isChecked: false },
       ]
     };
   }
@@ -50,14 +53,14 @@ class Workout extends Component {
   //   this.setState({ answer_3: event.target.value })
   // }
   
-    handleCheck = (event) => {
-      let activities = this.state.activities
-      activities.forEach(activity => {
-         if (activity.value === event.target.value)
-            activity.isChecked =  event.target.checked
-      })
-      this.setState({activities: activities})
-    }
+  handleCheck = (event) => {
+    let activities = this.state.activities
+    activities.forEach(activity => {
+        if (activity.value === event.target.value)
+          activity.isChecked =  event.target.checked
+    })
+    this.setState({activities: activities})
+  }
 
   addActivty = event => {
     event.preventDefault();

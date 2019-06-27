@@ -7,6 +7,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 const natural = require("./natural");
+const moment = require("moment");
 
 const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
@@ -76,7 +77,23 @@ App.post("/api/new-reflection", (req, res) => {
 
 //POST ROUTE FOR FITNESS FORM
 App.post("/api/new-workouts", (req, res) => {
-    console.log(req.body.data);
+    console.log(req.body.data.exercises);
+    let exercises = req.body.data.exercises;
+    let current_date = moment().format("YYYY-MM-DD");
+    console.log(current_date)
+
+    exercises.forEach(exercise => {
+        if (exercise.isChecked) {
+          console.log(exercise)
+          knex('workouts')
+            .insert({user_id: 1, date: current_date, exercise: exercise.value})
+            .catch(function(err){
+                console.log(err)
+              })
+        } else {
+            console.log("did not insert")
+        }
+    });
 })
 
 App.listen(PORT, () => {
