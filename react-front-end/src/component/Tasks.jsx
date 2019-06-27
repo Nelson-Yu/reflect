@@ -10,6 +10,10 @@ import { Layout,
   Col,
 } from 'antd';
 
+import ToDo from "./tasks/ToDo"
+import AddToDo from "./tasks/AddToDo"
+
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -21,19 +25,19 @@ class Tasks extends Component {
     };
   }
 
-  fetchData = () => {
-    axios
-      .get("/api/data") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        // handle success
-        console.log(response.data); // The entire response from the Rails API
+  // fetchData = () => {
+  //   axios
+  //     .get("/api/data") // You can simply make your requests to "/api/whatever you want"
+  //     .then(response => {
+  //       // handle success
+  //       console.log(response.data); // The entire response from the Rails API
 
-        console.log(response.data.message); // Just the message
-        this.setState({
-          message: response.data.message
-        });
-      });
-  };
+  //       console.log(response.data.message); // Just the message
+  //       this.setState({
+  //         message: response.data.message
+  //       });
+  //     });
+  // };
 
   render() {
     return (
