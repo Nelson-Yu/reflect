@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import moment from 'moment';
+import moment from 'moment-timezone';
+
 
 // import SideBar from "./Menu";
 import Siderbar from "./Sidebar";
@@ -19,6 +20,7 @@ import { Layout,
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
+const current_date = moment().tz("America/Vancouver").format("YYYY-MM-DD");
 
 
 
@@ -29,8 +31,8 @@ class Archive extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: moment('2019-06-21'),
-      selectedValue: moment('2019-06-21'),
+      value: moment(current_date),
+      selectedValue: moment(current_date),
       mode: "month",
       date_exists: true,
       mood: 0,
@@ -50,7 +52,7 @@ class Archive extends Component {
         // console.log(response.data.message); // Just the message
         if (response.data.rank.length !== 0) {
           this.setState({
-            mood: response.data.rank[response.data.rank.length -1]['rank'],
+            mood: response.data.rank[response.data.rank.length - 1]['rank'],
             date_exists: true
           });
         } else {
@@ -68,11 +70,12 @@ class Archive extends Component {
       .then(response => {
         // handle success
         console.log(response.data); // The entire response from the Rails API
+        console.log("Selected Date: " + this.state.value.format('YYYY-MM-DD'))
         // console.log(response.data.message); // Just the message
         if (response.data.responses.length !== 0) {
           this.setState({
             answer_1: response.data.responses[response.data.responses.length -1]['answer1'],
-            answer_2: response.data.responses[response.data.responses.length -1]['answer2'],
+            answer_2: response.data.responses[response.data.responses.length- 1]['answer2'],
             answer_3: response.data.responses[response.data.responses.length -1]['answer3'],
             date_exists: true
           });
@@ -121,7 +124,7 @@ class Archive extends Component {
                     message={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`}
                   />*/}
                   <Calendar value={this.state.value} onSelect={this.onSelect} fullscreen={false} onPanelChange={this.onPanelChange}/>
-                </div>,
+                </div>
                 <div>
                   <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
                     <h4>Mood Rank: </h4>

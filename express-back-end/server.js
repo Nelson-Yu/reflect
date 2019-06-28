@@ -87,9 +87,10 @@ App.get("/api/questions", (req, res) => {
         });
 });
 
-//GET ROUTE FOR ARCHIVE
+//GET ROUTE FOR Mood Rank
 App.get("/api/archive/:date", (req, res) => {
     console.log("FETCHING");
+    console.log("Requested date is " + req.params.date)
 
     let data = {};
     knex
@@ -105,6 +106,7 @@ App.get("/api/archive/:date", (req, res) => {
         });
 });
 
+////GET ROUTE FOR Reflect Answers
 App.get("/api/response/:date", (req, res) => {
     console.log("FETCHING");
 
