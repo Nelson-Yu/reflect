@@ -4,8 +4,8 @@ import { Line } from "react-chartjs-2";
 
 const chartOptions = {
   legend: {
-    display: false,
-    position: "top"
+    display: true,
+    position: "bottom"
   }
 };
 
@@ -25,6 +25,7 @@ class Correlations extends Component {
         labels: labels,
         datasets: [
           {
+            label: "Mood Rank",
             data: moodData,
             fill: false,
             borderColor: "#fbc658",
@@ -35,6 +36,7 @@ class Correlations extends Component {
             pointBorderWidth: 8
           },
           {
+            label: "Productivity Pulse",
             data: pulseData,
             fill: false,
             borderColor: "#51CACF",
@@ -140,7 +142,7 @@ class Correlations extends Component {
           data={this.state.pulse && this.state.mood}
           options={chartOptions}
           width={400}
-          height={100}
+          height={150}
         />
       </>
     );
