@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Checkbox } from 'antd';
 
 class TodoItem extends Component {
   getStyle = () => {
@@ -14,9 +15,9 @@ class TodoItem extends Component {
     return (
       <div style={ this.getStyle() }>
           <p>
-            <input type="checkbox" onChange={ this.props.markComplete.bind(this, id ) } checked={ completed ? 'checked': '' }/>{' '}
-            {title}
-            <button onClick={this.props.deleteTask.bind(this, id)} style={{ float: 'right' }}>Delete</button>
+            <Checkbox onChange={ this.props.markComplete.bind(this, id ) } checked={ completed ? 'checked': '' }></Checkbox>{' '}
+            {title} 
+            <Button type="primary" onClick={this.props.deleteTask.bind(this, id)} style={{ float: 'right' }}>Delete</Button>
           </p>
       </div>
     )
@@ -24,3 +25,4 @@ class TodoItem extends Component {
 }
 
 export default TodoItem;
+

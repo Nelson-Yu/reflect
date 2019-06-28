@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Input } from 'antd'
 
 export class AddTodo extends Component {
   state = {
@@ -16,18 +17,15 @@ export class AddTodo extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit} style={{display: 'flex'}}>
-        <input 
+        <Input 
           type="text" 
           name="title"
           placeholder="Add Todo..." 
           value={this.state.title}
           onChange={this.onChange}
         />
-        <input 
-          type="submit"
-          value="Submit"
-          className="btn"
-        />
+        <Button type="primary" onClick={this.onSubmit}>Submit</Button>
+
       </form>
     )
   }
