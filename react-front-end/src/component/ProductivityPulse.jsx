@@ -108,14 +108,6 @@ class Productivity extends Component {
           dataPercentage
         );
 
-        console.log("Percentages:", dataPercentage);
-        // let percent = 0;
-        // for (let i of mappedData) {
-        //   let percent = (i / overallTime) * 100;
-        //   console.log("percent", percent);
-        // }
-        // console.log("individual time", percent);
-        console.log("Overall time", overallTime);
         this.setState({
           productivity: productivityData
         });
