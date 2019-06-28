@@ -44,6 +44,7 @@ App.get("/api/pulse", (req, res) =>
             console.log("Productivity pulse: ", (JSON.parse(response.body)[0].productivity_pulse));
 
 
+
             // console.log("This is the response: ", JSON.parse(response.body).rows);
 
             // console.log(
@@ -55,6 +56,25 @@ App.get("/api/pulse", (req, res) =>
     )
 );
 
+// GET ROUTE FOR PRODUCTIVITY CORRELATION CHART
+App.get("/api/pulse", (req, res) =>
+    request.get(
+        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&format=json", {},
+        (error, response) => {
+            res.send(JSON.parse(response.body));
+            console.log("Productivity pulse: ", (JSON.parse(response.body)[0].productivity_pulse));
+
+
+            // console.log("This is the response: ", JSON.parse(response.body).rows);
+
+            // console.log(
+            //     "This is the categories response: ",
+            //     JSON.parse(response.body).rows[3]
+            // );
+
+        }
+    )
+);
 
 
 //GET ROUTE FOR PRODUCTIVITY CHART
