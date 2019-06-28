@@ -18,22 +18,9 @@ class Correlations extends Component {
   }
 
   dashboardMoodCorrelationChart = {
-    data: pulseData => {
+    data: (pulseData, labels) => {
       return {
-        labels: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec"
-        ],
+        labels,
         datasets: [
           {
             data: [0, 5, 2, 6, 10],
@@ -68,8 +55,12 @@ class Correlations extends Component {
         const mappedData = response.data.map(
           pulseMap => pulseMap.productivity_pulse / 10
         );
+        const labelData = response.data.map(labelMap => labelMap.date);
         console.log("Response: ", mappedData);
-        const dailyPulse = this.dashboardMoodCorrelationChart.data(mappedData);
+        const dailyPulse = this.dashboardMoodCorrelationChart.data(
+          mappedData,
+          labelData
+        );
         this.setState({
           pulse: dailyPulse
         });
