@@ -65,12 +65,12 @@ class Archive extends Component {
   };
 
   fetchResponseData = () => {
+        console.log("Selected Date: " + this.state.value.format('YYYY-MM-DD'))
     axios
       .get(`/api/response/${this.state.value.format('YYYY-MM-DD')}`) // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         // handle success
         console.log(response.data); // The entire response from the Rails API
-        console.log("Selected Date: " + this.state.value.format('YYYY-MM-DD'))
         // console.log(response.data.message); // Just the message
         if (response.data.responses.length !== 0) {
           this.setState({
@@ -97,9 +97,11 @@ class Archive extends Component {
     this.setState({
       value,
       selectedValue: value,
-    });
-    this.fetchData();
-    this.fetchResponseData();
+    }, () => { this.fetchData();
+               this.fetchResponseData();
+             }
+    );
+
   };
 
   onPanelChange = (value, mode) => {
