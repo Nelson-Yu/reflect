@@ -68,7 +68,11 @@ class Tasks extends Component {
   }
 
   deleteTask = id => {
-    axios.delete(`http://localhost:8080/api/tasks`)
+    let data = {
+      id: id
+    }
+
+    axios.delete(`http://localhost:8080/api/tasks`, {data})
       .then(res => {
         this.setState({
         todo: [...this.state.todo.filter(task => task.id !== id)]
@@ -82,7 +86,7 @@ class Tasks extends Component {
   }
 
   componentDidUpdate() {
-    // this.fetchData();
+    this.fetchData();
   }
 
   render() {

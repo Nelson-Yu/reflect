@@ -30,6 +30,21 @@ App.get("/api/categories", (req, res) =>
         (error, response) => {
             res.send(JSON.parse(response.body));
 
+        }
+    )
+);
+
+
+// GET ROUTE FOR PRODUCTIVITY CORRELATION CHART
+App.get("/api/pulse", (req, res) =>
+    request.get(
+        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&format=json", {},
+        (error, response) => {
+            res.send(JSON.parse(response.body));
+            console.log("Productivity pulse: ", (JSON.parse(response.body)[0].productivity_pulse));
+
+
+
 
             // console.log("This is the response: ", JSON.parse(response.body).rows);
 
@@ -42,14 +57,14 @@ App.get("/api/categories", (req, res) =>
     )
 );
 
-//GET ROUTE FOR PRODUCTIVITY PULSE
-App.get("/api/productivity_pulse", (req, res) =>
+//GET ROUTE FOR PRODUCTIVITY CHART
+App.get("/api/productivity", (req, res) =>
     request.get(
         "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
 
-            // console.log("This is the response: ", JSON.parse(response.body));
+            console.log("This is the response: ", JSON.parse(response.body));
 
         }
     )
@@ -90,10 +105,26 @@ App.get("/api/archive/:date", (req, res) => {
         });
 });
 
+App.get("/api/response/:date", (req, res) => {
+    console.log("FETCHING");
+
+    let data = {};
+    knex
+        .select('responses.answer1', 'responses.answer2', 'responses.answer3')
+        .from('responses')
+        .where('date', req.params.date)
+        .then(results => {
+            data = {
+                responses: results
+            };
+            // console.log(data);
+            res.json(data);
+        });
+});
+
 //GET ROUTE FOR TASKS
 App.get("/api/tasks", (req, res) => {
     console.log("Fetching")
-
     let data = []
     knex
         .select()
@@ -162,7 +193,15 @@ App.post("/api/tasks", (req, res) => {
 
 //DELETE ROUTE FOR TASKS
 App.delete("/api/tasks", (req, res) => {
-    console.log(req.body)
+    console.log(req.body.id)
+    knex('tasks')
+        .where('id', req.body.id)
+        .del()
+        .then(res => {
+        })
+        .catch(function(err) {
+            console.log(err)
+        })
 })
 
 App.listen(PORT, () => {
