@@ -54,16 +54,22 @@ class Tasks extends Component {
     });
   }
   
-    addToDo = title => {
-      axios.post('https://jsonplaceholder.typicode.com/todos', {
-        user_id: 1,
-        title: title,
-        completed: false
-      })
-        .then(res => this.setState({
-          todo: [...this.state.todo, res.data]
-        }));
+  addToDo = title => {
+
+    let data = {
+      user_id: 1,
+      title: title,
+      completed: false
     }
+
+    axios.post('http://localhost:8080/api/tasks', { data })
+      .then(res => {
+        console.log(res.data)
+        this.setState({
+        todo: [...this.state.todo, res.data]
+        });
+      })
+  }
 
   deleteTask = id => {
     axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)

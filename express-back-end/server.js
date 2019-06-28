@@ -150,7 +150,7 @@ App.post("/api/new-workouts", (req, res) => {
 
 //POST ROUTE FOR TASKS
 App.post("/api/tasks", (req, res) => {
-    
+    console.log(req.body.data)
 })
 
 
