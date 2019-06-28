@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
+import moment from "moment";
 
 const chartOptions = {
   legend: {
@@ -42,6 +43,8 @@ class Mood extends Component {
         const mappedData = response.data.score.map(moodData => moodData.rank);
         console.log("Mood data: ", mappedData);
         const labelData = response.data.score.map(dateData => dateData.date);
+        // const date = moment(labelData).format("dddd");
+        // console.log("date:", date);
         const moodRank = this.dashboardMoodChart.data(mappedData, labelData);
         this.setState({
           rank: moodRank
@@ -60,7 +63,7 @@ class Mood extends Component {
           data={this.state.rank}
           options={chartOptions}
           width={400}
-          height={100}
+          height={150}
         />
       </>
     );

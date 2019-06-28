@@ -3,6 +3,7 @@ import axios from "axios";
 import Productivity from "./ProductivityPulse";
 import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
+import Mood from "./MoodChart";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
@@ -121,12 +122,7 @@ class Dashboard extends Component {
               <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
                 <Col span={14}>
                   <Card title="Mood Chart" bordered={true}>
-                    <Bar
-                      data={dashboardMoodChart.data}
-                      options={dashboardMoodChart.options}
-                      width={400}
-                      height={100}
-                    />
+                    <Mood />
                   </Card>
                 </Col>
                 <Col span={10}>
