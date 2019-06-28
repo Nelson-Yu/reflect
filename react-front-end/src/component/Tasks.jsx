@@ -54,22 +54,22 @@ class Tasks extends Component {
       })
     });
   }
+  
+    addToDo = title => {
+      axios.post('https://jsonplaceholder.typicode.com/todos', {
+        user_id: 1,
+        title: title,
+        completed: false
+      })
+        .then(res => this.setState({
+          todo: [...this.state.todo, res.data]
+        }));
+    }
 
   deleteTask = id => {
     axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
       .then(res => this.setState({
         todo: [...this.state.todo.filter(task => task.id !== id)]
-      }));
-  }
-
-  addToDo = title => {
-    axios.post('https://jsonplaceholder.typicode.com/todos', {
-      user_id: 1,
-      title: title,
-      completed: false
-    })
-      .then(res => this.setState({
-        todo: [...this.state.todo, res.data]
       }));
   }
 
