@@ -206,16 +206,49 @@ App.post("/api/tasks", (req, res) => {
     console.log(req.body.data);
     let task = req.body.data;
 
-    knex("tasks")
-        .insert({
-            user_id: task.user_id,
-            title: task.title,
-            completed: task.completed
+    knex('tasks')
+        .insert({user_id: task.user_id, title: task.title, completed: task.completed })
+        .then(result => {
+            res.json(result)
         })
-        .catch(function(err) {
-            console.log(err);
-        });
+        .catch(err => {
+            console.log(err)
+        })
 });
+
+//PUT ROUTE FOR TASKS
+App.put("/api/tasks", (req, res) => {
+    const tasks = req.body.data
+
+    tasks.forEach(task => {
+        if (task.completed) {
+            console.log(task)
+            knex('tasks')
+                .where('id', task.id)
+                .update('completed', true)
+                .then(result => {
+                    res.json(result);
+                })
+                .catch(err => {
+                    // console.log(err);
+                })
+        }
+        else {
+            console.log(task)
+            knex('tasks')
+                .where('id', task.id)
+                .update('completed', false)
+                .then(result => {
+                    res.json(result);
+                })
+                .catch(err => {
+                    // console.log(err);
+                })
+        }
+
+    })
+    knex('tasks')
+})
 
 //DELETE ROUTE FOR TASKS
 App.delete("/api/tasks", (req, res) => {
@@ -223,11 +256,13 @@ App.delete("/api/tasks", (req, res) => {
     knex("tasks")
         .where("id", req.body.id)
         .del()
-        .then(res => {})
-        .catch(function(err) {
-            console.log(err);
-        });
-});
+        .then(result => {
+            res.json(result)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
 
 App.listen(PORT, () => {
     // eslint-disable-next-line no-console

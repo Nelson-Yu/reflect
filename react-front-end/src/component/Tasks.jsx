@@ -38,8 +38,29 @@ class Tasks extends Component {
         });
       });
   };
+  
+  addToDo = title => {
+
+    const data = {
+      user_id: 1,
+      title: title,
+      completed: false
+    }
+    axios.post('http://localhost:8080/api/tasks', { data })
+    .then((res) => {
+      console.log("posting")        
+        this.setState({
+          todo: [...this.state.todo, data]
+        })
+        this.fetchData();
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
 
   markComplete = id => {
+    
     this.setState({
       todo: this.state.todo.map(task => {
         if (task.id === id) {
@@ -47,37 +68,41 @@ class Tasks extends Component {
         }
         return task;
       })
-    });
-  }
-  
-  addToDo = title => {
+    })    
+    
+    const data = this.state.todo  
 
-    let data = {
-      user_id: 1,
-      title: title,
-      completed: false
-    }
-
-    axios.post('http://localhost:8080/api/tasks', { data })
-      .then(res => {
-        console.log(res.data)
-        this.setState({
-        todo: [...this.state.todo, res.data]
-        });
+    axios.put('http://localhost:8080/api/tasks', { data })
+      .then ((res) => {
+        this.fetchData();
       })
-  }
 
+    // this.setState({
+    //   todo: this.state.todo.map(task => {
+    //     if (task.id === id) {
+    //       task.completed = !task.completed;
+    //     }
+    //     return task;
+    //   })
+    // });
+  }
+    
   deleteTask = id => {
-    let data = {
+    const data = {
       id: id
     }
 
-    axios.delete(`http://localhost:8080/api/tasks`, {data})
-      .then(res => {
+    axios.delete(`http://localhost:8080/api/tasks`, { data })
+      .then((res) => {
+        console.log("deleting")
         this.setState({
         todo: [...this.state.todo.filter(task => task.id !== id)]
         })
-      });
+        this.fetchData();
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
 
@@ -85,9 +110,9 @@ class Tasks extends Component {
     this.fetchData();
   }
 
-  componentDidUpdate() {
-    this.fetchData();
-  }
+  // componentDidUpdate() {
+  //   this.fetchData();
+  // }
 
   render() {
     return (
