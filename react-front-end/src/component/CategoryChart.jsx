@@ -12,13 +12,9 @@ const chartOptions = {
     enabled: true,
     callbacks: {
       label: function(categoryTime, data) {
-        console.log("data", data);
         const index = categoryTime.index;
-        console.log("Cat Time: ", categoryTime);
         const dataset = data.datasets[categoryTime.datasetIndex].data;
         const time = dataset[index];
-
-        console.log("fdsafdsafdsafdsa", dataset);
         const milliseconds = (time / 0.000277778) * 1000;
         const hours = moment.duration(milliseconds).asHours();
         const minutes = moment.duration(milliseconds).minutes();

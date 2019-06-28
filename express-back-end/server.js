@@ -42,14 +42,27 @@ App.get("/api/categories", (req, res) =>
     )
 );
 
-//GET ROUTE FOR PRODUCTIVITY PULSE
+//GET ROUTE FOR PRODUCTIVITY PIE CHART
 App.get("/api/productivity", (req, res) =>
     request.get(
         "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
 
-            // console.log("This is the response: ", JSON.parse(response.body));
+            console.log("This is the response: ", JSON.parse(response.body));
+
+        }
+    )
+);
+
+//GET ROUTE FOR PRODUCTIVITY PULE
+App.get("/api/pulse", (req, res) =>
+    request.get(
+        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json", {},
+        (error, response) => {
+            res.send(JSON.parse(response.body));
+
+            console.log("This is the pulse: ", JSON.parse(response.body));
 
         }
     )
