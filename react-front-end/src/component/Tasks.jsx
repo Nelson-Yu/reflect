@@ -117,21 +117,8 @@ class Tasks extends Component {
   render() {
     return (
       <>
-          <Layout style={{ marginLeft: 200 }}>
-            <Header style={{ background: '#fff', padding: 0 }} >
-            <h3>Tasks Page</h3>
-            </Header>
-            <Content style={{ margin: '0 16px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>User</Breadcrumb.Item>
-                <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
-              </Breadcrumb>
-              <h3> This Will Be The Tasks Form</h3>
-              <AddToDo addToDo={this.addToDo} />
-              <ToDo todo={this.state.todo} markComplete={this.markComplete} deleteTask={this.deleteTask}/>
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>
-          </Layout>
+        <AddToDo addToDo={this.addToDo} />
+        <ToDo todo={this.state.todo} markComplete={this.markComplete} deleteTask={this.deleteTask}/>
       </>
     );
   }
