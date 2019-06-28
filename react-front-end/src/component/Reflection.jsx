@@ -11,6 +11,7 @@ import { Layout,
 } from 'antd';
 
 import ReflectionForm from "./forms/ReflectionForm"
+import ReflectionResult from "./ReflectionSubmissionCard"
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -18,10 +19,19 @@ const { SubMenu } = Menu;
 class Reflection extends Component {
   constructor(props) {
     super(props);
+
+    this.handler = this.handler.bind(this);
+
     this.state = {
-      message: "Click the button to load data!"
+      submitted: false
     };
   }
+  handler() {
+        this.setState({
+            submitted: true
+        });
+        console.log("Submission State" + this.state.submitted)
+    }
 
   fetchData = () => {
     axios
@@ -38,6 +48,14 @@ class Reflection extends Component {
   };
 
   render() {
+    const submitted = this.state.submitted;
+    let card;
+
+    if (submitted) {
+      card = <ReflectionResult/>
+    } else {
+      card = <ReflectionForm action={this.handler}/>
+    }
     return (
       <>
         <Layout style={{ marginLeft: 200 }}>
@@ -49,8 +67,8 @@ class Reflection extends Component {
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
             </Breadcrumb>
-            <h3> This Will Be The Reflection Form</h3>
-            <ReflectionForm/>
+            {/*<ReflectionForm action={this.handler}/>*/}
+            {card}
           </Content>
           <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>
         </Layout>
