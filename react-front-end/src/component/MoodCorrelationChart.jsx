@@ -13,17 +13,18 @@ class Correlations extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pulse: null
+      pulse: null,
+      mood: null
     };
   }
 
   dashboardMoodCorrelationChart = {
-    data: (pulseData, labels) => {
+    data: (pulseData, moodData, labels) => {
       return {
         labels,
         datasets: [
           {
-            data: [0, 5, 2, 6, 10],
+            data: moodData.reverse(),
             fill: false,
             borderColor: "#fbc658",
             backgroundColor: "transparent",
@@ -65,36 +66,38 @@ class Correlations extends Component {
       });
   };
 
-  fetchMood = () => {
-    axios
-      .get("api/moods") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        console.log("Responible response: ", response);
-        const mappedData = response.data.map(
-          moodMap => moodMap.productivity_pulse / 10
-        );
-        console.log("");
-        const labelData = response.data.map(labelMap => labelMap.date);
-        console.log("Date: ", labelData);
-        const dailyMood = this.dashboardMoodCorrelationChart.data(
-          mappedData,
-          labelData
-        );
-        this.setState({
-          mood: dailyMood
-        });
-      });
-  };
+  // fetchMood = () => {
+  //   axios
+  //     .get("api/moods") // You can simply make your requests to "/api/whatever you want"
+  //     .then(response => {
+  //       console.log("Responible response: ", response);
+  //       // const mappedMoodData = response.score.map(moodMap => moodMap.rank);
+  //       // console.log("Mood data: ", mappedMoodData);
+  //       // const labelData = response.score.map(labelMap => labelMap.date);
+  //       // console.log("Date: ", labelData);
+  //       // const dailyMood = this.dashboardMoodCorrelationChart.data(
+  //       //   mappedMoodData,
+  //       //   labelData
+  //       // );
+  //       // this.setState({
+  //       //   mood: dailyMood
+  //       // });
+  //     });
+  // };
 
   componentWillMount() {
     this.fetchPulse();
+    // && this.fetchMood();
   }
 
   render() {
     return (
       <>
         <Line
-          data={this.state.pulse}
+          data={
+            this.state.pulse
+            // && this.state.mood
+          }
           options={chartOptions}
           width={400}
           height={100}
