@@ -45,6 +45,7 @@ App.get("/api/pulse", (req, res) =>
 
 
 
+
             // console.log("This is the response: ", JSON.parse(response.body).rows);
 
             // console.log(
@@ -55,7 +56,6 @@ App.get("/api/pulse", (req, res) =>
         }
     )
 );
-
 
 
 //GET ROUTE FOR PRODUCTIVITY CHART
