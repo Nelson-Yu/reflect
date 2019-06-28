@@ -19,12 +19,17 @@ class Correlations extends Component {
   }
 
   dashboardMoodCorrelationChart = {
-    data: (pulseData, moodData, labels) => {
+    data: (
+      pulseData,
+      // moodData,
+      labels
+    ) => {
       return {
-        labels,
+        labels: labels.reverse(),
         datasets: [
           {
-            data: moodData.reverse(),
+            data: [0, 1, 1, 3, 4, 3],
+            // moodData.reverse(),
             fill: false,
             borderColor: "#fbc658",
             backgroundColor: "transparent",
