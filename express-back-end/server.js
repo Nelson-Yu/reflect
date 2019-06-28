@@ -38,7 +38,7 @@ App.get("/api/categories", (req, res) =>
 // GET ROUTE FOR PRODUCTIVITY CORRELATION CHART
 App.get("/api/pulse", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&format=json", {},
+        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
             console.log("Productivity pulse: ", (JSON.parse(response.body)[0].productivity_pulse));

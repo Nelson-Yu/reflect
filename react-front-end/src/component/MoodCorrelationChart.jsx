@@ -66,7 +66,7 @@ class Correlations extends Component {
       .then(response => {
         console.log("Responible response: ", response);
         const mappedData = response.data.map(
-          pulseMap => pulseMap.productivity_pulse
+          pulseMap => pulseMap.productivity_pulse / 10
         );
         console.log("Response: ", mappedData);
         const dailyPulse = this.dashboardMoodCorrelationChart.data(mappedData);
