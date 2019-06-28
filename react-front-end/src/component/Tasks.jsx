@@ -64,6 +64,7 @@ class Tasks extends Component {
 
   addToDo = title => {
     axios.post('https://jsonplaceholder.typicode.com/todos', {
+      user_id: 1
       title: title,
       completed: false
     })
@@ -71,7 +72,6 @@ class Tasks extends Component {
         todo: [...this.state.todo, res.data]
       }));
   }
-
 
   render() {
     return (
