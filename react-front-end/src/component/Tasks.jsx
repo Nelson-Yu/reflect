@@ -1,21 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Layout,
-  Menu,
-  Breadcrumb,
-  Icon,
-  Card,
-  Row,
-  Col,
-} from 'antd';
+import { Badge } from 'antd';
 
 import ToDo from "./tasks/ToDo"
 import AddToDo from "./tasks/AddToDo"
-
-
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 
 class Tasks extends Component {
   constructor(props) {
@@ -27,12 +16,8 @@ class Tasks extends Component {
 
   fetchData = () => {
     axios
-      .get("/api/tasks") // You can simply make your requests to "/api/whatever you want"
+      .get("/api/tasks")
       .then(res => {
-        // handle success
-        console.log(res.data); // The entire response from the Rails API
-
-        console.log(res.data.todo); // Just the message
         this.setState({
           todo: res.data
         });
@@ -48,7 +33,6 @@ class Tasks extends Component {
     }
     axios.post('http://localhost:8080/api/tasks', { data })
     .then((res) => {
-      console.log("posting")        
         this.setState({
           todo: [...this.state.todo, data]
         })
@@ -76,15 +60,6 @@ class Tasks extends Component {
       .then ((res) => {
         this.fetchData();
       })
-
-    // this.setState({
-    //   todo: this.state.todo.map(task => {
-    //     if (task.id === id) {
-    //       task.completed = !task.completed;
-    //     }
-    //     return task;
-    //   })
-    // });
   }
     
   deleteTask = id => {
@@ -94,7 +69,6 @@ class Tasks extends Component {
 
     axios.delete(`http://localhost:8080/api/tasks`, { data })
       .then((res) => {
-        console.log("deleting")
         this.setState({
         todo: [...this.state.todo.filter(task => task.id !== id)]
         })
@@ -105,19 +79,40 @@ class Tasks extends Component {
       })
   }
 
+  completedCounter = () => {
+    const tasklist = this.state.todo;
+    let counter = 0
+    tasklist.forEach(task => {
+      if (task.completed) {
+        counter ++
+      }
+    })
+    return counter;
+  }
+
+  incompletedCounter = () => {
+    const tasklist = this.state.todo;
+    let counter = 0
+    tasklist.forEach(task => {
+      if (!task.completed) {
+        counter ++
+      }
+    })
+    return counter;
+  }
 
   componentDidMount() {
     this.fetchData();
   }
 
-  // componentDidUpdate() {
-  //   this.fetchData();
-  // }
-
   render() {
     return (
       <>
-        <AddToDo addToDo={this.addToDo} />
+        <AddToDo addToDo={this.addToDo} /> 
+        <div>
+          <Badge count={this.completedCounter()} style={{ backgroundColor: '#52c41a' }} />  
+          <Badge count={this.incompletedCounter()} />
+        </div>
         <ToDo todo={this.state.todo} markComplete={this.markComplete} deleteTask={this.deleteTask}/>
       </>
     );
