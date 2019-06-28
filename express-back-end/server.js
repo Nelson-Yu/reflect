@@ -43,7 +43,7 @@ App.get("/api/categories", (req, res) =>
 );
 
 //GET ROUTE FOR PRODUCTIVITY PULSE
-App.get("/api/productivity_pulse", (req, res) =>
+App.get("/api/productivity", (req, res) =>
     request.get(
         "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json", {},
         (error, response) => {
