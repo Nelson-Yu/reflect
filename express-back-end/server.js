@@ -90,6 +90,23 @@ App.get("/api/archive/:date", (req, res) => {
         });
 });
 
+App.get("/api/response/:date", (req, res) => {
+    console.log("FETCHING");
+
+    let data = {};
+    knex
+        .select('responses.answer1', 'responses.answer2', 'responses.answer3')
+        .from('responses')
+        .where('date', req.params.date)
+        .then(results => {
+            data = {
+                responses: results
+            };
+            // console.log(data);
+            res.json(data);
+        });
+});
+
 
 
 //POST ROUTE FOR REFLECTION ANSWERS

@@ -34,9 +34,9 @@ class Archive extends Component {
       mode: "month",
       date_exists: true,
       mood: 0,
-      question_1: '',
-      question_2: '',
-      question_3: ''
+      answer_1: '',
+      answer_2: '',
+      answer_3: ''
     };
   }
 
@@ -62,8 +62,32 @@ class Archive extends Component {
       });
   };
 
+  fetchResponseData = () => {
+    axios
+      .get(`/api/response/${this.state.value.format('YYYY-MM-DD')}`) // You can simply make your requests to "/api/whatever you want"
+      .then(response => {
+        // handle success
+        console.log(response.data); // The entire response from the Rails API
+        // console.log(response.data.message); // Just the message
+        if (response.data.responses.length !== 0) {
+          this.setState({
+            answer_1: response.data.responses[response.data.responses.length -1]['answer1'],
+            answer_2: response.data.responses[response.data.responses.length -1]['answer2'],
+            answer_3: response.data.responses[response.data.responses.length -1]['answer3'],
+            date_exists: true
+          });
+        } else {
+          this.setState({
+            date_exists: false
+        });
+        }
+        console.log("Does it exist" + this.state.date_exists)
+      });
+  };
+
   componentDidMount() {
     this.fetchData();
+    this.fetchResponseData();
   }
 
   onSelect = value => {
@@ -72,6 +96,7 @@ class Archive extends Component {
       selectedValue: value,
     });
     this.fetchData();
+    this.fetchResponseData();
   };
 
   onPanelChange = (value, mode) => {
@@ -101,7 +126,12 @@ class Archive extends Component {
                   <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
                     <h4>Mood Rank: </h4>
                     <p>{this.state.mood}</p>
-                    <p>Card content</p>
+                    <h4>Question 1</h4>
+                    <p>{this.state.answer_1}</p>
+                    <h4>Question 2</h4>
+                    <p>{this.state.answer_2}</p>
+                    <h4>Question 3</h4>
+                    <p>{this.state.answer_3}</p>
                   </Card>
                 </div>
             </Content>
