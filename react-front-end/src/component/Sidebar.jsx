@@ -81,16 +81,11 @@ class Siderbar extends Component {
                 <Link to='/reflection' />
               </Menu.Item>
               <Menu.Item key="3">
-                <Icon type="unordered-list" />
-                <span>Tasks</span>
-                <Link to='/tasks' />
-              </Menu.Item>
-              <Menu.Item key="4">
                 <Icon type="user" />
                 <span>Fitness</span>
                 <Link to='/fitness' />
               </Menu.Item>
-              <Menu.Item key="5">
+              <Menu.Item key="4">
                 <Icon type="calendar" />
                 <span>Calender</span>
                 <Link to='/calender' />
@@ -102,7 +97,6 @@ class Siderbar extends Component {
               <Route exact path="/" component={Dashboard} />
               <Route path="/reflection" component={Reflection} />
               <Route path="/fitness" component={Fitness} />
-              <Route path="/tasks" component={Tasks} />
               <Route path="/calender" component={Archive} />
           </Content>
 
