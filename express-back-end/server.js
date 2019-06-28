@@ -28,7 +28,7 @@ const current_date = moment()
 // GET ROUTE FOR CATEGORY DATA
 App.get("/api/categories", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=overview&format=json", {},
+        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=overview&restrict_begin=2019-06-13&restrict_end=2019-06-27&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
@@ -38,7 +38,7 @@ App.get("/api/categories", (req, res) =>
 // GET ROUTE FOR PRODUCTIVITY CORRELATION CHART
 App.get("/api/pulse", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&format=json", {},
+        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&restrict_begin=2019-06-13&restrict_end=2019-06-27&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
@@ -53,6 +53,10 @@ App.get("/api/moods", (req, res) => {
     knex
         .select("rank", "date")
         .table("moods")
+        .whereBetween("date", [
+            "2019-06-13T00:00:00.000Z",
+            "2019-06-27T00:00:00.000Z"
+        ])
         .then(results => {
             data = {
                 score: results

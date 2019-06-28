@@ -24,7 +24,6 @@ import {
   dashboardCategoryChart
 } from "../variables/charts.jsx";
 
-
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -37,7 +36,7 @@ class Dashboard extends Component {
   }
 
   componentWillMount() {
-    this.fetchData();
+    // this.fetchData();
   }
 
   fetchData = () => {
