@@ -151,9 +151,19 @@ App.post("/api/new-workouts", (req, res) => {
 //POST ROUTE FOR TASKS
 App.post("/api/tasks", (req, res) => {
     console.log(req.body.data)
+    let task = req.body.data
+
+    knex('tasks')
+        .insert({user_id: task.user_id, title: task.title, completed: task.completed })
+        .catch(function(err) {
+            console.log(err)
+        })
 })
 
-
+//DELETE ROUTE FOR TASKS
+App.delete("/api/tasks", (req, res) => {
+    console.log(req.body)
+})
 
 App.listen(PORT, () => {
     // eslint-disable-next-line no-console

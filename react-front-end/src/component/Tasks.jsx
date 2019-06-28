@@ -39,10 +39,6 @@ class Tasks extends Component {
       });
   };
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
   markComplete = id => {
     this.setState({
       todo: this.state.todo.map(task => {
@@ -72,10 +68,21 @@ class Tasks extends Component {
   }
 
   deleteTask = id => {
-    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-      .then(res => this.setState({
+    axios.delete(`http://localhost:8080/api/tasks`)
+      .then(res => {
+        this.setState({
         todo: [...this.state.todo.filter(task => task.id !== id)]
-      }));
+        })
+      });
+  }
+
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  componentDidUpdate() {
+    // this.fetchData();
   }
 
   render() {
