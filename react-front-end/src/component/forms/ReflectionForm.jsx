@@ -17,24 +17,24 @@ class Answer extends Component {
     };
   }
 
-  // fetchData = () => {
-  //   axios
-  //     .get("/api/questions") // You can simply make your requests to "/api/whatever you want"
-  //     .then(response => {
-  //       // handle success
-  //       console.log(response.data.questions[0]['question']); // The entire response from the Rails API
-  //       // console.log(response.data.message); // Just the message
-  //       this.setState({
-  //         question_1: response.data.questions[0]['question'],
-  //         question_2: response.data.questions[1]['question'],
-  //         question_3: response.data.questions[2]['question']
-  //       });
-  //     });
-  // };
+  fetchData = () => {
+    axios
+      .get("/api/questions") // You can simply make your requests to "/api/whatever you want"
+      .then(response => {
+        // handle success
+        console.log(response.data.questions[0]['question']); // The entire response from the Rails API
+        // console.log(response.data.message); // Just the message
+        this.setState({
+          question_1: response.data.questions[0]['question'],
+          question_2: response.data.questions[1]['question'],
+          question_3: response.data.questions[2]['question']
+        });
+      });
+  };
 
-  // componentDidMount() {
-  //   this.fetchData();
-  // }
+  componentDidMount() {
+    this.fetchData();
+  }
 
 
   handleEmoji = event => {
@@ -44,18 +44,18 @@ class Answer extends Component {
   handleAnswer1 = event => {
     this.setState({ answer_1: event.target.value })
   }
-  
+
   handleAnswer2 = event => {
     this.setState({ answer_2: event.target.value })
   }
-  
+
   handleAnswer3 = event => {
     this.setState({ answer_3: event.target.value })
   }
 
   addResponse = event => {
     event.preventDefault();
-    
+
     let data = ({
       emoji_rank: this.state.emoji_rank,
       answer_1: this.state.answer_1,
@@ -101,22 +101,22 @@ class Answer extends Component {
 
           <Form.Item {...formItemLayout}>
             <p>How was your day?</p>
-            <TextArea 
-            placeholder="input placeholder" 
+            <TextArea
+            placeholder="input placeholder"
             onChange={this.handleAnswer1}
             autosize={{ minRows: 2, maxRows: 4 }}/>
           </Form.Item>
           <Form.Item {...formItemLayout}>
             <p>What was the most impactful thing you did today?</p>
-            <TextArea 
-            placeholder="input placeholder" 
+            <TextArea
+            placeholder="input placeholder"
             onChange={this.handleAnswer2}
             autosize={{ minRows: 2, maxRows: 4 }}/>
           </Form.Item>
           <Form.Item {...formItemLayout}>
             <p>Is there anything exciting happening tomorrow?</p>
-            <TextArea 
-            placeholder="input placeholder" 
+            <TextArea
+            placeholder="input placeholder"
             onChange={this.handleAnswer3}
             autosize={{ minRows: 2, maxRows: 4 }}/>
           </Form.Item>
@@ -125,7 +125,7 @@ class Answer extends Component {
           </Form.Item>
         </Form>
       </>
-    
+
     );
   }
 }
