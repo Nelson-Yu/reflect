@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Productivity from "./ProductivityPulse";
 import Categories from "./CategoryChart";
+import Correlations from "./MoodCorrelationChart";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
