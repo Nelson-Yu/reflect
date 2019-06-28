@@ -41,21 +41,28 @@ App.get("/api/pulse", (req, res) =>
         "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
-            console.log("Productivity pulse: ", (JSON.parse(response.body)[0].productivity_pulse));
-
-
-
-
-            // console.log("This is the response: ", JSON.parse(response.body).rows);
-
-            // console.log(
-            //     "This is the categories response: ",
-            //     JSON.parse(response.body).rows[3]
-            // );
-
+            // console.log("Productivity pulse: ", (JSON.parse(response.body)[0].productivity_pulse));
         }
     )
 );
+
+//GET ROUTE FOR MOOD ON CORRELATION CHART
+App.get("/api/moods", (req, res) => {
+    console.log("FETCHING");
+
+    let data = {};
+    knex
+        .select('rank', 'date')
+        .table("moods")
+        .then(results => {
+            data = {
+                score: results
+            };
+            console.log(data);
+            res.json(data);
+        });
+});
+
 
 //GET ROUTE FOR PRODUCTIVITY CHART
 App.get("/api/productivity", (req, res) =>
@@ -63,12 +70,11 @@ App.get("/api/productivity", (req, res) =>
         "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
-
-            console.log("This is the response: ", JSON.parse(response.body));
-
         }
     )
 );
+
+
 
 //GET ROUTE FOR QUESTIONS
 App.get("/api/questions", (req, res) => {
@@ -185,7 +191,7 @@ App.post("/api/tasks", (req, res) => {
     let task = req.body.data
 
     knex('tasks')
-        .insert({user_id: task.user_id, title: task.title, completed: task.completed })
+        .insert({ user_id: task.user_id, title: task.title, completed: task.completed })
         .catch(function(err) {
             console.log(err)
         })
@@ -197,8 +203,7 @@ App.delete("/api/tasks", (req, res) => {
     knex('tasks')
         .where('id', req.body.id)
         .del()
-        .then(res => {
-        })
+        .then(res => {})
         .catch(function(err) {
             console.log(err)
         })

@@ -51,18 +51,37 @@ class Correlations extends Component {
     axios
       .get("api/pulse") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
-        console.log("Responible response: ", response);
         const mappedData = response.data.map(
           pulseMap => pulseMap.productivity_pulse / 10
         );
         const labelData = response.data.map(labelMap => labelMap.date);
-        console.log("Response: ", mappedData);
         const dailyPulse = this.dashboardMoodCorrelationChart.data(
           mappedData,
           labelData
         );
         this.setState({
           pulse: dailyPulse
+        });
+      });
+  };
+
+  fetchMood = () => {
+    axios
+      .get("api/moods") // You can simply make your requests to "/api/whatever you want"
+      .then(response => {
+        console.log("Responible response: ", response);
+        const mappedData = response.data.map(
+          moodMap => moodMap.productivity_pulse / 10
+        );
+        console.log("");
+        const labelData = response.data.map(labelMap => labelMap.date);
+        console.log("Date: ", labelData);
+        const dailyMood = this.dashboardMoodCorrelationChart.data(
+          mappedData,
+          labelData
+        );
+        this.setState({
+          mood: dailyMood
         });
       });
   };
