@@ -17,8 +17,11 @@ const chartOptions = {
         const time = dataset[index];
         const milliseconds = (time / 0.000277778) * 1000;
         const hours = moment.duration(milliseconds).asHours();
+        console.log("Hours", hours);
+        const hoursDown = Math.floor(hours);
+        console.log("Rounded down", hoursDown);
         const minutes = moment.duration(milliseconds).minutes();
-        return `${hours.toFixed(0)}hr ${minutes}min`;
+        return `${hoursDown.toFixed(0)}hr ${minutes}min`;
       }
     }
   },
