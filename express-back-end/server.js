@@ -45,6 +45,7 @@ App.get("/api/pulse", (req, res) =>
 
 
 
+
             // console.log("This is the response: ", JSON.parse(response.body).rows);
 
             // console.log(
@@ -55,7 +56,6 @@ App.get("/api/pulse", (req, res) =>
         }
     )
 );
-
 
 
 //GET ROUTE FOR PRODUCTIVITY CHART
@@ -102,6 +102,23 @@ App.get("/api/archive/:date", (req, res) => {
         .then(results => {
             data = {
                 rank: results
+            };
+            // console.log(data);
+            res.json(data);
+        });
+});
+
+App.get("/api/response/:date", (req, res) => {
+    console.log("FETCHING");
+
+    let data = {};
+    knex
+        .select('responses.answer1', 'responses.answer2', 'responses.answer3')
+        .from('responses')
+        .where('date', req.params.date)
+        .then(results => {
+            data = {
+                responses: results
             };
             // console.log(data);
             res.json(data);

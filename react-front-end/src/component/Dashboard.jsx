@@ -24,6 +24,7 @@ import {
   dashboardCategoryChart
 } from "../variables/charts.jsx";
 
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
