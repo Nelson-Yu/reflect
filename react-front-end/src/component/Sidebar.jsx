@@ -6,8 +6,8 @@ import { Link, Switch, Route } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Reflection from './Reflection';
 import Fitness from "./Fitness";
-import Tasks from "./Tasks";
 import Archive from "./Calendar";
+import Settings from "./Settings";
 
 import { Layout,
   Menu,
@@ -64,12 +64,8 @@ class Siderbar extends Component {
             }}
             >
 
-            <div className="logo" />
+            <div className="logo" style={{color: "white", fontSize: "30px", textAlign: "center"}}> REFLECT </div>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-              <Menu.Item key="6" style={{height:100 }}>
-                <span>Reflect</span>
-                <Link to='/' />
-              </Menu.Item>
               <Menu.Item key="1">
                 <Icon type="pie-chart" />
                 <span>Dashboard</span>
@@ -90,6 +86,16 @@ class Siderbar extends Component {
                 <span>Calender</span>
                 <Link to='/calender' />
               </Menu.Item>
+              <Menu.Item key="5">
+                <Icon type="setting" />
+                <span>Settings</span>
+                <Link to='/settings' />
+              </Menu.Item>
+              <Menu.Item key="6">
+                <Icon type="logout" />
+                <span>Logout</span>
+                <Link to='/' />
+              </Menu.Item>
             </Menu>
           </Sider>
 
@@ -98,6 +104,7 @@ class Siderbar extends Component {
               <Route path="/reflection" component={Reflection} />
               <Route path="/fitness" component={Fitness} />
               <Route path="/calender" component={Archive} />
+              <Route path="/settings" component={Settings} />
           </Content>
 
         </Layout>
