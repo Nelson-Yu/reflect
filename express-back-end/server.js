@@ -165,6 +165,17 @@ App.post("/api/new-reflection", (req, res) => {
             console.log(err);
         });
 
+    knex("responses")
+        .insert({
+            answer1: req.body.data.answer_1,
+            answer2: req.body.data.answer_2,
+            answer3: req.body.data.answer_3,
+            date: current_date
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+
     res.end("Success");
 });
 
