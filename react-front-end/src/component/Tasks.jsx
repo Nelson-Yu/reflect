@@ -52,32 +52,38 @@ class Tasks extends Component {
   
   addToDo = title => {
 
-    let data = {
+    const data = {
       user_id: 1,
       title: title,
       completed: false
     }
-
     axios.post('http://localhost:8080/api/tasks', { data })
-      .then(res => {
-        console.log(res.data)
+      .then((res) => {
+        console.log("posting")        
         this.setState({
-        todo: [...this.state.todo, res.data]
-        });
+        todo: [...this.state.todo, data]
+        })
+      })
+      .catch((error) => {
+        console.log(error)
       })
   }
 
   deleteTask = id => {
-    let data = {
+    const data = {
       id: id
     }
 
     axios.delete(`http://localhost:8080/api/tasks`, {data})
-      .then(res => {
+      .then(function(res){
+        console.log("deleting")
         this.setState({
         todo: [...this.state.todo.filter(task => task.id !== id)]
         })
-      });
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
   }
 
 
@@ -85,9 +91,9 @@ class Tasks extends Component {
     this.fetchData();
   }
 
-  componentDidUpdate() {
-    this.fetchData();
-  }
+  // componentDidUpdate() {
+  //   this.fetchData();
+  // }
 
   render() {
     return (

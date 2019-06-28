@@ -186,6 +186,9 @@ App.post("/api/tasks", (req, res) => {
 
     knex('tasks')
         .insert({user_id: task.user_id, title: task.title, completed: task.completed })
+        .then(function(result) {
+            res.json(result)
+        })
         .catch(function(err) {
             console.log(err)
         })
