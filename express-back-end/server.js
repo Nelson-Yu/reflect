@@ -90,7 +90,20 @@ App.get("/api/archive/:date", (req, res) => {
         });
 });
 
+//GET ROUTE FOR TASKS
+App.get("/api/tasks", (req, res) => {
+    console.log("Fetching")
 
+    let data = []
+    knex
+        .select()
+        .table('tasks')
+        .then(results => {
+            console.log(results)
+            data = results
+            res.json(data);
+        })
+})
 
 //POST ROUTE FOR REFLECTION ANSWERS
 
@@ -134,6 +147,13 @@ App.post("/api/new-workouts", (req, res) => {
         }
     });
 })
+
+//POST ROUTE FOR TASKS
+App.post("/api/tasks", (req, res) => {
+    
+})
+
+
 
 App.listen(PORT, () => {
     // eslint-disable-next-line no-console

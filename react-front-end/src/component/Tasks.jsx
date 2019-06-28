@@ -25,23 +25,22 @@ class Tasks extends Component {
     };
   }
 
-  // fetchData = () => {
-  //   axios
-  //     .get("/api/data") // You can simply make your requests to "/api/whatever you want"
-  //     .then(response => {
-  //       // handle success
-  //       console.log(response.data); // The entire response from the Rails API
+  fetchData = () => {
+    axios
+      .get("/api/tasks") // You can simply make your requests to "/api/whatever you want"
+      .then(res => {
+        // handle success
+        console.log(res.data); // The entire response from the Rails API
 
-  //       console.log(response.data.message); // Just the message
-  //       this.setState({
-  //         message: response.data.message
-  //       });
-  //     });
-  // };
+        console.log(res.data.todo); // Just the message
+        this.setState({
+          todo: res.data
+        });
+      });
+  };
 
   componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-      .then(res => this.setState({ todo: res.data }))
+    this.fetchData();
   }
 
   markComplete = id => {
