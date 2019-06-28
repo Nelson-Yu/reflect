@@ -12,8 +12,6 @@ const chartOptions = {
     enabled: true,
     callbacks: {
       label: function(productivityPercent, data) {
-        console.log("Data", data);
-        console.log("PP:", productivityPercent);
         const index = productivityPercent.index;
         const dataset = data.datasets[0].data;
         const percentage = dataset[index];
@@ -98,7 +96,7 @@ class Productivity extends Component {
 
   fetchProductivityData = () => {
     axios
-      .get("/api/productivity_pulse") // You can simply make your requests to "/api/whatever you want"
+      .get("/api/productivity") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         const mappedData = response.data.rows.map(RTdata => RTdata[1]);
         const overallTime = mappedData.reduce(

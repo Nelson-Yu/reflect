@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Productivity from "./ProductivityPulse";
 import Categories from "./CategoryChart";
+import Correlations from "./MoodCorrelationChart";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
@@ -22,6 +23,7 @@ import {
   dashboardMoodChart,
   dashboardCategoryChart
 } from "../variables/charts.jsx";
+import Correlations from "./MoodCorrelationChart";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -113,12 +115,7 @@ class Dashboard extends Component {
                 </Col>
                 <Col span={16}>
                   <Card title="Mood Correlation Chart" bordered={true}>
-                    <Line
-                      data={dashboardMoodCorrelationChart.data}
-                      options={dashboardMoodCorrelationChart.options}
-                      width={400}
-                      height={100}
-                    />
+                    <Correlations />
                   </Card>
                 </Col>
               </Row>
