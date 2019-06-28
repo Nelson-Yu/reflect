@@ -38,17 +38,6 @@ class Tasks extends Component {
         });
       });
   };
-
-  markComplete = id => {
-    this.setState({
-      todo: this.state.todo.map(task => {
-        if (task.id === id) {
-          task.completed = !task.completed;
-        }
-        return task;
-      })
-    });
-  }
   
   addToDo = title => {
 
@@ -58,18 +47,46 @@ class Tasks extends Component {
       completed: false
     }
     axios.post('http://localhost:8080/api/tasks', { data })
-      .then((res) => {
-        console.log("posting")        
+    .then((res) => {
+      console.log("posting")        
         this.setState({
-        todo: [...this.state.todo, data]
+          todo: [...this.state.todo, data]
         })
         this.fetchData();
       })
       .catch((err) => {
         console.log(err)
       })
-  }
+    }
 
+  markComplete = id => {
+    
+    this.setState({
+      todo: this.state.todo.map(task => {
+        if (task.id === id) {
+          task.completed = !task.completed;
+        }
+        return task;
+      })
+    })    
+    
+    const data = this.state.todo  
+
+    axios.put('http://localhost:8080/api/tasks', { data })
+      .then ((res) => {
+        this.fetchData();
+      })
+
+    // this.setState({
+    //   todo: this.state.todo.map(task => {
+    //     if (task.id === id) {
+    //       task.completed = !task.completed;
+    //     }
+    //     return task;
+    //   })
+    // });
+  }
+    
   deleteTask = id => {
     const data = {
       id: id

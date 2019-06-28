@@ -194,6 +194,40 @@ App.post("/api/tasks", (req, res) => {
         })
 })
 
+//PUT ROUTE FOR TASKS
+App.put("/api/tasks", (req, res) => {
+    const tasks = req.body.data
+
+    tasks.forEach(task => {
+        if (task.completed) {
+            console.log(task)
+            knex('tasks')
+                .where('id', task.id)
+                .update('completed', true)
+                .then(result => {
+                    res.json(result);
+                })
+                .catch(err => {
+                    // console.log(err);
+                })
+        }
+        else {
+            console.log(task)
+            knex('tasks')
+                .where('id', task.id)
+                .update('completed', false)
+                .then(result => {
+                    res.json(result);
+                })
+                .catch(err => {
+                    // console.log(err);
+                })
+        }
+
+    })
+    knex('tasks')
+})
+
 //DELETE ROUTE FOR TASKS
 App.delete("/api/tasks", (req, res) => {
     console.log(req.body.id)
