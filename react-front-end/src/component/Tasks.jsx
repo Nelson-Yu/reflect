@@ -63,9 +63,10 @@ class Tasks extends Component {
         this.setState({
         todo: [...this.state.todo, data]
         })
+        this.fetchData();
       })
-      .catch((error) => {
-        console.log(error)
+      .catch((err) => {
+        console.log(err)
       })
   }
 
@@ -74,15 +75,16 @@ class Tasks extends Component {
       id: id
     }
 
-    axios.delete(`http://localhost:8080/api/tasks`, {data})
-      .then(function(res){
+    axios.delete(`http://localhost:8080/api/tasks`, { data })
+      .then((res) => {
         console.log("deleting")
         this.setState({
         todo: [...this.state.todo.filter(task => task.id !== id)]
         })
+        this.fetchData();
       })
-      .catch(function(error) {
-        console.log(error)
+      .catch((err) => {
+        console.log(err)
       })
   }
 

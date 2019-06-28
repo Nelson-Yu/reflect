@@ -186,10 +186,10 @@ App.post("/api/tasks", (req, res) => {
 
     knex('tasks')
         .insert({user_id: task.user_id, title: task.title, completed: task.completed })
-        .then(function(result) {
+        .then(result => {
             res.json(result)
         })
-        .catch(function(err) {
+        .catch(err => {
             console.log(err)
         })
 })
@@ -200,9 +200,10 @@ App.delete("/api/tasks", (req, res) => {
     knex('tasks')
         .where('id', req.body.id)
         .del()
-        .then(res => {
+        .then(result => {
+            res.json(result)
         })
-        .catch(function(err) {
+        .catch(err => {
             console.log(err)
         })
 })
