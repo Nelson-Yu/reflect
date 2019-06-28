@@ -46,7 +46,7 @@ class Correlations extends Component {
             pointBorderWidth: 8
           },
           {
-            data: pulseData,
+            data: pulseData.reverse(),
             fill: false,
             borderColor: "#51CACF",
             backgroundColor: "transparent",

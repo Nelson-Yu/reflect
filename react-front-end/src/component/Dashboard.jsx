@@ -23,7 +23,6 @@ import {
   dashboardMoodChart,
   dashboardCategoryChart
 } from "../variables/charts.jsx";
-import Correlations from "./MoodCorrelationChart";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
