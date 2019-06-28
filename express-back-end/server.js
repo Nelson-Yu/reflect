@@ -30,18 +30,10 @@ App.get("/api/categories", (req, res) =>
         (error, response) => {
             res.send(JSON.parse(response.body));
 
-
-
-            // console.log("This is the response: ", JSON.parse(response.body).rows);
-
-            // console.log(
-            //     "This is the categories response: ",
-            //     JSON.parse(response.body).rows[3]
-            // );
-
         }
     )
 );
+
 
 // GET ROUTE FOR PRODUCTIVITY CORRELATION CHART
 App.get("/api/pulse", (req, res) =>
@@ -62,6 +54,7 @@ App.get("/api/pulse", (req, res) =>
         }
     )
 );
+
 
 
 //GET ROUTE FOR PRODUCTIVITY CHART
