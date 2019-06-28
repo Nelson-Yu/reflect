@@ -57,7 +57,6 @@ App.get("/api/pulse", (req, res) =>
     )
 );
 
-
 //GET ROUTE FOR PRODUCTIVITY CHART
 App.get("/api/productivity", (req, res) =>
     request.get(
@@ -70,8 +69,6 @@ App.get("/api/productivity", (req, res) =>
         }
     )
 );
-
-
 
 //GET ROUTE FOR QUESTIONS
 App.get("/api/questions", (req, res) => {
@@ -125,7 +122,19 @@ App.get("/api/response/:date", (req, res) => {
         });
 });
 
-
+//GET ROUTE FOR TASKS
+App.get("/api/tasks", (req, res) => {
+    console.log("Fetching")
+    let data = []
+    knex
+        .select()
+        .table('tasks')
+        .then(results => {
+            console.log(results)
+            data = results
+            res.json(data);
+        })
+})
 
 //POST ROUTE FOR REFLECTION ANSWERS
 
@@ -168,6 +177,31 @@ App.post("/api/new-workouts", (req, res) => {
             console.log("did not insert")
         }
     });
+})
+
+//POST ROUTE FOR TASKS
+App.post("/api/tasks", (req, res) => {
+    console.log(req.body.data)
+    let task = req.body.data
+
+    knex('tasks')
+        .insert({user_id: task.user_id, title: task.title, completed: task.completed })
+        .catch(function(err) {
+            console.log(err)
+        })
+})
+
+//DELETE ROUTE FOR TASKS
+App.delete("/api/tasks", (req, res) => {
+    console.log(req.body.id)
+    knex('tasks')
+        .where('id', req.body.id)
+        .del()
+        .then(res => {
+        })
+        .catch(function(err) {
+            console.log(err)
+        })
 })
 
 App.listen(PORT, () => {
