@@ -27,11 +27,11 @@ class Reflection extends Component {
     };
   }
   handler() {
-        this.setState({
-            submitted: true
-        });
-        console.log("Submission State" + this.state.submitted)
-    }
+    this.setState({
+        submitted: true
+    });
+    console.log("Submission State" + this.state.submitted)
+  }
 
   fetchData = () => {
     axios

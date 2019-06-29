@@ -13,11 +13,22 @@ const API_URL = "http://localhost:8080/api/daily_summary";
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.handler = this.handler.bind(this);
+
     this.state = {
       message: "Click the button to load data!",
       info: [],
-      loading: true
+      loading: true,
+      logged_in: false,
     };
+  }
+
+  handler() {
+    this.setState({
+      logged_in: true
+    });
+    console.log("Submission State" + this.state.logged_in)
   }
 
   fetchData = () => {
@@ -38,11 +49,18 @@ class App extends Component {
   }
 
   render() {
+    const logged_in = this.state.logged_in;
+    let card;
+
+    if (logged_in) {
+      card = <Siderbar/>
+    } else {
+      card = <LandingPage action={this.handler}/>
+    }
     return (
       <>
         <Switch>
-          <LandingPage />
-          {/*<Siderbar />*/}
+          {card}
         </Switch>
       </>
     );

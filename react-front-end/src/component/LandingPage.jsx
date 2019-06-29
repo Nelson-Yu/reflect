@@ -86,7 +86,7 @@ class LandingPage extends Component {
               <Checkbox style={{ padding: "0 20px 0 18px"}}> Remember me </Checkbox>
               <a className="login-form-forgot" href=""> Forgot password </a>
               <Form.Item {...buttonItemLayout} style={{ width: "100px", margin: "20px 0 20px 0" }}>
-                <Button type="primary">Submit</Button>
+                <Button type="primary" onClick={(event) => {this.props.action(event); }}>Submit</Button>
               </Form.Item>
               <a href="" style={{ float: 'left', margin: "0 0 0 20px"}}>Or register now!</a>
             </Form>
