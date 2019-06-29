@@ -19,14 +19,22 @@ class Correlations extends Component {
   }
 
   dashboardMoodCorrelationChart = {
+<<<<<<< Updated upstream
     data: function(pulseData, moodData, labels) {
       console.log("arguments:", arguments);
+=======
+    data: (pulseData, moodData, labels) => {
+>>>>>>> Stashed changes
       return {
         labels: labels,
         datasets: [
           {
+<<<<<<< Updated upstream
             label: "Mood Rank",
             data: moodData,
+=======
+            data: moodData.reverse(),
+>>>>>>> Stashed changes
             fill: false,
             borderColor: "#fbc658",
             backgroundColor: "transparent",
@@ -108,7 +116,30 @@ class Correlations extends Component {
       });
   };
 
+<<<<<<< Updated upstream
+=======
+  // fetchMood = () => {
+  //   axios
+  //     .get("api/moods") // You can simply make your requests to "/api/whatever you want"
+  //     .then(response => {
+  //       console.log("Responible response: ", response);
+  //       // const mappedMoodData = response.score.map(moodMap => moodMap.rank);
+  //       // console.log("Mood data: ", mappedMoodData);
+  //       // const labelData = response.score.map(labelMap => labelMap.date);
+  //       // console.log("Date: ", labelData);
+  //       // const dailyMood = this.dashboardMoodCorrelationChart.data(
+  //       //   mappedMoodData,
+  //       //   labelData
+  //       // );
+  //       // this.setState({
+  //       //   mood: dailyMood
+  //       // });
+  //     });
+  // };
+
+>>>>>>> Stashed changes
   componentWillMount() {
+<<<<<<< Updated upstream
     // this.fetchPulse() && this.fetchMood();
     Promise.all([this.fetchPulse(), this.fetchMood()]).then(
       ([pulseResult, moodResult]) => {
@@ -133,13 +164,24 @@ class Correlations extends Component {
         this.setState({ pulse: results, mood: results });
       }
     );
+=======
+    this.fetchPulse();
+    // && this.fetchMood();
+>>>>>>> Stashed changes
   }
 
   render() {
     return (
       <>
         <Line
+<<<<<<< Updated upstream
           data={this.state.pulse && this.state.mood}
+=======
+          data={
+            this.state.pulse
+            // && this.state.mood
+          }
+>>>>>>> Stashed changes
           options={chartOptions}
           width={400}
           height={150}
