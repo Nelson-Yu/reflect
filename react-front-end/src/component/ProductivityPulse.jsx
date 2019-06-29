@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Doughnut } from "react-chartjs-2";
+import Spinner from "./loaders/Spinner";
 
 const chartOptions = {
   legend: {
@@ -60,7 +61,8 @@ class Productivity extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      productivity: null
+      productivity: null,
+      loading: false
     };
   }
 
@@ -95,23 +97,27 @@ class Productivity extends Component {
   };
 
   fetchProductivityData = () => {
-    axios
-      .get("/api/productivity") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        const mappedData = response.data.rows.map(RTdata => RTdata[1]);
-        const overallTime = mappedData.reduce(
-          (accumulator, currentValue, currentIndex, array) =>
-            accumulator + currentValue
-        );
-        const dataPercentage = mappedData.map(i => (i / overallTime) * 100);
-        const productivityData = this.dashboardProductivityChart.data(
-          dataPercentage
-        );
-
-        this.setState({
-          productivity: productivityData
+    this.setState({ loading: true }, () => {
+      axios
+        .get("/api/productivity") // You can simply make your requests to "/api/whatever you want"
+        .then(response => {
+          const mappedData = response.data.rows.map(RTdata => RTdata[1]);
+          const overallTime = mappedData.reduce(
+            (accumulator, currentValue, currentIndex, array) =>
+              accumulator + currentValue
+          );
+          const dataPercentage = mappedData.map(i => (i / overallTime) * 100);
+          const productivityData = this.dashboardProductivityChart.data(
+            dataPercentage
+          );
+          setTimeout(() => {
+            this.setState({
+              productivity: productivityData,
+              loading: false
+            });
+          }, 2000);
         });
-      });
+    });
   };
 
   componentWillMount() {
@@ -119,9 +125,12 @@ class Productivity extends Component {
   }
 
   render() {
+    const { loading } = this.state;
     return (
-      <div className="App">
-        {this.state.productivity && (
+      <div>
+        {loading ? (
+          <Spinner height={250} />
+        ) : (
           <Doughnut
             data={this.state.productivity}
             options={chartOptions}

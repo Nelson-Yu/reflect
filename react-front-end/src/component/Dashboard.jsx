@@ -5,6 +5,7 @@ import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
 import Mood from "./MoodChart";
 import Tasks from "./Tasks";
+import Spinner from "./loaders/Spinner";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
@@ -67,9 +68,7 @@ class Dashboard extends Component {
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
             </Breadcrumb>
-            <div
-              style={{ padding: 24, background: "##f0f2f5", minHeight: 360 }}
-            >
+            <div style={{ padding: 24, background: "black" }}>
               <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
                 <Col span={8}>
                   <Card title="Insight 1" bordered={true}>
@@ -139,15 +138,10 @@ class Dashboard extends Component {
                     <Tasks />
                   </Card>
                 </Col>
-                <Col span={14}>
-                  {/* <Card title="Category Chart" bordered={true}>
-                    <Categories />
-                  </Card> */}
-                </Col>
+                <Col span={14} />
               </Row>
             </div>
           </Content>
-          <Footer style={{ textAlign: "center" }}>Footer heheheh</Footer>
         </Layout>
       </>
     );

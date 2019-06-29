@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { HorizontalBar } from "react-chartjs-2";
 import moment from "moment";
+import Spinner from "./loaders/Spinner";
 
 const chartOptions = {
   legend: {
@@ -42,7 +43,8 @@ class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoryData: null
+      categoryData: null,
+      loading: false
     };
   }
 
@@ -65,21 +67,26 @@ class Categories extends Component {
   };
 
   fetchCategoryData = () => {
-    axios
-      .get("api/categories") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        const mappedData = response.data.rows.map(
-          catData => catData[1] * 0.000277778
-        );
-        const labelData = response.data.rows.map(catData => catData[3]);
-        const timeSpent = this.dashboardCategoryChart.data(
-          mappedData,
-          labelData
-        );
-        this.setState({
-          categoryData: timeSpent
+    this.setState({ loading: true }, () => {
+      axios
+        .get("api/categories") // You can simply make your requests to "/api/whatever you want"
+        .then(response => {
+          const mappedData = response.data.rows.map(
+            catData => catData[1] * 0.000277778
+          );
+          const labelData = response.data.rows.map(catData => catData[3]);
+          const timeSpent = this.dashboardCategoryChart.data(
+            mappedData,
+            labelData
+          );
+          setTimeout(() => {
+            this.setState({
+              categoryData: timeSpent,
+              loading: false
+            });
+          }, 2000);
         });
-      });
+    });
   };
 
   // fetchLabelData = () => {
@@ -99,14 +106,19 @@ class Categories extends Component {
   }
 
   render() {
+    const { loading } = this.state;
     return (
       <>
-        <HorizontalBar
-          data={this.state.categoryData}
-          options={chartOptions}
-          width={400}
-          height={300}
-        />
+        {loading ? (
+          <Spinner />
+        ) : (
+          <HorizontalBar
+            data={this.state.categoryData}
+            options={chartOptions}
+            width={400}
+            height={300}
+          />
+        )}
       </>
     );
   }

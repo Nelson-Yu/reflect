@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       message: "Click the button to load data!",
       info: [],
-      isLoading: true
+      loading: true
     };
   }
 

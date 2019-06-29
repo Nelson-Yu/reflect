@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
+import Spinner from "./loaders/Spinner";
 
 const chartOptions = {
   legend: {
@@ -14,7 +15,8 @@ class Correlations extends Component {
     super(props);
     this.state = {
       pulse: null,
-      mood: null
+      mood: null,
+      loading: false
     };
   }
 
@@ -108,42 +110,75 @@ class Correlations extends Component {
       });
   };
 
+  // fetchMood = () => {
+  //   axios
+  //     .get("api/moods") // You can simply make your requests to "/api/whatever you want"
+  //     .then(response => {
+  //       console.log("Responible response: ", response);
+  //       // const mappedMoodData = response.score.map(moodMap => moodMap.rank);
+  //       // console.log("Mood data: ", mappedMoodData);
+  //       // const labelData = response.score.map(labelMap => labelMap.date);
+  //       // console.log("Date: ", labelData);
+  //       // const dailyMood = this.dashboardMoodCorrelationChart.data(
+  //       //   mappedMoodData,
+  //       //   labelData
+  //       // );
+  //       // this.setState({
+  //       //   mood: dailyMood
+  //       // });
+  //     });
+  // };
+
   componentWillMount() {
+    this.setState({ loading: true }, () => {
+      Promise.all([this.fetchPulse(), this.fetchMood()]).then(
+        ([pulseResult, moodResult]) => {
+          const shortestLength = Math.min(
+            pulseResult.length,
+            moodResult.length
+          );
+          const pulses = pulseResult
+            .slice(0, shortestLength)
+            .map(({ pulse }) => pulse);
+          const moods = moodResult
+            .slice(0, shortestLength)
+            .map(({ rank }) => rank);
+          const dates = pulseResult
+            .slice(0, shortestLength)
+            .map(({ date }) => date);
+          console.log("pulses:", pulses);
+          console.log("moods:", moods);
+          console.log("dates:", dates);
+          const results = this.dashboardMoodCorrelationChart.data(
+            pulses,
+            moods,
+            dates
+          );
+          setTimeout(() => {
+            this.setState({ pulse: results, mood: results, loading: false });
+          }, 2000);
+        }
+      );
+      this.fetchPulse();
+      // && this.fetchMood();
+    });
     // this.fetchPulse() && this.fetchMood();
-    Promise.all([this.fetchPulse(), this.fetchMood()]).then(
-      ([pulseResult, moodResult]) => {
-        const shortestLength = Math.min(pulseResult.length, moodResult.length);
-        const pulses = pulseResult
-          .slice(0, shortestLength)
-          .map(({ pulse }) => pulse);
-        const moods = moodResult
-          .slice(0, shortestLength)
-          .map(({ rank }) => rank);
-        const dates = pulseResult
-          .slice(0, shortestLength)
-          .map(({ date }) => date);
-        console.log("pulses:", pulses);
-        console.log("moods:", moods);
-        console.log("dates:", dates);
-        const results = this.dashboardMoodCorrelationChart.data(
-          pulses,
-          moods,
-          dates
-        );
-        this.setState({ pulse: results, mood: results });
-      }
-    );
   }
 
   render() {
+    const { loading } = this.state;
     return (
       <>
-        <Line
-          data={this.state.pulse && this.state.mood}
-          options={chartOptions}
-          width={400}
-          height={150}
-        />
+        {loading ? (
+          <Spinner height={150} />
+        ) : (
+          <Line
+            data={this.state.pulse && this.state.mood}
+            options={chartOptions}
+            width={400}
+            height={150}
+          />
+        )}
       </>
     );
   }

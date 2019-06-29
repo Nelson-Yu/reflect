@@ -2,10 +2,26 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import moment from "moment";
+import Spinner from "./loaders/Spinner";
 
 const chartOptions = {
   legend: {
     display: false
+  },
+  xAxes: [
+    {
+      type: "date",
+      length: 7
+    }
+  ],
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true
+        }
+      }
+    ]
   }
 };
 
@@ -13,7 +29,8 @@ class Mood extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rank: null
+      rank: null,
+      loading: false
     };
   }
 
@@ -37,24 +54,31 @@ class Mood extends Component {
   };
 
   fetchMoodData = () => {
-    axios
-      .get("api/moods") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        const mappedData = response.data.score.map(moodData => moodData.rank);
-        console.log("Mood data: ", mappedData);
-        const labelData = response.data.score.map(dateData => dateData.date);
-        const dayOfWeek = labelData.map(weekDay => {
-          return moment(weekDay)
-            .add(1, "days")
-            .format("dddd");
+    this.setState({ loading: true }, () => {
+      axios
+        .get("api/moods") // You can simply make your requests to "/api/whatever you want"
+        .then(response => {
+          const allData = response.data.score;
+          const previousWeek = allData.slice(allData.length - 7);
+          const mappedData = previousWeek.map(moodData => moodData.rank);
+          console.log("previous week: ", previousWeek);
+          const labelData = previousWeek.map(dateData => dateData.date);
+          const dayOfWeek = labelData.map(weekDay => {
+            return moment(weekDay)
+              .add(1, "days")
+              .format("dddd");
+          });
+          console.log("date:", dayOfWeek);
+          console.log("array of dates", labelData);
+          const moodRank = this.dashboardMoodChart.data(mappedData, dayOfWeek);
+          setTimeout(() => {
+            this.setState({
+              rank: moodRank,
+              loading: false
+            });
+          }, 2000);
         });
-        console.log("date:", dayOfWeek);
-        console.log("array of dates", labelData);
-        const moodRank = this.dashboardMoodChart.data(mappedData, dayOfWeek);
-        this.setState({
-          rank: moodRank
-        });
-      });
+    });
   };
 
   componentWillMount() {
@@ -62,14 +86,19 @@ class Mood extends Component {
   }
 
   render() {
+    const { loading } = this.state;
     return (
       <>
-        <Bar
-          data={this.state.rank}
-          options={chartOptions}
-          width={400}
-          height={150}
-        />
+        {loading ? (
+          <Spinner height={250} />
+        ) : (
+          <Bar
+            data={this.state.rank}
+            options={chartOptions}
+            width={400}
+            height={150}
+          />
+        )}
       </>
     );
   }
