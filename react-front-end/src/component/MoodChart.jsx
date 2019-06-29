@@ -43,9 +43,14 @@ class Mood extends Component {
         const mappedData = response.data.score.map(moodData => moodData.rank);
         console.log("Mood data: ", mappedData);
         const labelData = response.data.score.map(dateData => dateData.date);
-        // const date = moment(labelData).format("dddd");
-        // console.log("date:", date);
-        const moodRank = this.dashboardMoodChart.data(mappedData, labelData);
+        const dayOfWeek = labelData.map(weekDay => {
+          return moment(weekDay)
+            .add(1, "days")
+            .format("dddd");
+        });
+        console.log("date:", dayOfWeek);
+        console.log("array of dates", labelData);
+        const moodRank = this.dashboardMoodChart.data(mappedData, dayOfWeek);
         this.setState({
           rank: moodRank
         });
