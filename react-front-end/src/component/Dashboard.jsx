@@ -115,7 +115,6 @@ class Dashboard extends Component {
                 </Col>
                 <Col span={16}>
                   <Card title="Mood Correlation Chart" bordered={true}>
-                    <Spinner />
                     <Correlations />
                   </Card>
                 </Col>
