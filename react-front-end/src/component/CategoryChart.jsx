@@ -116,7 +116,7 @@ class Categories extends Component {
             data={this.state.categoryData}
             options={chartOptions}
             width={400}
-            height={300}
+            height={250}
           />
         )}
       </>

@@ -71,7 +71,7 @@ class Dashboard extends Component {
             <div style={{ padding: 24, background: "black" }}>
               <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
                 <Col span={8}>
-                  <Card title="Insight 1" bordered={true}>
+                  <Card title="Insight 1" bordered={true} className="card1">
                     <Statistic
                       title="Active"
                       value={11.28}
@@ -83,7 +83,7 @@ class Dashboard extends Component {
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card title="Insight 2" bordered={true}>
+                  <Card title="Insight 2" bordered={true} className="card2">
                     <Statistic
                       title="Idle"
                       value={9.3}
@@ -95,7 +95,7 @@ class Dashboard extends Component {
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card title="Insight 3" bordered={true}>
+                  <Card title="Insight 3" bordered={true} className="card3">
                     <Statistic
                       title="Yeeeeeeeeet"
                       value={69}

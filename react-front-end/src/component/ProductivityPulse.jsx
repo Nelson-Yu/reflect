@@ -82,8 +82,8 @@ class Productivity extends Component {
             pointRadius: 0,
             pointHoverRadius: 0,
             backgroundColor: [
-              "Magenta",
               "#4acccd",
+              "#A8C686",
               "#fcc468",
               "#ef8157",
               "#e3e3e3"

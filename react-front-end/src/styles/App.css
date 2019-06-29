@@ -52,5 +52,11 @@ div.ant-card-body {
     display: flex;
     justify-content: center;
     align-content: center;
-    height: 300px;
+    height: 20vw;
+}
+
+.card1,
+.card2,
+.card3 {
+    height: 10vw;
 }
