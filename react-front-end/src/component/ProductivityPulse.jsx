@@ -127,7 +127,7 @@ class Productivity extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <div className="Productivty-chart">
+      <div>
         {loading ? (
           <Spinner height={250} />
         ) : (

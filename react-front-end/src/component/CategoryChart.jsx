@@ -79,10 +79,12 @@ class Categories extends Component {
             mappedData,
             labelData
           );
-          this.setState({
-            categoryData: timeSpent,
-            loading: false
-          });
+          setTimeout(() => {
+            this.setState({
+              categoryData: timeSpent,
+              loading: false
+            });
+          }, 2000);
         });
     });
   };
