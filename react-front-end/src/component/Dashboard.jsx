@@ -67,9 +67,7 @@ class Dashboard extends Component {
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
             </Breadcrumb>
-            <div
-              style={{ padding: 24, background: "##f0f2f5", minHeight: 360 }}
-            >
+            <div style={{ padding: 24, background: "black" }}>
               <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
                 <Col span={8}>
                   <Card title="Insight 1" bordered={true}>
@@ -147,7 +145,6 @@ class Dashboard extends Component {
               </Row>
             </div>
           </Content>
-          <Footer style={{ textAlign: "center" }}>Footer heheheh</Footer>
         </Layout>
       </>
     );
