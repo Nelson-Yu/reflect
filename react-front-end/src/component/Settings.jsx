@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import SettingsForm from "./forms/SettingsForm"
+
 import {
   Layout,
   Menu,
@@ -52,6 +54,7 @@ class Settings extends Component {
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
             </Breadcrumb>
+            <SettingsForm/>
           </Content>
           <Footer style={{ textAlign: "center" }}>Footer heheheh</Footer>
         </Layout>
