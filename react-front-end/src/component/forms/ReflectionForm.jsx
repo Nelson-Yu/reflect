@@ -91,7 +91,7 @@ class Answer extends Component {
     return (
       <>
         <Card title = "Reflection Form" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 200px 0 200px" }}>
-          <Form layout={formLayout}>
+          <Form layout={formLayout} className="reflection-form">
             <Form.Item>
               <Radio.Group size="large" >
                 <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'}/></Radio.Button>
