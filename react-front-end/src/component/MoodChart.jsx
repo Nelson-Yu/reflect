@@ -6,6 +6,21 @@ import moment from "moment";
 const chartOptions = {
   legend: {
     display: false
+  },
+  xAxes: [
+    {
+      type: "date",
+      length: 7
+    }
+  ],
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true
+        }
+      }
+    ]
   }
 };
 
@@ -40,9 +55,11 @@ class Mood extends Component {
     axios
       .get("api/moods") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
-        const mappedData = response.data.score.map(moodData => moodData.rank);
-        console.log("Mood data: ", mappedData);
-        const labelData = response.data.score.map(dateData => dateData.date);
+        const allData = response.data.score;
+        const previousWeek = allData.slice(allData.length - 7);
+        const mappedData = previousWeek.map(moodData => moodData.rank);
+        console.log("previous week: ", previousWeek);
+        const labelData = previousWeek.map(dateData => dateData.date);
         const dayOfWeek = labelData.map(weekDay => {
           return moment(weekDay)
             .add(1, "days")
