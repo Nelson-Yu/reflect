@@ -28,7 +28,7 @@ const current_date = moment()
 // GET ROUTE FOR CATEGORY DATA
 App.get("/api/categories", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=overview&restrict_begin=2019-06-13&restrict_end=2019-06-27&format=json", {},
+        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=overview&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
