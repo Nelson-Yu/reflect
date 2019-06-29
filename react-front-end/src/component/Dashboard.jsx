@@ -137,11 +137,7 @@ class Dashboard extends Component {
                     <Tasks />
                   </Card>
                 </Col>
-                <Col span={14}>
-                  {/* <Card title="Category Chart" bordered={true}>
-                    <Categories />
-                  </Card> */}
-                </Col>
+                <Col span={14} />
               </Row>
             </div>
           </Content>
