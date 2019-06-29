@@ -28,7 +28,7 @@ const current_date = moment()
 // GET ROUTE FOR CATEGORY DATA
 App.get("/api/categories", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=overview&restrict_begin=2019-06-13&restrict_end=2019-06-27&format=json", {},
+        "https://www.rescuetime.com/anapi/data?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&perspective=rank&restrict_kind=overview&format=json", {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
@@ -96,7 +96,7 @@ App.get("/api/questions", (req, res) => {
 //GET ROUTE FOR Mood Rank
 App.get("/api/archive/:date", (req, res) => {
     console.log("FETCHING");
-    console.log("Requested date is " + req.params.date)
+    console.log("Requested date is " + req.params.date);
 
     let data = {};
     knex
@@ -148,7 +148,14 @@ App.get("/api/tasks", (req, res) => {
 
 App.post("/api/new-reflection", (req, res) => {
     console.log(req.body.data);
-    console.log(natural.getSentimentRank(req.body.data.emoji_rank, req.body.data.answer_1, req.body.data.answer_2, req.body.data.answer_3));
+    console.log(
+        natural.getSentimentRank(
+            req.body.data.emoji_rank,
+            req.body.data.answer_1,
+            req.body.data.answer_2,
+            req.body.data.answer_3
+        )
+    );
     moodRank = natural.getSentimentRank(
         req.body.data.emoji_rank,
         req.body.data.answer_1,
@@ -205,49 +212,51 @@ App.post("/api/tasks", (req, res) => {
     console.log(req.body.data);
     let task = req.body.data;
 
-    knex('tasks')
-        .insert({user_id: task.user_id, title: task.title, completed: task.completed })
+    knex("tasks")
+        .insert({
+            user_id: task.user_id,
+            title: task.title,
+            completed: task.completed
+        })
         .then(result => {
-            res.json(result)
+            res.json(result);
         })
         .catch(err => {
-            console.log(err)
-        })
+            console.log(err);
+        });
 });
 
 //PUT ROUTE FOR TASKS
 App.put("/api/tasks", (req, res) => {
-    const tasks = req.body.data
+    const tasks = req.body.data;
 
     tasks.forEach(task => {
         if (task.completed) {
-            console.log(task)
-            knex('tasks')
-                .where('id', task.id)
-                .update('completed', true)
+            console.log(task);
+            knex("tasks")
+                .where("id", task.id)
+                .update("completed", true)
                 .then(result => {
                     res.json(result);
                 })
                 .catch(err => {
                     // console.log(err);
-                })
-        }
-        else {
-            console.log(task)
-            knex('tasks')
-                .where('id', task.id)
-                .update('completed', false)
+                });
+        } else {
+            console.log(task);
+            knex("tasks")
+                .where("id", task.id)
+                .update("completed", false)
                 .then(result => {
                     res.json(result);
                 })
                 .catch(err => {
                     // console.log(err);
-                })
+                });
         }
-
-    })
-    knex('tasks')
-})
+    });
+    knex("tasks");
+});
 
 //DELETE ROUTE FOR TASKS
 App.delete("/api/tasks", (req, res) => {
@@ -256,12 +265,12 @@ App.delete("/api/tasks", (req, res) => {
         .where("id", req.body.id)
         .del()
         .then(result => {
-            res.json(result)
+            res.json(result);
         })
         .catch(err => {
-            console.log(err)
-        })
-})
+            console.log(err);
+        });
+});
 
 App.listen(PORT, () => {
     // eslint-disable-next-line no-console
