@@ -75,20 +75,20 @@ class LandingPage extends Component {
           <div style={{ float: 'right', margin: "0 0 0 0",width: '150px' }}>
             <img src={leaftopright} alt="LeafTopright" style={{width: '100%', height: 'auto'}} />
           </div>
-          <Card title = "Login" bordered={true} style={{ padding: "0 px 0 50px", margin: "0 200px 0 100px", width: 400, float: 'right'}}>
-            <Form layout={formLayout} >
-              <Form.Item  {...formItemLayout}>
-                <Input placeholder="Username" />
+          <Card title = "Login" bordered={true} style={{ padding: "0 0px 0 0px", margin: "0 200px 0 100px", width: 400, float: 'right'}}>
+            <Form layout={formLayout} style={{ margin: "0 45px 0 20px"}}>
+              <Form.Item  {...formItemLayout} style={{ margin: "0 25px 0 20px"}}>
+                <Input placeholder="Username" style={{width: '265px', margin: "0 25px 0 0px"}}/>
               </Form.Item>
-              <Form.Item  {...formItemLayout}>
-                <Input placeholder="Password" type="password" />
+              <Form.Item  {...formItemLayout} style={{ margin: "0 25px 0 20px"}}>
+                <Input placeholder="Password" type="password" style={{ width: '265px', margin: "0 25px 0 0px"}}/>
               </Form.Item>
-              <Form.Item {...buttonItemLayout}>
-              <Checkbox> Remember me </Checkbox>
+              <Checkbox style={{ padding: "0 20px 0 18px"}}> Remember me </Checkbox>
               <a className="login-form-forgot" href=""> Forgot password </a>
+              <Form.Item {...buttonItemLayout} style={{ width: "100px", margin: "20px 0 20px 0" }}>
                 <Button type="primary">Submit</Button>
-              <a href="">register now!</a>
               </Form.Item>
+              <a href="" style={{ float: 'left', margin: "0 0 0 20px"}}>Or register now!</a>
             </Form>
           </Card>
         </div>
