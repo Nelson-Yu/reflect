@@ -93,9 +93,10 @@ App.get("/api/questions", (req, res) => {
         });
 });
 
-//GET ROUTE FOR ARCHIVE
+//GET ROUTE FOR Mood Rank
 App.get("/api/archive/:date", (req, res) => {
     console.log("FETCHING");
+    console.log("Requested date is " + req.params.date)
 
     let data = {};
     knex
@@ -111,6 +112,7 @@ App.get("/api/archive/:date", (req, res) => {
         });
 });
 
+////GET ROUTE FOR Reflect Answers
 App.get("/api/response/:date", (req, res) => {
     console.log("FETCHING");
 
@@ -146,8 +148,7 @@ App.get("/api/tasks", (req, res) => {
 
 App.post("/api/new-reflection", (req, res) => {
     console.log(req.body.data);
-    // console.log(natural.getSentimentRank(req.body.data.emoji_rank, req.body.data.answer_1, req.body.data.answer_2, req.body.data.answer_3));
-    console.log;
+    console.log(natural.getSentimentRank(req.body.data.emoji_rank, req.body.data.answer_1, req.body.data.answer_2, req.body.data.answer_3));
     moodRank = natural.getSentimentRank(
         req.body.data.emoji_rank,
         req.body.data.answer_1,

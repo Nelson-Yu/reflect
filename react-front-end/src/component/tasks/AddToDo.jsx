@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Form, Input } from 'antd'
 
 export class AddTodo extends Component {
   state = {
@@ -7,27 +8,29 @@ export class AddTodo extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    const input = event.target.value;    
     this.props.addToDo(this.state.title);
-    this.setState({ title: '' });
+    this.setState({ title: input });
   }
 
-  onChange = (e) => this.setState({ title: e.target.value });
+  onChange = (event) => {
+    const input = event.target.value;
+    input.trim();
+    this.setState({ title: input });
+  }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} style={{display: 'flex'}}>
-        <input 
-          type="text" 
-          name="title"
-          placeholder="Add Todo..." 
-          value={this.state.title}
-          onChange={this.onChange}
-        />
-        <input 
-          type="submit"
-          value="Submit"
-          className="btn"
-        />
+      <form onSubmit={this.onSubmit} style={{display: 'flex'}} noValidate>
+          <Input 
+            type="text" 
+            name="title"
+            placeholder="Add Todo..." 
+            value={this.state.title}
+            onChange={this.onChange}
+            required
+          />
+          <Button type="primary" onClick={this.onSubmit}>Submit</Button>
       </form>
     )
   }

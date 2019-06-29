@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Input, Form, Button, Radio } from 'antd';
+import { Input, Form, Button, Radio, Card } from 'antd';
 
 const { TextArea } = Input
 
@@ -69,7 +69,9 @@ class Answer extends Component {
         console.log(res.data);
       });
 
+
   }
+
 
   render() {
     const { formLayout } = this.state;
@@ -88,42 +90,44 @@ class Answer extends Component {
         : null;
     return (
       <>
-        <Form layout={formLayout}>
-          <Form.Item>
-            <Radio.Group size="large" >
-              <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'}/></Radio.Button>
-              <Radio.Button value="-0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
-              <Radio.Button value="0" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
-              <Radio.Button value="0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
-              <Radio.Button value="1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
-            </Radio.Group>
-          </Form.Item>
+        <Card title = "Reflection Form" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 200px 0 200px" }}>
+          <Form layout={formLayout}>
+            <Form.Item>
+              <Radio.Group size="large" >
+                <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'}/></Radio.Button>
+                <Radio.Button value="-0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+                <Radio.Button value="0" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+                <Radio.Button value="0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+                <Radio.Button value="1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+              </Radio.Group>
+            </Form.Item>
 
-          <Form.Item {...formItemLayout}>
-            <p>How was your day?</p>
-            <TextArea
-            placeholder="input placeholder"
-            onChange={this.handleAnswer1}
-            autosize={{ minRows: 2, maxRows: 4 }}/>
-          </Form.Item>
-          <Form.Item {...formItemLayout}>
-            <p>What was the most impactful thing you did today?</p>
-            <TextArea
-            placeholder="input placeholder"
-            onChange={this.handleAnswer2}
-            autosize={{ minRows: 2, maxRows: 4 }}/>
-          </Form.Item>
-          <Form.Item {...formItemLayout}>
-            <p>Is there anything exciting happening tomorrow?</p>
-            <TextArea
-            placeholder="input placeholder"
-            onChange={this.handleAnswer3}
-            autosize={{ minRows: 2, maxRows: 4 }}/>
-          </Form.Item>
-          <Form.Item {...buttonItemLayout}>
-            <Button type="primary" onClick={this.addResponse}>Submit</Button>
-          </Form.Item>
-        </Form>
+            <Form.Item {...formItemLayout} >
+              <p>How was your day?</p>
+              <TextArea
+              placeholder="input placeholder"
+              onChange={this.handleAnswer1}
+              autosize={{ minRows: 2, maxRows: 4 }}/>
+            </Form.Item>
+            <Form.Item {...formItemLayout}>
+              <p>What was the most impactful thing you did today?</p>
+              <TextArea
+              placeholder="input placeholder"
+              onChange={this.handleAnswer2}
+              autosize={{ minRows: 2, maxRows: 4 }}/>
+            </Form.Item>
+            <Form.Item {...formItemLayout}>
+              <p>Is there anything exciting happening tomorrow?</p>
+              <TextArea
+              placeholder="input placeholder"
+              onChange={this.handleAnswer3}
+              autosize={{ minRows: 2, maxRows: 4 }}/>
+            </Form.Item>
+            <Form.Item {...buttonItemLayout}>
+              <Button type="primary" onClick={(event) => {this.props.action(event); this.addResponse(event); }}>Submit</Button>
+            </Form.Item>
+          </Form>
+        </Card>
       </>
 
     );
