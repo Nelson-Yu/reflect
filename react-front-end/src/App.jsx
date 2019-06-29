@@ -7,6 +7,9 @@ import Siderbar from "./component/Sidebar";
 import LandingPage from "./component/LandingPage";
 // import API from "./API/API_helper.jsx";
 import Productivity from "./component/ProductivityPulse";
+import Animate from "rc-animate";
+
+// import { CSSTransition } from 'react-transition-group';
 
 const API_URL = "http://localhost:8080/api/daily_summary";
 

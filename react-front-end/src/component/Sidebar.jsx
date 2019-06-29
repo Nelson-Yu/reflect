@@ -56,7 +56,9 @@ class Siderbar extends Component {
             collapsed={this.state.collapsed}
             onCollapse={this.onCollapse}
             trigger={null}
-            style={{
+            style={{ /* fallback for old browsers */
+              background: 'linear-gradient(45deg, #1e130c, #9a8478)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
               overflow: 'hidden',
               height: '100vh',
               position: 'fixed',
@@ -65,7 +67,7 @@ class Siderbar extends Component {
             >
 
             <div className="logo" style={{color: "white", fontSize: "30px", textAlign: "center"}}> REFLECT </div>
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" style={{ background: 'transparent' }}>
               <Menu.Item key="1">
                 <Icon type="pie-chart" />
                 <span>Dashboard</span>
