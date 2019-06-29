@@ -49,13 +49,16 @@ App.get("/api/pulse", (req, res) =>
 App.get("/api/moods", (req, res) => {
     console.log("FETCHING");
 
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const twoWeeksAgo = moment().tz("America/Vancouver").subtract(15, 'days').format("YYYY-MM-DD");
+
     let data = {};
     knex
         .select("rank", "date")
         .table("moods")
         .whereBetween("date", [
-            "2019-06-14T00:00:00.000Z",
-            "2019-06-28T00:00:00.000Z"
+            twoWeeksAgo,
+            yesterday
         ])
         .then(results => {
             data = {
