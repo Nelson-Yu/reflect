@@ -7,7 +7,7 @@ class MoodDisplay extends Component {
     super(props);
     this.state = {
       date_exists: true,
-      mood: 0,
+      mood: null,
     };
   }
 
@@ -40,7 +40,10 @@ class MoodDisplay extends Component {
   render() {
     return (
       <>
-        <p>Mood: {this.state.mood}</p>
+        <div className="mood-chart-header">
+          <span>Today's Mood Score:</span>
+          <span className="mood-badge"> {this.state.mood} </span>
+        </div>
       </>
     )
   }

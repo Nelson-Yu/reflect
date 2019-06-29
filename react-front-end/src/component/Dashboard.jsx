@@ -7,6 +7,7 @@ import Mood from "./MoodChart";
 import Tasks from "./Tasks";
 import MoodDisplay from "./MoodDisplayToday";
 
+
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
 import {
@@ -17,7 +18,7 @@ import {
   Card,
   Row,
   Col,
-  Statistic
+  Statistic,
 } from "antd";
 
 import {
@@ -57,6 +58,8 @@ class Dashboard extends Component {
   };
 
   render() {
+    const moodBadge = <MoodDisplay/>
+
     return (
       <>
         <Layout style={{ marginLeft: 200 }}>
@@ -123,8 +126,7 @@ class Dashboard extends Component {
               </Row>
               <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
                 <Col span={14}>
-                  <Card title="Mood Chart" bordered={true}>
-                    <MoodDisplay/>
+                  <Card title={moodBadge} bordered={true}>
                     <Mood />
                   </Card>
                 </Col>

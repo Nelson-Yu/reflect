@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import moment from "moment";
+import MoodDisplay from "./MoodDisplayToday";
 
 const chartOptions = {
   legend: {

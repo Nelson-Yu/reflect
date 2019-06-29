@@ -136,16 +136,13 @@ App.get("/api/response/:date", (req, res) => {
 //GET ROUTE FOR TODAY'S MOOD
 App.get("/api/mood/today", (req, res) => {
     console.log("FETCHING");
-
-    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
-
-    console.log("Requested date is " + yesterday);
+    console.log("Requested date is " + current_date);
 
     let data = {};
     knex
         .select("moods.rank")
         .from("moods")
-        .where("date", yesterday)
+        .where("date", current_date)
         .then(results => {
             data = {
                 rank: results
