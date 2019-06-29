@@ -82,6 +82,7 @@ class Mood extends Component {
   render() {
     return (
       <>
+        <MoodDisplay/>
         <Bar
           data={this.state.rank}
           options={chartOptions}
