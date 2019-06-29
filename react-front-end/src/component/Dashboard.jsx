@@ -5,6 +5,7 @@ import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
 import Mood from "./MoodChart";
 import Tasks from "./Tasks";
+import Spinner from "./loaders/Spinner";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
@@ -114,6 +115,7 @@ class Dashboard extends Component {
                 </Col>
                 <Col span={16}>
                   <Card title="Mood Correlation Chart" bordered={true}>
+                    <Spinner />
                     <Correlations />
                   </Card>
                 </Col>
