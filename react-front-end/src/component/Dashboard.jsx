@@ -5,6 +5,7 @@ import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
 import Mood from "./MoodChart";
 import Tasks from "./Tasks";
+import MoodDisplay from "./MoodDisplayToday";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
@@ -123,6 +124,7 @@ class Dashboard extends Component {
               <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
                 <Col span={14}>
                   <Card title="Mood Chart" bordered={true}>
+                    <MoodDisplay/>
                     <Mood />
                   </Card>
                 </Col>
