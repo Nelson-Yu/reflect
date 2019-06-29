@@ -54,8 +54,8 @@ App.get("/api/moods", (req, res) => {
         .select("rank", "date")
         .table("moods")
         .whereBetween("date", [
-            "2019-06-13T00:00:00.000Z",
-            "2019-06-27T00:00:00.000Z"
+            "2019-06-14T00:00:00.000Z",
+            "2019-06-28T00:00:00.000Z"
         ])
         .then(results => {
             data = {
