@@ -4,6 +4,7 @@ import axios from "axios";
 import "./styles/App.css";
 import "antd/dist/antd.css";
 import Siderbar from "./component/Sidebar";
+import LandingPage from "./component/LandingPage";
 // import API from "./API/API_helper.jsx";
 import Productivity from "./component/ProductivityPulse";
 
@@ -40,7 +41,8 @@ class App extends Component {
     return (
       <>
         <Switch>
-          <Siderbar />
+          <LandingPage />
+          {/*<Siderbar />*/}
         </Switch>
       </>
     );
