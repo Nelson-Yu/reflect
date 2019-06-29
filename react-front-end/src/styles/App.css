@@ -43,6 +43,14 @@
 .reflection-form {
     text-align: center;
 }
+
 .ant-radio-group-large .ant-radio-button-wrapper {
     height: 100%;
+}
+
+div.ant-card-body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 300px;
 }
