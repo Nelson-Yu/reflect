@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from "moment-timezone";
 
 class MoodDisplay extends Component {
   
@@ -57,29 +58,44 @@ class MoodDisplay extends Component {
   }
 
   render() {
-    const moodRating = Math.round(this.state.mood).toFixed(1)
+    const currentDate = moment().tz("America/Vancouver").format("YYYY-MM-DD");
+    const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
 
     const colorBadge = () => {
-      if (moodRating < 5.0) {
+      if (moodRating < 3.4) {
         return (
-          <div class="wrapper">
-            <span class="badge-red">{moodRating}</span>
-          </div>        
+          <span className="badge-red">{moodRating}</span>
+        )
+      } else if (moodRating > 6.6){
+        return (
+          <span className="badge-green">{moodRating}</span>
         )
       } else {
         return (
-          <div class="wrapper">
-            <span class="badge-green">{moodRating}</span>
-          </div>  
+          <span className="badge-yellow">{moodRating}</span>
         )
+      }
+    }
+
+    const compareMood = () => {
+      if (moodRating > this.state.average) {
+        return (<>Nice! Today your mood rating is higher than your weekly average of {this.state.average}. Keep it up!</>)
+      } else if (moodRating == this.state.average) {
+        return (<>Not bad! Today your mood is the same as your weekly average of {this.state.average}. Way to be consistent!</>)
+      } else if (moodRating < this.state.average) {
+        return (<>Well, there's always tomorrow! Today your mood is lower than your weekly average of {this.state.average}. Let's have a better day tomorrow!</>)
       }
     }
 
     return ( 
       <>
-        {colorBadge()}
-        <div>
-          Today your mood is higher than your weekly average rating of {this.state.average}
+        <div className="wrapper">
+          {colorBadge()}
+          <span className="mood-comparison">
+            <strong>{currentDate}</strong>
+            <br/>
+            {compareMood()}
+          </span>
         </div>
       </>
     )
