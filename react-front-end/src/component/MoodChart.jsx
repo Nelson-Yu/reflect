@@ -3,6 +3,7 @@ import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import moment from "moment";
 import Spinner from "./loaders/Spinner";
+import MoodDisplay from "./MoodDisplayToday";
 
 const chartOptions = {
   legend: {
@@ -92,12 +93,15 @@ class Mood extends Component {
         {loading ? (
           <Spinner height={250} />
         ) : (
+          <>
+          <MoodDisplay/>
           <Bar
             data={this.state.rank}
             options={chartOptions}
             width={400}
             height={150}
           />
+          </>
         )}
       </>
     );

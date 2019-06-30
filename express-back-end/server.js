@@ -50,13 +50,16 @@ App.get("/api/pulse", (req, res) =>
 App.get("/api/moods", (req, res) => {
     console.log("FETCHING");
 
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const twoWeeksAgo = moment().tz("America/Vancouver").subtract(15, 'days').format("YYYY-MM-DD");
+
     let data = {};
     knex
         .select("rank", "date")
         .table("moods")
         .whereBetween("date", [
-            "2019-06-13T00:00:00.000Z",
-            "2019-06-27T00:00:00.000Z"
+            twoWeeksAgo,
+            yesterday
         ])
         .then(results => {
             data = {
@@ -130,6 +133,54 @@ App.get("/api/response/:date", (req, res) => {
             res.json(data);
         });
 });
+
+//GET ROUTE FOR TODAY'S MOOD
+App.get("/api/mood/today", (req, res) => {
+    console.log("FETCHING");
+    console.log("Requested date is " + current_date);
+
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const twoWeeksAgo = moment().tz("America/Vancouver").subtract(15, 'days').format("YYYY-MM-DD");
+
+
+    let data = {};
+    knex
+        .select("moods.rank")
+        .from("moods")
+        .where("date", current_date)
+        .then(results => {
+            data = {
+                rank: results
+            };
+            console.log(data);
+            res.json(data);
+        });
+});
+
+//GET ROUTE FOR AVERAGE MOOD
+App.get("/api/mood/weekly", (req, res) => {
+    console.log("FETCHING");
+    console.log("Requested date is " + current_date);
+
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const oneWeeksAgo = moment().tz("America/Vancouver").subtract(7, 'days').format("YYYY-MM-DD");
+
+    let data = {};
+    knex
+        .select("rank")
+        .from("moods")
+        .whereBetween("date", [
+            oneWeeksAgo,
+            yesterday
+        ])
+        .then(results => {
+            data = results
+            console.log(data);
+            res.json(data);
+        });
+});
+
+
 
 //GET ROUTE FOR TASKS
 App.get("/api/tasks", (req, res) => {

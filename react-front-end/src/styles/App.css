@@ -48,8 +48,51 @@
     height: 100%;
 }
 
-/*div.ant-card-body {
+/* div.ant-card-body {
     display: flex;
     justify-content: center;
     align-content: center;
-}*/
+} */
+
+.wrapper {
+    display: flex;
+    justify-content: left;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0px 0px 24px;
+    margin-bottom: 14px;
+  }
+  
+.badge-green {
+    display: inline-block;
+    padding: 15px 15px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    background: green;
+    color: #fefefe; 
+}
+
+.badge-yellow {
+    display: inline-block;
+    padding: 15px 15px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    background: yellow;
+    color: #fefefe; 
+}
+
+.badge-red {
+    display: inline-block;
+    padding: 15px 15px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    background: red;
+    color: #fefefe; 
+}
+
+.mood-comparison {
+    padding: 10px 30px;
+    font-size: 16px;
+}
