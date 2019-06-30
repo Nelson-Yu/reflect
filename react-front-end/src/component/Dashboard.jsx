@@ -126,7 +126,7 @@ class Dashboard extends Component {
               </Row>
               <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
                 <Col span={14}>
-                  <Card title={moodBadge} bordered={true}>
+                  <Card title="Mood" bordered={true}>
                     <Mood />
                   </Card>
                 </Col>

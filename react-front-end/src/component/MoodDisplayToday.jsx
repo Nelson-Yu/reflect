@@ -8,17 +8,16 @@ class MoodDisplay extends Component {
     this.state = {
       date_exists: true,
       mood: null,
+      average: null,
     };
   }
 
 
   fetchMoodData = () => {
     axios
-      .get("/api/mood/today") // You can simply make your requests to "/api/whatever you want"
+      .get("/api/mood/today")
       .then(response => {
-        // handle success
-        console.log(response.data.rank); // The entire response from the Rails API
-        // console.log(response.data.message); // Just the message
+        console.log(response.data.rank);
         if (response.data.rank.length !== 0) {
           this.setState({
             mood: response.data.rank[response.data.rank.length - 1]['rank'],
@@ -33,16 +32,54 @@ class MoodDisplay extends Component {
     });
   }; 
 
+  fetchAverageMoodData = () => {
+    axios
+      .get("/api/mood/weekly")
+      .then(response => {
+        const moodLastWeek = response.data
+        let sum = 0;
+        moodLastWeek.forEach(mood => {
+          sum += mood.rank
+          console.log(sum)
+        })
+        this.setState({
+          average: Math.round(sum / 7).toFixed(1),
+        })
+        // console.log("average", this.state.average)
+        // console.log("Does it exist" + this.state.date_exists)
+      });
+  }; 
+
+
   componentWillMount() {
     this.fetchMoodData();
+    this.fetchAverageMoodData();
   }
 
   render() {
-    return (
+    const moodRating = Math.round(this.state.mood).toFixed(1)
+
+    const colorBadge = () => {
+      if (moodRating < 5.0) {
+        return (
+          <div class="wrapper">
+            <span class="badge-red">{moodRating}</span>
+          </div>        
+        )
+      } else {
+        return (
+          <div class="wrapper">
+            <span class="badge-green">{moodRating}</span>
+          </div>  
+        )
+      }
+    }
+
+    return ( 
       <>
-        <div className="mood-chart-header">
-          <span>Today's Mood Score:</span>
-          <span className="mood-badge"> {this.state.mood} </span>
+        {colorBadge()}
+        <div>
+          Today your mood is higher than your weekly average rating of {this.state.average}
         </div>
       </>
     )

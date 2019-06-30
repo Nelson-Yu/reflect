@@ -46,16 +46,35 @@
 .ant-radio-group-large .ant-radio-button-wrapper {
     height: 100%;
 }
-/* 
-.mood-chart-header {
-    padding-bottom: 20px;
-    margin-
+
+.wrapper {
+    display: flex;
+    justify-content: left;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0px 0px 24px;
+    margin-bottom: 14px;
+    /* align-items: center; */
+    /* min-height: 100vh; */
+  }
+  
+.badge-green {
+    display: inline-block;
+    /* min-width: 16px;  */
+    padding: 15px 15px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    background: green;
+    color: #fefefe; 
 }
 
-.mood-chart-header .mood-badge {
-    
+.badge-red {
+    display: inline-block;
+    /* min-width: 16px;  */
+    padding: 15px 15px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    background: red;
+    color: #fefefe; 
 }
-
-.mood-chart-header span {
-    font-size: 16px;   
-} */

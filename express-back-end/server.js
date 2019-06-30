@@ -138,6 +138,10 @@ App.get("/api/mood/today", (req, res) => {
     console.log("FETCHING");
     console.log("Requested date is " + current_date);
 
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const twoWeeksAgo = moment().tz("America/Vancouver").subtract(15, 'days').format("YYYY-MM-DD");
+
+
     let data = {};
     knex
         .select("moods.rank")
@@ -152,6 +156,28 @@ App.get("/api/mood/today", (req, res) => {
         });
 });
 
+//GET ROUTE FOR AVERAGE MOOD
+App.get("/api/mood/weekly", (req, res) => {
+    console.log("FETCHING");
+    console.log("Requested date is " + current_date);
+
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const oneWeeksAgo = moment().tz("America/Vancouver").subtract(7, 'days').format("YYYY-MM-DD");
+
+    let data = {};
+    knex
+        .select("rank")
+        .from("moods")
+        .whereBetween("date", [
+            oneWeeksAgo,
+            yesterday
+        ])
+        .then(results => {
+            data = results
+            console.log(data);
+            res.json(data);
+        });
+});
 
 
 
