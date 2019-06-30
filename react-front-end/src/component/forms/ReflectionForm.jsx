@@ -12,9 +12,9 @@ class Answer extends Component {
     this.state = {
       formLayout: 'horizontal',
       emoji_rank: null,
-      answer_1: '',
-      answer_2: '',
-      answer_3: ''
+      answer_1: 'hola',
+      answer_2: 'heyo',
+      answer_3: 'asuh'
     };
   }
 
@@ -56,6 +56,8 @@ class Answer extends Component {
 
   addResponse = event => {
     event.preventDefault();
+
+    // console.log("The function ran");
 
     let data = ({
       emoji_rank: this.state.emoji_rank,
@@ -109,7 +111,7 @@ class Answer extends Component {
               placeholder="input placeholder"
               onChange={this.handleAnswer1}
               autosize={{ minRows: 2, maxRows: 4 }}
-              onChange={this.handleChange}/>
+              />
             </Form.Item>
             <Form.Item {...formItemLayout}>
               <p>What was the most impactful thing you did today?</p>

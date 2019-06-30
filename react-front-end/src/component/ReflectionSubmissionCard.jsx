@@ -16,11 +16,12 @@ class ReflectionResult extends Component {
   }
 
   fetchData = () => {
+    console.log("Mood fetch made")
     axios
       .get(`/api/archive/${this.state.date.format('YYYY-MM-DD')}`) // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         // handle success
-        console.log(response.data.rank); // The entire response from the Rails API
+        console.log("Response is" + response.data.rank); // The entire response from the Rails API
         // console.log(response.data.message); // Just the message
         if (response.data.rank.length !== 0) {
           this.setState({

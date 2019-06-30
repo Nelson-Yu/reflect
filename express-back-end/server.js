@@ -108,7 +108,7 @@ App.get("/api/archive/:date", (req, res) => {
             data = {
                 rank: results
             };
-            // console.log(data);
+            console.log("The data is" + data.rank);
             res.json(data);
         });
 });
@@ -148,7 +148,7 @@ App.get("/api/tasks", (req, res) => {
 //POST ROUTE FOR REFLECTION ANSWERS
 
 App.post("/api/new-reflection", (req, res) => {
-    console.log(req.body.data);
+    console.log("REquest is " + req.body.data.answer_2);
     console.log(
         natural.getSentimentRank(
             req.body.data.emoji_rank,
