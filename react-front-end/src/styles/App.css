@@ -78,3 +78,53 @@ div.ant-card {
     border: none;
     box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 10px 10px rgba(0,0,0,0.17);
 }
+
+.wrapper {
+    display: flex;
+    justify-content: left;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0px 0px 24px;
+    margin-bottom: 14px;
+}
+
+.badge-green {
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    padding: 15px 15px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    background: green;
+    color: #fefefe;
+}
+
+.badge-yellow {
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    padding: 15px 15px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    background: yellow;
+    color: #fefefe;
+}
+
+.badge-red {
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    padding: 15px 15px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    background: red;
+    color: #fefefe;
+}
+
+.mood-comparison {
+    padding: 10px 30px;
+    font-size: 16px;
+
+}
