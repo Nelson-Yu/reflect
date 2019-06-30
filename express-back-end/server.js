@@ -22,14 +22,19 @@ App.use(BodyParser.urlencoded({ extended: false }));
 App.use(Express.json());
 App.use(cors());
 
+
+
+const key = process.env.RESCUE_TIME_KEY //RescueTime API Key
+
 const current_date = moment()
     .tz("America/Vancouver")
     .format("YYYY-MM-DD");
+
 // GET ROUTE FOR CATEGORY DATA
 App.get("/api/categories", (req, res) =>
     request.get(
 
-        "https://www.rescuetime.com/anapi/data?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&perspective=rank&restrict_kind=overview&format=json", {},
+        `https://www.rescuetime.com/anapi/data?key=${key}&perspective=rank&restrict_kind=overview&format=json`, {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
@@ -39,7 +44,7 @@ App.get("/api/categories", (req, res) =>
 // GET ROUTE FOR PRODUCTIVITY CORRELATION CHART
 App.get("/api/pulse", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&restrict_begin=2019-06-13&restrict_end=2019-06-27&format=json", {},
+        `https://www.rescuetime.com/anapi/daily_summary_feed?key=${key}&restrict_begin=2019-06-13&restrict_end=2019-06-27&format=json`, {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
@@ -73,7 +78,7 @@ App.get("/api/moods", (req, res) => {
 //GET ROUTE FOR PRODUCTIVITY CHART
 App.get("/api/productivity", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json", {},
+        `https://www.rescuetime.com/anapi/data?key=${key}&perspective=rank&restrict_kind=productivity&format=json`, {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
