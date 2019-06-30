@@ -121,12 +121,12 @@ class Archive extends Component {
                 <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
               </Breadcrumb>
               <h3> This Will Be The Calender</h3>
-                <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4, float: 'left', }}>
+                <Card style={{ width: 400, border: '1px solid #d9d9d9', borderRadius: 4, float: 'left', }}>
            {/*       <Alert
                     message={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`}
                   />*/}
                   <Calendar value={this.state.value} onSelect={this.onSelect} fullscreen={false} onPanelChange={this.onPanelChange}/>
-                </div>
+                </Card>
                 <div>
                   <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
                     <h4>Mood Rank: </h4>

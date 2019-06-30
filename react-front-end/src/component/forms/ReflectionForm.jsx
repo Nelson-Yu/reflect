@@ -94,13 +94,13 @@ class Answer extends Component {
       <>
         <Card title = "Reflection Form" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 200px 0 200px" }}>
           <Form layout={formLayout} className="reflection-form">
-            <Form.Item>
+            <Form.Item >
               <Radio.Group size="large" >
-                <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'}/></Radio.Button>
-                <Radio.Button value="-0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
-                <Radio.Button value="0" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
-                <Radio.Button value="0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
-                <Radio.Button value="1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_with_Smiling_Eyes_large.png?v=1480481060'} /></Radio.Button>
+                <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187146.svg'}/></Radio.Button>
+                <Radio.Button value="-0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187143.svg'} /></Radio.Button>
+                <Radio.Button value="0" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187136.svg'} /></Radio.Button>
+                <Radio.Button value="0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187142.svg'} /></Radio.Button>
+                <Radio.Button value="1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187159.svg'} /></Radio.Button>
               </Radio.Group>
             </Form.Item>
 

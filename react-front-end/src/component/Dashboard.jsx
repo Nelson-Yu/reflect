@@ -59,17 +59,17 @@ class Dashboard extends Component {
   render() {
     return (
       <>
-        <Layout style={{ marginLeft: 200 }}>
-          <Header style={{ background: "#fff", padding: 0 }}>
-            <h3>yeet</h3>
+        <Layout style={{  marginLeft: 200, height: '1750px' }}>
+          <Header style={{ background: "#fff", padding: 0, }}>
+            <h3  style={{ paddingLeft: '75px' }}>Dashboard</h3>
           </Header>
-          <Content style={{ margin: "0 16px" }}>
-            <Breadcrumb style={{ margin: "16px 0" }}>
+{/*            <Breadcrumb style={{ margin: "16px", float: 'right', background: '#f4f3ef' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
-            </Breadcrumb>
+            </Breadcrumb>*/}
+          <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
             <div style={{ padding: 24, }}>
-              <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
+              <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
                   <Card title="Insight 1" bordered={true}>
                     <Statistic
@@ -107,7 +107,7 @@ class Dashboard extends Component {
                   </Card>
                 </Col>
               </Row>
-              <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
+              <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
                   <Card title="Productivity Chart" bordered={true}>
                     <Productivity />
@@ -119,7 +119,7 @@ class Dashboard extends Component {
                   </Card>
                 </Col>
               </Row>
-              <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
+              <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={14}>
                   <Card title="Mood Chart" bordered={true}>
                     <Mood />
@@ -132,7 +132,7 @@ class Dashboard extends Component {
                 </Col>
               </Row>
 
-              <Row gutter={24} style={{ margin: "0 0 24px 0" }}>
+              <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={10}>
                   <Card title="Tasks" bordered={true}>
                     <Tasks />
