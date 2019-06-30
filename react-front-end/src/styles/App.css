@@ -64,6 +64,8 @@
   
 .badge-green {
     display: inline-block;
+    height: 75px;
+    width: 75px;
     padding: 15px 15px;
     border-radius: 50%;
     font-size: 30px;
@@ -74,6 +76,8 @@
 
 .badge-yellow {
     display: inline-block;
+    height: 75px;
+    width: 75px;
     padding: 15px 15px;
     border-radius: 50%;
     font-size: 30px;
@@ -84,6 +88,8 @@
 
 .badge-red {
     display: inline-block;
+    height: 75px;
+    width: 75px;
     padding: 15px 15px;
     border-radius: 50%;
     font-size: 30px;

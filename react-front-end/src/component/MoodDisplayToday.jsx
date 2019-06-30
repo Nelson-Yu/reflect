@@ -18,7 +18,6 @@ class MoodDisplay extends Component {
     axios
       .get("/api/mood/today")
       .then(response => {
-        console.log(response.data.rank);
         if (response.data.rank.length !== 0) {
           this.setState({
             mood: response.data.rank[response.data.rank.length - 1]['rank'],
@@ -29,7 +28,6 @@ class MoodDisplay extends Component {
             date_exists: false
         });
         }
-        console.log("Does it exist" + this.state.date_exists)
     });
   }; 
 
@@ -46,8 +44,6 @@ class MoodDisplay extends Component {
         this.setState({
           average: Math.round(sum / 7).toFixed(1),
         })
-        // console.log("average", this.state.average)
-        // console.log("Does it exist" + this.state.date_exists)
       });
   }; 
 
@@ -62,6 +58,12 @@ class MoodDisplay extends Component {
     const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
 
     const colorBadge = () => {
+      if (!this.state.date_exists) {
+        return (
+          <span className="badge-yellow">N/A</span>
+        )
+      }
+
       if (moodRating < 3.4) {
         return (
           <span className="badge-red">{moodRating}</span>
@@ -78,6 +80,10 @@ class MoodDisplay extends Component {
     }
 
     const compareMood = () => {
+      if(!this.state.date_exists) {
+        return(<>No rating! Please complete your daily reflection.</>)
+      }
+
       if (moodRating > this.state.average) {
         return (<>Nice! Today your mood rating is higher than your weekly average of {this.state.average}. Keep it up!</>)
       } else if (moodRating == this.state.average) {
