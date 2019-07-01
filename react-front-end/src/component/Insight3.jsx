@@ -30,7 +30,7 @@ class WeeklyHours extends Component {
         <Row gutter={24}>
           <Col span={7} style={{padding: "0px"}}>
             <span className="weekly-badge">
-              <p className="sofdev-up"><strong>5 Day Streak</strong></p>
+              <p className="sofdev-up"><strong>30+ Hours</strong></p>
               <img src="https://img.icons8.com/ios/100/000000/laptop-application-filled.png"/> 
             </span>
           </Col>

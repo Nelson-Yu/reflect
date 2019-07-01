@@ -35,7 +35,7 @@ class ProductivityStreak extends Component {
             </span>
           </Col>
           <Col span={17} style={{padding: "0px"}}>
-            <p className="productivity-text"><strong>Productivty Pulse</strong> has been above <strong>8.0</strong> for the last 5 days. Keep it up!</p>
+            <p className="productivity-text"><strong>Productivty Pulse</strong> has been above <strong>8.0</strong> for the last <strong>5 days</strong>. Keep it up!</p>
           </Col>
         </Row>
       )}
