@@ -7,6 +7,7 @@ import Correlations from "./MoodCorrelationChart";
 import Mood from "./MoodChart";
 import Tasks from "./Tasks";
 import TopActivity from "./Insight1";
+import ProductivityStreak from "./Insight2";
 import Spinner from "./loaders/Spinner";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
@@ -68,15 +69,16 @@ class Dashboard extends Component {
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card title="Insight 2" bordered={true}>
-                    <Statistic
+                  <Card title="Productivity Streak" bordered={true}>
+                    {/* <Statistic
                       title="Idle"
                       value={9.3}
                       precision={2}
                       valueStyle={{ color: "#cf1322" }}
                       prefix={<Icon type="arrow-down" />}
                       suffix="%"
-                    />
+                    /> */}
+                    <ProductivityStreak/>
                   </Card>
                 </Col>
                 <Col span={8}>

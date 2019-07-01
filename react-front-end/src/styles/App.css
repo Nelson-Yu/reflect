@@ -114,7 +114,6 @@ div.ant-card {
     font-size: 20px;
     padding-top: 10px;
     color: #fefefe;
-
 }
 
 .top-activity-badge img{
@@ -144,9 +143,62 @@ div.ant-card {
 
 .top-activity-text strong{
     color: #4EBA64;
+}
+
+/* INSIGHT 2 */
+
+.productivity-badge {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    border: 5px double white;
+    background: #51cbcf;
+    padding: 12.5px;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    -webkit-transition: background-color 1s ease-out;
+    -moz-transition: background-color 1s ease-out;
+    -o-transition: background-color 1s ease-out;
+    transition: background-color 1s ease-out;
+}
+
+.productivity-badge .streak-up{
+    display: none;
+    font-size: 20px;
+    padding-top: 10px;
+    color: #fefefe;
+}
+
+.productivity-badge img{
+    height: 60px;
+    width: 60px;
+}
+
+.productivity-badge:hover {
+    background: #b917b9;
+    cursor: pointer;
+}
+
+
+.productivity-badge:hover .streak-up{
+    display: inline;
+}
+
+.productivity-badge:hover img{
+    display: none;
+}
+
+
+.productivity-text{
     font-size: 16px;
     padding: 24px 0px 0px;;
 }
+
+.productivity-text strong{
+    color: #b917b9;
+}
+
 
 /* MOOD DISPLAY  */
 

@@ -3,7 +3,7 @@ import axios from "axios";
 import { Col, Row, Icon } from "antd";
 import Spinner from "./loaders/Spinner";
 
-class TopActivity extends Component {
+class ProductivityStreak extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,13 +29,13 @@ class TopActivity extends Component {
       ) : (
         <Row gutter={24}>
           <Col span={7} style={{padding: "0px"}}>
-            <span className="top-activity-badge">
-              <p className="mood-up"><strong><Icon type="arrow-up" />Mood</strong></p>
-              <img src="https://img.icons8.com/ios/100/000000/friends-filled.png"/> 
+            <span className="productivity-badge">
+              <p className="streak-up"><strong>5 Day Streak</strong></p>
+              <img src="https://img.icons8.com/ios/100/000000/positive-dynamic-filled.png"/> 
             </span>
           </Col>
           <Col span={17} style={{padding: "0px"}}>
-            <p className="top-activity-text">Your <strong>mood</strong> tends to be better when you <strong>socialize</strong> more.</p>
+            <p className="productivity-text"><strong>Productivty Pulse</strong> has been above <strong>8.0</strong> for the last 5 days. Keep it up!</p>
           </Col>
         </Row>
       )}
@@ -44,4 +44,4 @@ class TopActivity extends Component {
   }
 }
 
-export default TopActivity
+export default ProductivityStreak
