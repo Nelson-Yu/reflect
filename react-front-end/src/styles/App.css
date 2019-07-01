@@ -77,6 +77,8 @@ div.ant-card {
     box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 10px 10px rgba(0,0,0,0.17);
 }
 
+/* CONTENT HEADER */
+
 .page-header {
     padding: 0px 75px;
     font-size: 2em;
@@ -89,6 +91,64 @@ div.ant-card {
     font-size: 1.2em
 }
 
+/* INSIGHT 1 */
+
+.top-activity-badge {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    border: 5px double white;
+    background: #FBC658;
+    padding: 12.5px;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    -webkit-transition: background-color 1s ease-out;
+    -moz-transition: background-color 1s ease-out;
+    -o-transition: background-color 1s ease-out;
+    transition: background-color 1s ease-out;
+}
+
+.top-activity-badge .mood-up{
+    display: none;
+    font-size: 20px;
+    padding-top: 10px;
+    color: #fefefe;
+
+}
+
+.top-activity-badge img{
+    height: 60px;
+    width: 60px;
+}
+
+.top-activity-badge:hover {
+    background: #4EBA64;
+    cursor: pointer;
+}
+
+
+.top-activity-badge:hover .mood-up{
+    display: inline;
+}
+
+.top-activity-badge:hover img{
+    display: none;
+}
+
+
+.top-activity-text{
+    font-size: 16px;
+    padding: 24px 0px 0px;;
+}
+
+.top-activity-text strong{
+    color: #4EBA64;
+    font-size: 16px;
+    padding: 24px 0px 0px;;
+}
+
+/* MOOD DISPLAY  */
 
 .wrapper {
     display: flex;
@@ -139,6 +199,8 @@ div.ant-card {
     font-size: 16px;
 
 }
+
+/* SENTIBOT ON SUBMISSION */
 
 .sentibot-form .robot {
     transform: translate(-20px, 100px);

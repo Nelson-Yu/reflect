@@ -6,6 +6,7 @@ import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
 import Mood from "./MoodChart";
 import Tasks from "./Tasks";
+import TopActivity from "./Insight1";
 import Spinner from "./loaders/Spinner";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
@@ -54,15 +55,16 @@ class Dashboard extends Component {
             <div style={{ padding: 24, }}>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-                  <Card title="Insight 1" bordered={true}>
-                    <Statistic
+                  <Card title="Top Activity" bordered={true}>
+                    {/* <Statistic
                       title="Active"
                       value={11.28}
                       precision={2}
                       valueStyle={{ color: "#3f8600" }}
                       prefix={<Icon type="arrow-up" />}
                       suffix="%"
-                    />
+                    /> */}
+                    <TopActivity/>
                   </Card>
                 </Col>
                 <Col span={8}>
