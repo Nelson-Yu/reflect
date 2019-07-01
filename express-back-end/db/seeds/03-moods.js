@@ -33,7 +33,8 @@ exports.seed = function(knex, Promise) {
         {id: 26, user_id: 1, date: '2019-06-26', rank: 7.3, emoji_rank: 0.5},
         {id: 27, user_id: 1, date: '2019-06-27', rank: 8, emoji_rank: 1},
         {id: 28, user_id: 1, date: '2019-06-28', rank: 8, emoji_rank: 1},
-        {id: 29, user_id: 1, date: '2019-06-29', rank: 8, emoji_rank: 1}
+        {id: 29, user_id: 1, date: '2019-06-29', rank: 8, emoji_rank: 1},
+        {id: 30, user_id: 1, date: '2019-06-30', rank: 7.7, emoji_rank: 1}
       ]);
     });
 };
