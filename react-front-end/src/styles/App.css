@@ -36,8 +36,6 @@
     background: red;
 }
 
-
-
 .ant-layout {
     background: #f4f3ef;
     height: 100%;
@@ -95,7 +93,7 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: green;
+    background: #4EBA64;
     color: #fefefe;
 }
 
@@ -107,8 +105,8 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: yellow;
-    color: #fefefe;
+    background: #FBC658;
+    color: #2c2b2b;
 }
 
 .badge-red {
@@ -119,7 +117,7 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: red;
+    background: #EF8157;
     color: #fefefe;
 }
 
@@ -168,4 +166,10 @@ div.ant-card {
     background: #51cbcf;
     color: #fefefe;
     border: 10px double #fefefe;
+}
+
+
+/* tasks css */
+.task-badges {
+    padding-bottom: 12px;
 }
