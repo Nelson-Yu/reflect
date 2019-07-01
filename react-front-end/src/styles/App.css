@@ -145,5 +145,27 @@ div.ant-card {
 
 .sentibot-submission .robot {
     width: 20vw;
-    height: 25vw;
+    height: 22vw;
+}
+
+.ant-card-body .CircularProgressbar {
+    width: 100px;
+}
+
+.submission-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.submission-badge {
+    display: inline-block;
+    min-width: 16px;
+    padding: 25px;
+    border-radius: 50%;
+    font-size: 75px;
+    text-align: center;
+    background: #51cbcf;
+    color: #fefefe;
+    border: 10px double #fefefe;
 }

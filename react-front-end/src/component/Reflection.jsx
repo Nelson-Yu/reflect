@@ -54,9 +54,7 @@ class Reflection extends Component {
     if (submitted) {
       card = <ReflectionResult/>
     } else {
-      card = <ReflectionResult/>
-
-      // card = <ReflectionForm action={this.handler}/>
+      card = <ReflectionForm action={this.handler}/>
     }
     return (
       <>
