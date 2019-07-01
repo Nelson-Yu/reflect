@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from 'moment-timezone';
 import Productivity from "./ProductivityPulse";
 import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
 import Mood from "./MoodChart";
 import Tasks from "./Tasks";
-import MoodDisplay from "./MoodDisplayToday";
 import Spinner from "./loaders/Spinner";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
@@ -34,37 +34,17 @@ const { SubMenu } = Menu;
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      message: "Click the button to load data!"
-    };
   }
-
-  componentWillMount() {
-    // this.fetchData();
-  }
-
-  fetchData = () => {
-    axios
-      .get("/api/data") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        // handle success
-        console.log(response.data); // The entire response from the Rails API
-
-        console.log(response.data.message); // Just the message
-        this.setState({
-          categories: response.data
-        });
-      });
-  };
 
   render() {
-    const moodBadge = <MoodDisplay/>
+    const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
 
     return (
       <>
         <Layout style={{  marginLeft: 200, height: '1750px' }}>
           <Header style={{ background: "#fff", padding: 0, }}>
-            <h3  style={{ paddingLeft: '75px' }}>Dashboard</h3>
+            <span className="page-header"><strong>Hi Nelson! Welcome To Reflect!</strong></span> 
+            <span className="page-date">{currentDate}</span>
           </Header>
 {/*            <Breadcrumb style={{ margin: "16px", float: 'right', background: '#f4f3ef' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>

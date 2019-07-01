@@ -77,6 +77,19 @@ div.ant-card {
     box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 10px 10px rgba(0,0,0,0.17);
 }
 
+.page-header {
+    padding: 0px 75px;
+    font-size: 2em;
+    color: #625d56;
+}
+
+.page-date {
+    padding: 0px 75px;
+    float: right;
+    font-size: 1.2em
+}
+
+
 .wrapper {
     display: flex;
     justify-content: left;

@@ -57,7 +57,7 @@ class ActivityForm extends Component {
 
       <Row gutter={24} style={{ margin: "0 24px 24px 24px" }}>
         <Col span={10}>
-          <Card title = "What Did You Do Today?" bordered={true} >
+          <Card title = "Activities" bordered={true} >
             <form className="activity-form">
               <ul className="activity-container">
               {
