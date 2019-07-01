@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Badge } from 'antd';
+import { Badge, Card } from 'antd';
 
 import ToDo from "./tasks/ToDo"
 import AddToDo from "./tasks/AddToDo"
@@ -107,14 +107,15 @@ class Tasks extends Component {
 
   render() {
     return (
-      <>
-        <AddToDo addToDo={this.addToDo} /> 
-        <div>
-          <Badge count={this.completedCounter()} style={{ backgroundColor: '#52c41a' }} />  
-          <Badge count={this.incompletedCounter()} />
+      <Card title="Tasks" bordered={true}>
+        <div className="task-badges">
+          <Badge count={this.completedCounter()} style={{ backgroundColor: '#4EBA64', fontSize: "16px" }} /> <span>Complete &nbsp; &nbsp;</span>  
+          <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "16px" }}/> <span>Incomplete</span>
         </div>
+        <AddToDo addToDo={this.addToDo} /> 
+        <br/>
         <ToDo todo={this.state.todo} markComplete={this.markComplete} deleteTask={this.deleteTask}/>
-      </>
+      </Card>
     );
   }
 }

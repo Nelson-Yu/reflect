@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input } from 'antd'
+import { Button, Form, Input, Icon } from 'antd'
 
 export class AddTodo extends Component {
   state = {
@@ -30,7 +30,7 @@ export class AddTodo extends Component {
             onChange={this.onChange}
             required
           />
-          <Button type="primary" onClick={this.onSubmit}>Submit</Button>
+          <Button type="primary" onClick={this.onSubmit}><Icon type="plus" /></Button>
       </form>
     )
   }

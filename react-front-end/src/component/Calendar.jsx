@@ -109,18 +109,19 @@ class Archive extends Component {
   };
 
   render() {
+    const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
+    const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
+
     return (
       <>
           <Layout style={{ marginLeft: 200 }}>
-            <Header style={{ background: '#fff', padding: 0 }} >
-            <h3>Calender Page</h3>
+            <Header style={{ background: "#fff", padding: 0, }}>
+              <span className="page-header"><strong>Look Back On Your Past Reflections!</strong></span> 
+              <span className="page-date">{currentDate}</span>
             </Header>
-            <Content style={{ margin: '0 16px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>User</Breadcrumb.Item>
-                <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
-              </Breadcrumb>
-              <h3> This Will Be The Calender</h3>
+            <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
+              <div style={{ padding: "24px"}}>
+                <h3> This Will Be The Calender</h3>
                 <Card style={{ width: 400, border: '1px solid #d9d9d9', borderRadius: 4, float: 'left', }}>
            {/*       <Alert
                     message={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`}
@@ -130,7 +131,7 @@ class Archive extends Component {
                 <div>
                   <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
                     <h4>Mood Rank: </h4>
-                    <p>{this.state.mood}</p>
+                    <p>{moodRating}</p>
                     <h4>Question 1</h4>
                     <p>{this.state.answer_1}</p>
                     <h4>Question 2</h4>
@@ -139,6 +140,7 @@ class Archive extends Component {
                     <p>{this.state.answer_3}</p>
                   </Card>
                 </div>
+              </div>
             </Content>
 
             <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>

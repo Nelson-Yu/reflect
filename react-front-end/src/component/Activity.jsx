@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import moment from "moment-timezone";
 
 import ActivityForm from "./forms/ActivityForm";
 
@@ -17,38 +18,22 @@ const { Header, Content, Footer, Sider } = Layout;
 class Activity extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      message: "Click the button to load data!"
-    };
   }
 
-  fetchData = () => {
-    axios
-      .get("/api/data") // You can simply make your requests to "/api/whatever you want"
-      .then(response => {
-        // handle success
-        console.log(response.data); // The entire response from the Rails API
-
-        console.log(response.data.message); // Just the message
-        this.setState({
-          message: response.data.message
-        });
-      });
-  };
-
   render() {
+    const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
+
     return (
       <>
           <Layout style={{ marginLeft: 200 }}>
-            <Header style={{ background: '#fff', padding: 0 }} >
-            <h3>Activity Page</h3>
+            <Header style={{ background: "#fff", padding: 0, }}>
+              <span className="page-header"><strong>What Did You Do Today?</strong></span> 
+              <span className="page-date">{currentDate}</span>
             </Header>
-            <Content style={{ margin: '0 16px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>User</Breadcrumb.Item>
-                <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
-              </Breadcrumb>
-              <ActivityForm/>
+            <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
+              <div style={{ padding: "24px"}}>
+                <ActivityForm/>
+              </div>
             </Content>
           </Layout>
       </>

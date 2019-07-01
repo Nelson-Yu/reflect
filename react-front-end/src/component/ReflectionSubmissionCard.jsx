@@ -52,7 +52,7 @@ class ReflectionResult extends Component {
     return (
       <> 
       { (!loading) ? (
-        <Card title = "Calculating" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
+        <Card title = "Calculating Mood Score..." bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
           <div className="sentibot-submission">
             <p className="submission-text"> 
               <strong>SentiBOT Is Calculating...</strong>

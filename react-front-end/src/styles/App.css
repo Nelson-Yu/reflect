@@ -36,8 +36,6 @@
     background: red;
 }
 
-
-
 .ant-layout {
     background: #f4f3ef;
     height: 100%;
@@ -79,6 +77,19 @@ div.ant-card {
     box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 10px 10px rgba(0,0,0,0.17);
 }
 
+.page-header {
+    padding: 0px 75px;
+    font-size: 2em;
+    color: #625d56;
+}
+
+.page-date {
+    padding: 0px 75px;
+    float: right;
+    font-size: 1.2em
+}
+
+
 .wrapper {
     display: flex;
     justify-content: left;
@@ -95,7 +106,7 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: green;
+    background: #4EBA64;
     color: #fefefe;
 }
 
@@ -107,8 +118,8 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: yellow;
-    color: #fefefe;
+    background: #FBC658;
+    color: #2c2b2b;
 }
 
 .badge-red {
@@ -119,7 +130,7 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: red;
+    background: #EF8157;
     color: #fefefe;
 }
 
@@ -168,4 +179,10 @@ div.ant-card {
     background: #51cbcf;
     color: #fefefe;
     border: 10px double #fefefe;
+}
+
+
+/* tasks css */
+.task-badges {
+    padding-bottom: 12px;
 }
