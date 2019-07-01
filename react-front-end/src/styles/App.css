@@ -128,3 +128,9 @@ div.ant-card {
     font-size: 16px;
 
 }
+
+.sentibot-form .robot {
+    transform: translate(0px, 100px);
+    width: 20vw;
+    height: 20vw;
+}
