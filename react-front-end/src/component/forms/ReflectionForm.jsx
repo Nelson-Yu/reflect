@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { ReactComponent as Robot } from "../../assets/robot.svg"
+import "../../styles/Robot.css"
 
-import { Input, Form, Button, Radio, Card } from 'antd';
+
+import { Input, Form, Button, Radio, Card, Row, Col } from 'antd';
 
 const { TextArea } = Input
 
@@ -92,45 +95,50 @@ class Answer extends Component {
         : null;
     return (
       <>
-        <Card title = "Reflection Form" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 200px 0 200px" }}>
-          <Form layout={formLayout} className="reflection-form">
-            <Form.Item >
-              <Radio.Group size="large" >
-                <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187146.svg'}/></Radio.Button>
-                <Radio.Button value="-0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187143.svg'} /></Radio.Button>
-                <Radio.Button value="0" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187136.svg'} /></Radio.Button>
-                <Radio.Button value="0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187142.svg'} /></Radio.Button>
-                <Radio.Button value="1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187159.svg'} /></Radio.Button>
-              </Radio.Group>
-            </Form.Item>
-
-            <Form.Item {...formItemLayout}
-            >
-              <p>How was your day?</p>
-              <TextArea
-              placeholder="input placeholder"
-              onChange={this.handleAnswer1}
-              autosize={{ minRows: 2, maxRows: 4 }}
-              />
-            </Form.Item>
-            <Form.Item {...formItemLayout}>
-              <p>What was the most impactful thing you did today?</p>
-              <TextArea
-              placeholder="input placeholder"
-              onChange={this.handleAnswer2}
-              autosize={{ minRows: 2, maxRows: 4 }}/>
-            </Form.Item>
-            <Form.Item {...formItemLayout}>
-              <p>Is there anything exciting happening tomorrow?</p>
-              <TextArea
-              placeholder="input placeholder"
-              onChange={this.handleAnswer3}
-              autosize={{ minRows: 2, maxRows: 4 }}/>
-            </Form.Item>
-            <Form.Item {...buttonItemLayout}>
-              <Button type="primary" onClick={(event) => {this.props.action(event); this.addResponse(event); }}>Submit</Button>
-            </Form.Item>
-          </Form>
+        <Card title = "Reflection Form" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 150px" }}>
+          <Row gutter={24}>
+            <Col span={8} className="sentibot-form">
+              <Robot />
+            </Col>
+            <Col span={16}>
+              <Form layout={formLayout} className="reflection-form">
+                <Form.Item >
+                  <Radio.Group size="large" >
+                    <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187146.svg'}/></Radio.Button>
+                    <Radio.Button value="-0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187143.svg'} /></Radio.Button>
+                    <Radio.Button value="0" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187136.svg'} /></Radio.Button>
+                    <Radio.Button value="0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187142.svg'} /></Radio.Button>
+                    <Radio.Button value="1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187159.svg'} /></Radio.Button>
+                  </Radio.Group>
+                </Form.Item>
+                <Form.Item {...formItemLayout}>
+                  <p>How was your day?</p>
+                  <TextArea
+                  placeholder="input placeholder"
+                  onChange={this.handleAnswer1}
+                  autosize={{ minRows: 2, maxRows: 4 }}
+                  />
+                </Form.Item>
+                <Form.Item {...formItemLayout}>
+                  <p>What was the most impactful thing you did today?</p>
+                  <TextArea
+                  placeholder="input placeholder"
+                  onChange={this.handleAnswer2}
+                  autosize={{ minRows: 2, maxRows: 4 }}/>
+                </Form.Item>
+                <Form.Item {...formItemLayout}>
+                  <p>Is there anything exciting happening tomorrow?</p>
+                  <TextArea
+                  placeholder="input placeholder"
+                  onChange={this.handleAnswer3}
+                  autosize={{ minRows: 2, maxRows: 4 }}/>
+                </Form.Item>
+                <Form.Item {...buttonItemLayout}>
+                  <Button type="primary" onClick={(event) => {this.props.action(event); this.addResponse(event); }}>Submit</Button>
+                </Form.Item>
+              </Form>
+            </Col>
+          </Row>
         </Card>
       </>
 

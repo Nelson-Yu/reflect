@@ -69,6 +69,7 @@ class Reflection extends Component {
             </Breadcrumb>
             {/*<ReflectionForm action={this.handler}/>*/}
             {card}
+            {/* <Robot/> */}
           </Content>
           <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>
         </Layout>
