@@ -199,6 +199,60 @@ div.ant-card {
     color: #b917b9;
 }
 
+/* INSIGHT 3 */
+
+.weekly-badge {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    border: 5px double white;
+    background: #EF8157;
+    padding: 12.5px;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    -webkit-transition: background-color 1s ease-out;
+    -moz-transition: background-color 1s ease-out;
+    -o-transition: background-color 1s ease-out;
+    transition: background-color 1s ease-out;
+}
+
+.weekly-badge .sofdev-up{
+    display: none;
+    font-size: 20px;
+    padding-top: 10px;
+    color: #fefefe;
+}
+
+.weekly-badge img{
+    height: 60px;
+    width: 60px;
+}
+
+.weekly-badge:hover {
+    background: #66615a;
+    cursor: pointer;
+}
+
+
+.weekly-badge:hover .sofdev-up{
+    display: inline;
+}
+
+.weekly-badge:hover img{
+    display: none;
+}
+
+
+.weekly-text{
+    font-size: 16px;
+    padding: 24px 0px 0px;;
+}
+
+.weekly-text strong{
+    color: #EF8157;
+}
+
 
 /* MOOD DISPLAY  */
 
