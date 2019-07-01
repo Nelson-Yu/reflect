@@ -1,15 +1,15 @@
 import React from 'react';
 
 const Activities = [
-  {id: 'cb1', value: 'Running', image: "https://img.icons8.com/ios/100/000000/treadmill-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/treadmill-filled.png", isChecked: false },
-  {id: 'cb2', value: 'Biking', image: "https://img.icons8.com/ios/100/000000/cycling-road-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/cycling-road-filled.png", isChecked: false },
+  {id: 'cb1', value: 'Run', image: "https://img.icons8.com/ios/100/000000/treadmill-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/treadmill-filled.png", isChecked: false },
+  {id: 'cb2', value: 'Bike', image: "https://img.icons8.com/ios/100/000000/cycling-road-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/cycling-road-filled.png", isChecked: false },
   {id: 'cb3', value: 'Workout', image: "https://img.icons8.com/ios/100/000000/flex-biceps-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/flex-biceps-filled.png", isChecked: false },
   {id: 'cb4', value: 'Sports', image: "https://img.icons8.com/ios/100/000000/basketball-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/basketball-filled.png", isChecked: false },
   {id: 'cb5', value: 'Travel', image: "https://img.icons8.com/ios/100/000000/airplane-take-off-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/airplane-take-off-filled.png", isChecked: false },
-  {id: 'cb6', value: 'Friends', image: "https://img.icons8.com/ios/100/000000/friends-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/friends-filled.png", isChecked: false },
+  {id: 'cb6', value: 'Socialize', image: "https://img.icons8.com/ios/100/000000/friends-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/friends-filled.png", isChecked: false },
   {id: 'cb7', value: 'Date', image: "https://img.icons8.com/ios/100/000000/novel-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/novel-filled.png", isChecked: false },
   {id: 'cb8', value: 'Party', image: "https://img.icons8.com/ios/100/000000/confetti-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/confetti-filled.png", isChecked: false },
-  {id: 'cb9', value: 'Event', image: "https://img.icons8.com/ios/50/000000/tear-off-calendar-filled.png", image2: "https://img.icons8.com/ios/50/000000/tffffff/ear-off-calendar-filled.png", isChecked: false },
+  {id: 'cb9', value: 'Event', image: "https://img.icons8.com/ios/50/000000/tear-off-calendar-filled.png", image2: "https://img.icons8.com/ios/50/000000/ffffff/tear-off-calendar-filled.png", isChecked: false },
   {id: 'cb10', value: 'Games', image: "https://img.icons8.com/ios/100/000000/controller-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/controller-filled.png", isChecked: false },
   {id: 'cb11', value: 'Read', image: "https://img.icons8.com/ios/100/000000/book-stack-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/book-stack-filled.png", isChecked: false },
   {id: 'cb12', value: 'Movie', image: "https://img.icons8.com/ios/100/000000/movie-projector-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/movie-projector-filled.png", isChecked: false },

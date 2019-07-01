@@ -18,6 +18,7 @@ input[type="checkbox"][id^="cb"] {
 .activity-icon {
   /* border: 1px solid #fff; */
   border-radius: 50%;
+  border: 5px double white;
   background: #EF8157;
   padding: 10px;
   display: block;
@@ -36,8 +37,9 @@ input[type="checkbox"][id^="cb"] {
 }
 
 :checked + .activity-icon {
-  border-color: #ddd;
+  /* border-color: #ddd; */
   background-color: #4EBA64;
+  border: 5px double white;
 }
 
 :checked + .activity-icon img {
@@ -56,4 +58,42 @@ input[type="checkbox"][id^="cb"] {
 
 .activity-form {
   text-align: center;
+}
+
+.sentibot-activities .robot{
+  transform: translate(-60px, 20px);
+  width: 20vw;
+  height: 25vw;
+}
+
+.recap-text{
+  font-size: 22px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #51cacf;
+  padding: 10px;
+  width: 60%;
+  margin: 10px auto;
+
+}
+
+
+.activity-badge {
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  border: 5px double white;
+  background: #FBC658;
+  padding: 12.5px;
+  margin: 5px;
+  text-align: center;
+  height:100px;
+  width: 100px
+
+}
+
+.activity-badge img{
+  padding: 5px;
+  height: 60px;
+  width: 60px;
 }
