@@ -6,6 +6,9 @@ import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
 import Mood from "./MoodChart";
 import Tasks from "./Tasks";
+import TopActivity from "./Insight1";
+import ProductivityStreak from "./Insight2";
+import WeeklyHours from "./Insight3";
 import Spinner from "./loaders/Spinner";
 
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
@@ -54,39 +57,42 @@ class Dashboard extends Component {
             <div style={{ padding: 24, }}>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-                  <Card title="Insight 1" bordered={true}>
-                    <Statistic
+                  <Card title="Top Activity" bordered={true}>
+                    {/* <Statistic
                       title="Active"
                       value={11.28}
                       precision={2}
                       valueStyle={{ color: "#3f8600" }}
                       prefix={<Icon type="arrow-up" />}
                       suffix="%"
-                    />
+                    /> */}
+                    <TopActivity/>
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card title="Insight 2" bordered={true}>
-                    <Statistic
+                  <Card title="Productivity Streak" bordered={true}>
+                    {/* <Statistic
                       title="Idle"
                       value={9.3}
                       precision={2}
                       valueStyle={{ color: "#cf1322" }}
                       prefix={<Icon type="arrow-down" />}
                       suffix="%"
-                    />
+                    /> */}
+                    <ProductivityStreak/>
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card title="Insight 3" bordered={true}>
-                    <Statistic
+                  <Card title="Most Time Spent" bordered={true}>
+                    {/* <Statistic
                       title="Yeeeeeeeeet"
                       value={69}
                       precision={2}
                       valueStyle={{ color: "purple" }}
                       prefix={<Icon type="dribbble" />}
                       suffix="%"
-                    />
+                    /> */}
+                    <WeeklyHours/>
                   </Card>
                 </Col>
               </Row>

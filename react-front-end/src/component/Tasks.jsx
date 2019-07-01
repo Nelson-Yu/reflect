@@ -109,7 +109,7 @@ class Tasks extends Component {
     return (
       <Card title="Tasks" bordered={true}>
         <div className="task-badges">
-          <Badge count={this.completedCounter()} style={{ backgroundColor: '#4EBA64', fontSize: "16px" }} /> <span>Complete &nbsp; &nbsp;</span>  
+          <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "16px" }} /> <span>Complete &nbsp; &nbsp;</span>  
           <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "16px" }}/> <span>Incomplete</span>
         </div>
         <AddToDo addToDo={this.addToDo} /> 
