@@ -109,6 +109,9 @@ class Archive extends Component {
   };
 
   render() {
+
+    const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
+
     return (
       <>
           <Layout style={{ marginLeft: 200 }}>
@@ -130,7 +133,7 @@ class Archive extends Component {
                 <div>
                   <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
                     <h4>Mood Rank: </h4>
-                    <p>{this.state.mood}</p>
+                    <p>{moodRating}</p>
                     <h4>Question 1</h4>
                     <p>{this.state.answer_1}</p>
                     <h4>Question 2</h4>
