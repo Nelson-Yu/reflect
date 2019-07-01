@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import moment from 'moment-timezone';
+import { ReactComponent as Robot } from "../assets/robot.svg"
+import "../styles/Robot.css"
+
 
 import {Card } from 'antd';
 
@@ -11,7 +14,8 @@ class ReflectionResult extends Component {
     super(props);
     this.state = {
       date: moment(current_date),
-      mood: "Loading",
+      mood: "Calculating",
+      loading: false,
     };
   }
 
@@ -22,12 +26,15 @@ class ReflectionResult extends Component {
       .then(response => {
         // handle success
         console.log("Response is" + response.data.rank); // The entire response from the Rails API
-        // console.log(response.data.message); // Just the message
-        if (response.data.rank.length !== 0) {
-          this.setState({
-            mood: response.data.rank[response.data.rank.length - 1]['rank'],
-          });
-        }
+
+        setTimeout(() => {
+          if (response.data.rank.length !== 0) {
+            this.setState({
+              mood: response.data.rank[response.data.rank.length - 1]['rank'],
+              loading: true
+            });
+          }
+        }, 3000);
       });
   };
 
@@ -36,11 +43,28 @@ class ReflectionResult extends Component {
   }
 
   render() {
+    const { loading } = this.state
+
     return (
-      <>
-        <Card title = "Your Reflection has been Submitted" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 200px 0 200px" }}>
+      <> 
+      { (!loading) ? (
+        <Card title = "Calculating" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
+          <div className="sentibot-submission">
+            <p className="submission-text"> 
+              <strong>SentiBOT Is Calculating...</strong>
+            </p>
+            <Robot/>
+          </div>
+          {/* Sentibot has given your response a score of {this.state.mood} */}
+        </Card>
+      ) : (
+        <Card title = "SentiBOT Has Processed Your Reflection" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
+          <div className="sentibot-submission">
+            <Robot/>
+          </div>
           Sentibot has given your response a score of {this.state.mood}
         </Card>
+      )}
       </>
     )
   }

@@ -130,7 +130,20 @@ div.ant-card {
 }
 
 .sentibot-form .robot {
-    transform: translate(0px, 100px);
+    transform: translate(-20px, 100px);
     width: 20vw;
     height: 20vw;
+}
+
+.sentibot-submission {
+    text-align: center;
+}
+
+.sentibot-submission p {
+    font-size: 30px;
+}
+
+.sentibot-submission .robot {
+    width: 20vw;
+    height: 25vw;
 }
