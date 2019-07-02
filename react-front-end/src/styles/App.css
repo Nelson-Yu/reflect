@@ -33,6 +33,34 @@
     }
 }
 
+div .R {
+    display: inline-block;
+
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    text-align: right;
+
+    position: absolute;
+    left: 30px;
+    top: 14px;
+}
+
+div .eflect {
+  position: absolute;
+  left: 56px;
+  top: 14px;
+}
+
+.logo:not(.logo)  {
+  color: "white";
+  font-size: "2.1em";
+  text-align: "center";
+  padding: '15px 0 15px 0';
+  border-bottom: '1px solid #a8a6a4'
+}
+
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
     background: transparent;
     text-decoration: underline;

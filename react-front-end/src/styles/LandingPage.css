@@ -16,6 +16,18 @@ div #login-title .ant-card-head-title {
   font-size: 1.3em;
 }
 
+header h2 {
+    display: inline-block;
+    font-size: 30px;
+
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    text-align: right;
+}
+
+
 .ant-input:focus {
   border-color: #42d0ce;
 }

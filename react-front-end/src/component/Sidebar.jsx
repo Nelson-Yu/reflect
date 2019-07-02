@@ -65,7 +65,7 @@ class Siderbar extends Component {
             }}
             >
 
-            <div className="logo" style={{color: "white", fontSize: "2.1em", textAlign: "center", padding: '11px 0 11px 0', borderBottom: '1px solid #a8a6a4'}}> R e f l e c t </div>
+            <div id="logo-title" className="logo" style={{height: '75px', color: "white", fontSize: "2.1em", textAlign: "center", padding: '15px 0 15px 0', borderBottom: '1px solid #a8a6a4'}}> </div>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" style={{ background: 'transparent' }}>
               <Menu.Item key="1" style={{margin: '30px 0 20px 0' }} >
                 <Icon style={{ fontSize: '1.7em'}} type="pie-chart" />
