@@ -30,7 +30,7 @@ class Settings extends Component {
       <>
         <Layout style={{ marginLeft: 200 }}>
           <Header style={{ background: "#fff", padding: 0, }}>
-            <span className="page-header"><strong>Update Your Profile!</strong></span> 
+            <span className="page-header"><strong>Update Your Profile</strong></span> 
             <span className="page-date">{currentDate}</span>
           </Header>
           <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
@@ -38,7 +38,6 @@ class Settings extends Component {
               <SettingsForm/>
             </div>
           </Content>
-          <Footer style={{ textAlign: "center" }}>Footer heheheh</Footer>
         </Layout>
       </>
     );
