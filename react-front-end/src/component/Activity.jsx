@@ -41,8 +41,8 @@ class Activity extends Component {
     if (submitted) {
       card = <Activities3Days {...this.state.activities}/>
     } else {
-      card = <Activities3Days {...this.state.activities}/>
-      // card = <ActivityForm action={this.submissionHandler}/>
+      // card = <Activities3Days {...this.state.activities}/>
+      card = <ActivityForm action={this.submissionHandler}/>
     }
 
     return (
