@@ -146,9 +146,10 @@ div.ant-card-body::before {
     padding: 24px 0px 0px;
 }
 
-.top-activity-text strong {
-    color: #4eba64;
-}
+
+/* .top-activity-text strong{
+    color: #4EBA64;
+} */
 
 
 /* INSIGHT 2 */
@@ -199,9 +200,11 @@ div.ant-card-body::before {
     padding: 24px 0px 0px;
 }
 
-.productivity-text strong {
-    color: #b917b9;
-}
+
+/* 
+.productivity-text strong{
+    color: #51cbcf;
+} */
 
 
 /* INSIGHT 3 */
@@ -252,9 +255,10 @@ div.ant-card-body::before {
     padding: 24px 0px 0px;
 }
 
-.weekly-text strong {
-    color: #ef8157;
-}
+
+/* .weekly-text strong{
+    color: #EF8157;
+} */
 
 
 /* MOOD DISPLAY  */

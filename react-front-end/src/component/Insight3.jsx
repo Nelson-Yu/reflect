@@ -35,7 +35,7 @@ class WeeklyHours extends Component {
             </span>
           </Col>
           <Col span={17} style={{padding: "0px"}}>
-            <p className="weekly-text">This week you have logged <strong>30+</strong> hours on <strong>Software Development</strong></p>
+            <p className="weekly-text">This week you have logged <strong>30+</strong> hours on <strong>Software Development.</strong></p>
           </Col>
         </Row>
       )}
