@@ -46,6 +46,7 @@
 header.ant-layout-header {
     border-bottom: 1px;
     background: #f4f3ef;
+    height: 75px;
 }
 
 .ant-layout-header h3 {
