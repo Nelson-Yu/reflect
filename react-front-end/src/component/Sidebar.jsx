@@ -57,6 +57,7 @@ class Siderbar extends Component {
             onCollapse={this.onCollapse}
             trigger={null}
             style={{
+              background: 'linear-gradient(45deg, #0b0a0a, #66615a)',
               overflow: 'hidden',
               height: '100vh',
               position: 'fixed',
@@ -64,36 +65,36 @@ class Siderbar extends Component {
             }}
             >
 
-            <div className="logo" style={{color: "white", fontSize: "30px", textAlign: "center"}}> REFLECT </div>
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-              <Menu.Item key="1">
-                <Icon type="pie-chart" />
-                <span>Dashboard</span>
+            <div className="logo" style={{color: "white", fontSize: "30px", textAlign: "center", paddingBottom: '20px'}}> REFLECT </div>
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" style={{ background: 'transparent' }}>
+              <Menu.Item key="1" style={{marginBottom: '15px' }} >
+                <Icon style={{ fontSize: '20px'}} type="pie-chart" />
+                <span style={{ fontSize: '130%'}} >Dashboard</span>
                 <Link to='/' />
               </Menu.Item>
-              <Menu.Item key="2">
-                <Icon type="desktop" />
-                <span>Reflection</span>
+              <Menu.Item key="2" style={{marginBottom: '15px' }} >
+                <Icon style={{ fontSize: '20px'}} type="desktop" />
+                <span style={{ fontSize: '130%'}} >Reflection</span>
                 <Link to='/reflection' />
               </Menu.Item>
-              <Menu.Item key="3">
-                <Icon type="user" />
-                <span>Activities</span>
+              <Menu.Item key="3" style={{marginBottom: '15px' }} >
+                <Icon style={{ fontSize: '20px'}} type="user" />
+                <span style={{ fontSize: '130%'}} >Activities</span>
                 <Link to='/activity' />
               </Menu.Item>
-              <Menu.Item key="4">
-                <Icon type="calendar" />
-                <span>Calender</span>
+              <Menu.Item key="4" style={{marginBottom: '15px' }}>
+                <Icon style={{ fontSize: '20px'}} type="calendar" />
+                <span style={{ fontSize: '130%'}} >Calender</span>
                 <Link to='/calender' />
               </Menu.Item>
-              <Menu.Item key="5">
-                <Icon type="setting" />
-                <span>Settings</span>
+              <Menu.Item key="5" style={{marginBottom: '15px' , marginTop: '58vh' }} >
+                <Icon style={{ fontSize: '20px'}} type="setting" />
+                <span style={{ fontSize: '130%'}} >Settings</span>
                 <Link to='/settings' />
               </Menu.Item>
-              <Menu.Item key="6">
-                <Icon type="logout" />
-                <span>Logout</span>
+              <Menu.Item key="6" style={{marginBottom: '15px' }} >
+                <Icon style={{ fontSize: '20px'}} type="logout" />
+                <span style={{ fontSize: '130%'}} >Logout</span>
                 <Link to='/' />
               </Menu.Item>
             </Menu>

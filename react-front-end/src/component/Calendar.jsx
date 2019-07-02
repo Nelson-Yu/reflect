@@ -47,8 +47,8 @@ class Archive extends Component {
       .get(`/api/archive/${this.state.value.format('YYYY-MM-DD')}`) // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         // handle success
-        console.log(response.data.rank); // The entire response from the Rails API
-        console.log(this.state.value.format('YYYY-MM-DD'));
+        // console.log(this.state.date_exists); // The entire response from the Rails API
+        // console.log(this.state.value.format('YYYY-MM-DD'));
         // console.log(response.data.message); // Just the message
         if (response.data.rank.length !== 0) {
           this.setState({
@@ -77,14 +77,9 @@ class Archive extends Component {
             answer_1: response.data.responses[response.data.responses.length -1]['answer1'],
             answer_2: response.data.responses[response.data.responses.length- 1]['answer2'],
             answer_3: response.data.responses[response.data.responses.length -1]['answer3'],
-            date_exists: true
           });
-        } else {
-          this.setState({
-            date_exists: false
-        });
         }
-        console.log("Does it exist" + this.state.date_exists)
+        // console.log("Does it exist" + this.state.date_exists)
       });
   };
 
@@ -109,36 +104,77 @@ class Archive extends Component {
   };
 
   render() {
+    const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
+    const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
+
+    const answers = () => {
+      if (!this.state.date_exists) {
+        console.log("data does not exist");
+        return (
+          <h4>No responses available for the specified date.</h4>
+        )
+      } else {
+        console.log("data exists");
+
+        return (
+          <div>
+            <h4>How was your day?</h4>
+            <p>{this.state.answer_1}</p>
+            <h4>What was the most impactful thing you did today?</h4>
+            <p>{this.state.answer_2}</p>
+            <h4>Is there anything exciting happening tomorrow?</h4>
+            <p>{this.state.answer_3}</p>
+          </div>
+        )
+      }
+    }
+
+    const colorBadge = () => {
+      if (!this.state.date_exists) {
+        return (
+          <span className="badge-yellow">N/A</span>
+        )
+      }
+
+      if (moodRating < 3.4) {
+        return (
+          <span className="badge-red">{moodRating}</span>
+        )
+      } else if (moodRating > 6.6){
+        return (
+          <span className="badge-green">{moodRating}</span>
+        )
+      } else {
+        return (
+          <span className="badge-yellow">{moodRating}</span>
+        )
+      }
+    }
+
     return (
       <>
           <Layout style={{ marginLeft: 200 }}>
-            <Header style={{ background: '#fff', padding: 0 }} >
-            <h3>Calender Page</h3>
+            <Header style={{ background: "#fff", padding: 0, }}>
+              <span className="page-header"><strong>Look Back On Your Past Reflections!</strong></span>
+              <span className="page-date">{currentDate}</span>
             </Header>
-            <Content style={{ margin: '0 16px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>User</Breadcrumb.Item>
-                <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
-              </Breadcrumb>
-              <h3> This Will Be The Calender</h3>
-                <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4, float: 'left', }}>
+            <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
+              <div style={{ padding: "24px"}}>
+                <h3> This Will Be The Calender</h3>
+                <Card style={{ width: "60vh", border: '1px solid #d9d9d9', borderRadius: 4, float: 'left', }}>
            {/*       <Alert
                     message={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`}
                   />*/}
                   <Calendar value={this.state.value} onSelect={this.onSelect} fullscreen={false} onPanelChange={this.onPanelChange}/>
-                </div>
+                </Card>
                 <div>
-                  <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
+                  <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, marginLeft: "5vw", float: 'left'}}>
                     <h4>Mood Rank: </h4>
-                    <p>{this.state.mood}</p>
-                    <h4>Question 1</h4>
-                    <p>{this.state.answer_1}</p>
-                    <h4>Question 2</h4>
-                    <p>{this.state.answer_2}</p>
-                    <h4>Question 3</h4>
-                    <p>{this.state.answer_3}</p>
+                    <p>{colorBadge()}</p>
+                    {answers()}
                   </Card>
                 </div>
+              </div>
             </Content>
 
             <Footer style={{ textAlign: 'center' }}>Footer heheheh</Footer>

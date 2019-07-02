@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../../styles/Fitness.css";
+import moment from "moment-timezone";
+
 import Activities from "./Activities"
 import { Checkbox } from "./Checkbox";
+import { ReactComponent as Robot } from "../../assets/robot.svg"
+import { Activities3Days } from "./Activities3Days";
+import "../../styles/Fitness.css";
+import "../../styles/Robot.css"
 
 import { Input, Form, Button, Radio, Card, Row, Col } from 'antd';
 
@@ -10,7 +15,8 @@ class ActivityForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activities: Activities
+      activities: Activities,
+      showSubmit: true
     };
   }
 
@@ -28,6 +34,13 @@ class ActivityForm extends Component {
   // componentDidMount() {
   //   this.fetchData();
   // }
+
+  handleShow = () => {
+    this.setState({
+      showSubmit: false
+    })
+  } 
+
 
   handleCheck = (event) => {
     let activities = this.state.activities
@@ -54,25 +67,43 @@ class ActivityForm extends Component {
 
   render() {
     return (
-
       <Row gutter={24} style={{ margin: "0 24px 24px 24px" }}>
         <Col span={10}>
-          <Card title = "What Did You Do Today?" bordered={true} >
+          <Card title = "Activities" bordered={true} >
             <form className="activity-form">
-              <ul className="activity-container">
-              {
-                this.state.activities.map((activity) => {
-                  return (<Checkbox handleCheck={this.handleCheck} {...activity}/>)
-                })
-              }
-              </ul>
-              <Button className="submit-activities" type="primary" onClick={this.addActivty}>Submit</Button>
+              { this.state.showSubmit ? (
+                <>
+                  <ul className="activity-container">
+                  {
+                    this.state.activities.map((activity) => {
+                      return (<Checkbox handleCheck={this.handleCheck} {...activity}/>)
+                    })
+                  }
+                  </ul>
+                  <Button className="submit-activities" type="primary" onClick={(event) => {this.addActivty(event); this.handleShow(event); }}>Submit</Button>
+                </>
+                ) : (
+                  <ul className="activity-container">
+                  {
+                    this.state.activities.map((activity) => {
+                      return (<Checkbox {...activity}/>)
+                    })
+                  }
+                  </ul>
+                )}
             </form>
           </Card>
         </Col>
         <Col span={14}>
-          <Card title="Other Card" bordered={true}>
-            Something for now
+          <Card title="Activities For The Last 3 Days" bordered={true}>
+            <Row gutter={24}>
+              <Col span={8} className="sentibot-activities">
+                <Robot/>
+              </Col>
+              <Col span={16}>
+                <Activities3Days {...this.state.activities}/>
+              </Col>
+            </Row>
           </Card>
         </Col>
       </Row>

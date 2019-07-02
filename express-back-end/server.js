@@ -22,13 +22,19 @@ App.use(BodyParser.urlencoded({ extended: false }));
 App.use(Express.json());
 App.use(cors());
 
+
+
+const key = process.env.RESCUE_TIME_KEY //RescueTime API Key
+
 const current_date = moment()
     .tz("America/Vancouver")
     .format("YYYY-MM-DD");
+
 // GET ROUTE FOR CATEGORY DATA
 App.get("/api/categories", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/data?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&perspective=rank&restrict_kind=overview&format=json", {},
+
+        `https://www.rescuetime.com/anapi/data?key=${key}&perspective=rank&restrict_kind=overview&format=json`, {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
@@ -38,7 +44,7 @@ App.get("/api/categories", (req, res) =>
 // GET ROUTE FOR PRODUCTIVITY CORRELATION CHART
 App.get("/api/pulse", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63zNcY1AP_kC4NAMU1Qbzxz7g9k_6adLF0gjuVP&restrict_begin=2019-06-13&restrict_end=2019-06-27&format=json", {},
+        `https://www.rescuetime.com/anapi/daily_summary_feed?key=${key}&restrict_begin=2019-06-13&restrict_end=2019-06-27&format=json`, {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
@@ -49,13 +55,16 @@ App.get("/api/pulse", (req, res) =>
 App.get("/api/moods", (req, res) => {
     console.log("FETCHING");
 
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const twoWeeksAgo = moment().tz("America/Vancouver").subtract(15, 'days').format("YYYY-MM-DD");
+
     let data = {};
     knex
         .select("rank", "date")
         .table("moods")
         .whereBetween("date", [
-            "2019-06-13T00:00:00.000Z",
-            "2019-06-27T00:00:00.000Z"
+            twoWeeksAgo,
+            yesterday
         ])
         .then(results => {
             data = {
@@ -69,7 +78,7 @@ App.get("/api/moods", (req, res) => {
 //GET ROUTE FOR PRODUCTIVITY CHART
 App.get("/api/productivity", (req, res) =>
     request.get(
-        "https://www.rescuetime.com/anapi/data?key=B63YHZRaIA5BoSVfNUxwB5r1iOZm7uPcPVICwOrD&perspective=rank&restrict_kind=productivity&format=json", {},
+        `https://www.rescuetime.com/anapi/data?key=${key}&perspective=rank&restrict_kind=productivity&format=json`, {},
         (error, response) => {
             res.send(JSON.parse(response.body));
         }
@@ -107,7 +116,7 @@ App.get("/api/archive/:date", (req, res) => {
             data = {
                 rank: results
             };
-            // console.log(data);
+            console.log("The data is" + data.rank);
             res.json(data);
         });
 });
@@ -130,6 +139,54 @@ App.get("/api/response/:date", (req, res) => {
         });
 });
 
+//GET ROUTE FOR TODAY'S MOOD
+App.get("/api/mood/today", (req, res) => {
+    console.log("FETCHING");
+    console.log("Requested date is " + current_date);
+
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const twoWeeksAgo = moment().tz("America/Vancouver").subtract(15, 'days').format("YYYY-MM-DD");
+
+
+    let data = {};
+    knex
+        .select("moods.rank")
+        .from("moods")
+        .where("date", current_date)
+        .then(results => {
+            data = {
+                rank: results
+            };
+            console.log(data);
+            res.json(data);
+        });
+});
+
+//GET ROUTE FOR AVERAGE MOOD
+App.get("/api/mood/weekly", (req, res) => {
+    console.log("FETCHING");
+    console.log("Requested date is " + current_date);
+
+    const yesterday = moment().tz("America/Vancouver").subtract(1, 'days').format("YYYY-MM-DD");
+    const oneWeeksAgo = moment().tz("America/Vancouver").subtract(7, 'days').format("YYYY-MM-DD");
+
+    let data = {};
+    knex
+        .select("rank")
+        .from("moods")
+        .whereBetween("date", [
+            oneWeeksAgo,
+            yesterday
+        ])
+        .then(results => {
+            data = results
+            console.log(data);
+            res.json(data);
+        });
+});
+
+
+
 //GET ROUTE FOR TASKS
 App.get("/api/tasks", (req, res) => {
     console.log("Fetching");
@@ -147,7 +204,7 @@ App.get("/api/tasks", (req, res) => {
 //POST ROUTE FOR REFLECTION ANSWERS
 
 App.post("/api/new-reflection", (req, res) => {
-    console.log(req.body.data);
+    console.log("REquest is " + req.body.data.answer_2);
     console.log(
         natural.getSentimentRank(
             req.body.data.emoji_rank,

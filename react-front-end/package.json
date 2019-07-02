@@ -11,11 +11,16 @@
         "moment": "^2.24.0",
         "moment-timezone": "^0.5.25",
         "node-sass": "^4.12.0",
+        "rc-animate": "^2.8.3",
+        "rc-texty": "^0.2.0",
         "react": "^16.8.6",
         "react-chartjs-2": "^2.7.6",
+        "react-circular-progressbar": "^2.0.1",
         "react-dom": "^16.8.6",
+        "react-loading": "^2.0.3",
         "react-router-dom": "^5.0.1",
-        "react-scripts": "2.1.8"
+        "react-scripts": "2.1.8",
+        "react-transition-group": "^4.2.0"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -32,6 +37,7 @@
     "proxy": "http://localhost:8080",
     "devDependencies": {
         "eslint-plugin-react": "^7.13.0",
-        "eslint-plugin-react-hooks": "^1.6.0"
+        "eslint-plugin-react-hooks": "^1.6.0",
+        "less-loader": "^5.0.0"
     }
 }
