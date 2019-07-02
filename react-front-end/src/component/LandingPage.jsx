@@ -55,7 +55,7 @@ class LandingPage extends Component {
     return (
       <Layout>
         <Header className="header" style={{background: 'linear-gradient(-45deg, #353230, #66615a)', paddingLeft: '70px', height: '120px' }}>
-          <h2 className="first-letter" style={{ float: 'left', fontSize: '2.5em', color: 'white', margin: 'auto', width: '30px', padding: '22px 0 23px 0'}}> R  </h2>
+          <h2 className="first-letter" style={{ float: 'left', fontSize: '2.5em', color: 'white', margin: 'auto', width: '30px', padding: '22px 0 21px 0'}}> R  </h2>
           <h1 style={{ float: 'left', fontSize: '2.5em', color: 'white', margin: 'auto', width: '90%', padding: '22px 0 23px 0'}}> e f l e c t </h1>
         </Header>
  {/*       <div style={{ float: 'left' }}>

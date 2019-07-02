@@ -87,7 +87,7 @@ class Siderbar extends Component {
                 <span style={{ fontSize: '1.4em'}} >Calender</span>
                 <Link to='/calender' />
               </Menu.Item>
-              <Menu.Item key="5" style={{marginBottom: '20px' , marginTop: '50vh' }} >
+              <Menu.Item key="5" style={{marginBottom: '20px' , marginTop: '48vh' }} >
                 <Icon style={{ fontSize: '1.7em'}} type="setting" />
                 <span style={{ fontSize: '1.4em'}} >Settings</span>
                 <Link to='/settings' />

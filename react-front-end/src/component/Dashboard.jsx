@@ -48,8 +48,8 @@ class Dashboard extends Component {
       <>
         <Layout style={{  marginLeft: 200, height: '1750px' }}>
           <Header style={{ background: "#fff", padding: 0, }}>
-            <span className="page-header">Hi Nelson, Welcome To Your Dashboard</span>
-            <span className="page-date">{currentDate}</span>
+            <span className="page-header" style={{ marginTop: '15px' }} >Hi Nelson, Welcome To Your Dashboard</span>
+            <span className="page-date" style={{ marginTop: '15px' }} >{currentDate}</span>
           </Header>
           <div>
             <h3 className="R" style={{float: 'left', color: 'white', fontSize: "2.1em", width: "25px"  }}> R </h3>

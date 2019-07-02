@@ -49,9 +49,13 @@ class Activity extends Component {
       <>
           <Layout style={{ marginLeft: 200 }}>
             <Header style={{ background: "#fff", padding: 0, }}>
-              <span className="page-header">What Did You Do Today?</span> 
+              <span className="page-header">What Did You Do Today?</span>
               <span className="page-date">{currentDate}</span>
             </Header>
+            <div>
+              <h3 className="R" style={{float: 'left', color: 'white', fontSize: "2.1em", width: "25px"  }}> R </h3>
+              <h2 className="eflect" style={{float: 'left', color: "white", fontSize: "2.1em", width: "80%" }}> e f l e c t </h2>
+            </div>
             <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
               <div style={{ padding: "24px"}}>
                 {/* <ActivityForm/> */}
