@@ -13,11 +13,11 @@ export const Activities3Days = props => {
   return (
     <>
 
-      <Card title="Recent Acitvities" bordered={true} style={{ padding: "0 2em", margin: "0% 25%" }}>
+      <Card bordered={true} style={{ padding: "0 2em", margin: "0% 25%" }}>
         <div className="activity-form"> 
           <div className="today-activity">
             <p>
-              <strong className="activity-date"> Today's Activities </strong>
+              <strong className="activity-date"> Today's Activities: </strong>
               <br/>
               <span className="activity-badge">
                 <img src={props[2].image}/> 
@@ -26,14 +26,15 @@ export const Activities3Days = props => {
                 <img src={props[5].image}/> 
               </span>
               <span className="activity-badge">
-                <img src={props[10].image}/> 
+                <img src={props[9].image}/> 
               </span>
               <span className="activity-badge">
-                <img src={props[15].image}/> 
+                <img src={props[10].image}/> 
               </span>
             </p>
+
           </div>
-          <div className="last-3-days">
+          {/* <div className="last-3-days">
             <p>
               <strong className="activity-date"> Last Three Days: </strong>
             </p>
@@ -85,7 +86,7 @@ export const Activities3Days = props => {
                 <img src={props[15].image}/> 
               </span>
             </p>
-          </div>
+          </div> */}
         </div>
       </Card>
     </>

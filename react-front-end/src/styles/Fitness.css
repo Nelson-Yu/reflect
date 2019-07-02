@@ -25,6 +25,11 @@ input[type="checkbox"][id^="cb"] {
   position: relative;
   margin: 0.5em;
   cursor: pointer;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5ss ease-out;
+  transition: background-color 0.5ss ease-out;
+
 }
 
 .activity-icon img {
@@ -62,6 +67,10 @@ input[type="checkbox"][id^="cb"] {
 }
 
 /* Submission Card */
+/* 
+.today-activity {
+  padding: 10em 0em;
+} */
 
 .today-activity .activity-badge {
   display: inline-block;
@@ -69,25 +78,25 @@ input[type="checkbox"][id^="cb"] {
   border-radius: 50%;
   border: 5px double white;
   background: #FBC658;
-  padding: 1.2em;
-  margin: 0.2em;
+  padding: 1.5em;
+  margin: 5em 1em;
   text-align: center;
-  height: 8em;
-  width: 8em;
+  height: 10em;
+  width: 10em;
   cursor: pointer;
 }
 
 .today-activity .activity-badge img{
   padding: 5px;
-  height: 5em;
-  width: 5em;
+  height: 6em;
+  width: 6em;
 }
 
 .today-activity .activity-date{
   font-size: 1.5em;
 }
 
-.last-3-days .activity-badge {
+/* .last-3-days .activity-badge {
   display: inline-block;
   position: relative;
   border-radius: 50%;
@@ -114,4 +123,4 @@ input[type="checkbox"][id^="cb"] {
 
 .last-3-days .l3-activity-date{
   font-size: 1em;
-}
+} */
