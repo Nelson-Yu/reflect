@@ -49,73 +49,45 @@ class Dashboard extends Component {
             <span className="page-header"><strong>Hi Nelson, Welcome To Reflect</strong></span>
             <span className="page-date">{currentDate}</span>
           </Header>
-{/*            <Breadcrumb style={{ margin: "16px", float: 'right', background: '#f4f3ef' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
-            </Breadcrumb>*/}
           <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
             <div style={{ padding: 24, }}>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-                  <Card title="Top Activity" bordered={true}>
-                    {/* <Statistic
-                      title="Active"
-                      value={11.28}
-                      precision={2}
-                      valueStyle={{ color: "#3f8600" }}
-                      prefix={<Icon type="arrow-up" />}
-                      suffix="%"
-                    /> */}
+                  <Card bordered={true}>
                     <TopActivity/>
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card title="Productivity Streak" bordered={true}>
-                    {/* <Statistic
-                      title="Idle"
-                      value={9.3}
-                      precision={2}
-                      valueStyle={{ color: "#cf1322" }}
-                      prefix={<Icon type="arrow-down" />}
-                      suffix="%"
-                    /> */}
+                  <Card  bordered={true}>
                     <ProductivityStreak/>
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card title="Most Time Spent" bordered={true}>
-                    {/* <Statistic
-                      title="Yeeeeeeeeet"
-                      value={69}
-                      precision={2}
-                      valueStyle={{ color: "purple" }}
-                      prefix={<Icon type="dribbble" />}
-                      suffix="%"
-                    /> */}
+                  <Card  bordered={true}>
                     <WeeklyHours/>
                   </Card>
                 </Col>
               </Row>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-                  <Card title="Productivity Chart" bordered={true}>
+                  <Card title="Productivity Pulse" bordered={true}>
                     <Productivity />
                   </Card>
                 </Col>
                 <Col span={16}>
-                  <Card title="Mood Correlation Chart" bordered={true}>
+                  <Card title="Mood-Productivity Correlation" bordered={true}>
                     <Correlations />
                   </Card>
                 </Col>
               </Row>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={14}>
-                  <Card title="Mood" bordered={true}>
+                  <Card title="Weekly Mood" bordered={true}>
                     <Mood />
                   </Card>
                 </Col>
                 <Col span={10}>
-                  <Card title="Category Chart" bordered={true}>
+                  <Card title="Spotlight On Today" bordered={true}>
                     <Categories />
                   </Card>
                 </Col>

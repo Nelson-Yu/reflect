@@ -16,7 +16,6 @@ class ActivityForm extends Component {
     super(props);
     this.state = {
       activities: Activities,
-      showSubmit: true
     };
   }
 
@@ -34,12 +33,6 @@ class ActivityForm extends Component {
   // componentDidMount() {
   //   this.fetchData();
   // }
-
-  handleShow = () => {
-    this.setState({
-      showSubmit: false
-    })
-  } 
 
 
   handleCheck = (event) => {
@@ -67,46 +60,20 @@ class ActivityForm extends Component {
 
   render() {
     return (
-      <Row gutter={24} style={{ margin: "0 24px 24px 24px" }}>
-        <Col span={10}>
-          <Card title = "Activities" bordered={true} >
-            <form className="activity-form">
-              { this.state.showSubmit ? (
-                <>
-                  <ul className="activity-container">
-                  {
-                    this.state.activities.map((activity) => {
-                      return (<Checkbox handleCheck={this.handleCheck} {...activity}/>)
-                    })
-                  }
-                  </ul>
-                  <Button className="submit-activities" type="primary" onClick={(event) => {this.addActivty(event); this.handleShow(event); }}>Submit</Button>
-                </>
-                ) : (
-                  <ul className="activity-container">
-                  {
-                    this.state.activities.map((activity) => {
-                      return (<Checkbox {...activity}/>)
-                    })
-                  }
-                  </ul>
-                )}
-            </form>
-          </Card>
-        </Col>
-        <Col span={14}>
-          <Card title="Activities For The Last 3 Days" bordered={true}>
-            <Row gutter={24}>
-              <Col span={8} className="sentibot-activities">
-                <Robot/>
-              </Col>
-              <Col span={16}>
-                <Activities3Days {...this.state.activities}/>
-              </Col>
-            </Row>
-          </Card>
-        </Col>
-      </Row>
+      <Card bordered={true} style={{ padding: "0 2em", margin: "0% 25%" }}>
+        <form className="activity-form">
+            <>
+              <ul className="activity-container">
+                {
+                  this.state.activities.map((activity) => {
+                    return (<Checkbox handleCheck={this.handleCheck} {...activity}/>)
+                  })
+                }
+              </ul>
+              <Button className="submit-activities" type="primary" onClick={(event) => {this.props.action(event); this.addActivty(event); }}>Submit</Button>
+            </>  
+        </form>
+      </Card>
     );
   };
 }

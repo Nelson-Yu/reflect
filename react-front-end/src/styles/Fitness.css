@@ -20,17 +20,17 @@ input[type="checkbox"][id^="cb"] {
   border-radius: 50%;
   border: 5px double white;
   background: #EF8157;
-  padding: 10px;
+  padding: 1em;
   display: block;
   position: relative;
-  margin: 10px;
+  margin: 0.5em;
   cursor: pointer;
 }
 
 .activity-icon img {
-  padding: 5px;
-  height: 60px;
-  width: 60px;
+  padding: 0.2em;
+  height: 5.5em;
+  width: 5.5em;
   transition-duration: 0.2s;
   transform: scale(0.8);
   transform-origin: 50% 50%;
@@ -47,6 +47,7 @@ input[type="checkbox"][id^="cb"] {
 }
 
 .activity .text {
+  font-size: 1.2em;
   text-align: center;
   font-weight: 600;
 } 
@@ -60,40 +61,57 @@ input[type="checkbox"][id^="cb"] {
   text-align: center;
 }
 
-.sentibot-activities .robot{
-  transform: translate(-60px, 20px);
-  width: 20vw;
-  height: 25vw;
-}
+/* Submission Card */
 
-.recap-text{
-  font-size: 22px;
-  text-align: center;
-  border-radius: 15px;
-  background-color: #51cacf;
-  padding: 10px;
-  width: 60%;
-  margin: 10px auto;
-
-}
-
-
-.activity-badge {
+.today-activity .activity-badge {
   display: inline-block;
   position: relative;
   border-radius: 50%;
   border: 5px double white;
   background: #FBC658;
-  padding: 12.5px;
-  margin: 5px;
+  padding: 1.2em;
+  margin: 0.2em;
   text-align: center;
-  height:100px;
-  width: 100px
-
+  height: 8em;
+  width: 8em;
+  cursor: pointer;
 }
 
-.activity-badge img{
+.today-activity .activity-badge img{
   padding: 5px;
-  height: 60px;
-  width: 60px;
+  height: 5em;
+  width: 5em;
+}
+
+.today-activity .activity-date{
+  font-size: 1.5em;
+}
+
+.last-3-days .activity-badge {
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  border: 5px double white;
+  background: #FBC658;
+  padding: 1.2em;
+  margin: 0.2em;
+  text-align: center;
+  height: 6em;
+  width: 6em;
+  cursor: pointer;
+}
+
+.last-3-days .activity-badge img{
+  padding: 5px;
+  height: 3em;
+  width: 3em;
+}
+
+.last-3-days .activity-date{
+  font-size: 1.5em;
+}
+
+
+.last-3-days .l3-activity-date{
+  font-size: 1em;
 }
