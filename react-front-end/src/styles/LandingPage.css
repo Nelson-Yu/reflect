@@ -6,7 +6,29 @@
 .ant-btn-primary {
   background: #42d0ce;
   border: none;
-
 }
 
+.ant-btn-primary:hover {
+  background: #29a3a1;
+}
 
+div #login-title .ant-card-head-title {
+  font-size: 2em;
+}
+
+.ant-input:focus {
+  border-color: #42d0ce;
+}
+
+.ant-input:hover {
+  border-color: #42d0ce;
+}
+
+.ant-checkbox-inner {
+  height: 20px;
+  width: 20px;
+}
+
+.ant-checkbox:hover {
+  border-color: #42d0ce;
+}
