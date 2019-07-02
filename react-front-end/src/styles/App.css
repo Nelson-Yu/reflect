@@ -83,13 +83,13 @@ div.ant-card {
 /* CONTENT HEADER */
 
 .page-header {
-    padding: 0px 75px;
-    font-size: 2em;
+    padding: 0px 2em;
+    font-size: 1.5em;
     color: #625d56;
 }
 
 .page-date {
-    padding: 0px 75px;
+    padding: 0px 2em;
     float: right;
     font-size: 1.2em
 }
