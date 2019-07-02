@@ -57,6 +57,7 @@ class Correlations extends Component {
     return axios
       .get("api/pulse") // You can simply make your requests to "/api/whatever you want"
       .then(response => {
+        console.log("response: ", response.data);
         const mappedData = response.data
           .map(({ productivity_pulse, date }) => {
             return { pulse: productivity_pulse / 10, date };
