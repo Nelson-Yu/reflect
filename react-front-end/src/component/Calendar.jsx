@@ -47,8 +47,8 @@ class Archive extends Component {
       .get(`/api/archive/${this.state.value.format('YYYY-MM-DD')}`) // You can simply make your requests to "/api/whatever you want"
       .then(response => {
         // handle success
-        console.log(response.data.rank); // The entire response from the Rails API
-        console.log(this.state.value.format('YYYY-MM-DD'));
+        // console.log(this.state.date_exists); // The entire response from the Rails API
+        // console.log(this.state.value.format('YYYY-MM-DD'));
         // console.log(response.data.message); // Just the message
         if (response.data.rank.length !== 0) {
           this.setState({
@@ -77,14 +77,9 @@ class Archive extends Component {
             answer_1: response.data.responses[response.data.responses.length -1]['answer1'],
             answer_2: response.data.responses[response.data.responses.length- 1]['answer2'],
             answer_3: response.data.responses[response.data.responses.length -1]['answer3'],
-            date_exists: true
           });
-        } else {
-          this.setState({
-            date_exists: false
-        });
         }
-        console.log("Does it exist" + this.state.date_exists)
+        // console.log("Does it exist" + this.state.date_exists)
       });
   };
 
@@ -112,7 +107,35 @@ class Archive extends Component {
     const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
     const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
 
+    const answers = () => {
+      if (!this.state.date_exists) {
+        console.log("data does not exist");
+        return (
+          <h4>No responses available for the specified date.</h4>
+        )
+      } else {
+        console.log("data exists");
+
+        return (
+          <div>
+            <h4>How was your day?</h4>
+            <p>{this.state.answer_1}</p>
+            <h4>What was the most impactful thing you did today?</h4>
+            <p>{this.state.answer_2}</p>
+            <h4>Is there anything exciting happening tomorrow?</h4>
+            <p>{this.state.answer_3}</p>
+          </div>
+        )
+      }
+    }
+
     const colorBadge = () => {
+      if (!this.state.date_exists) {
+        return (
+          <span className="badge-yellow">N/A</span>
+        )
+      }
+
       if (moodRating < 3.4) {
         return (
           <span className="badge-red">{moodRating}</span>
@@ -148,12 +171,7 @@ class Archive extends Component {
                   <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
                     <h4>Mood Rank: </h4>
                     <p>{colorBadge()}</p>
-                    <h4>Question 1</h4>
-                    <p>{this.state.answer_1}</p>
-                    <h4>Question 2</h4>
-                    <p>{this.state.answer_2}</p>
-                    <h4>Question 3</h4>
-                    <p>{this.state.answer_3}</p>
+                    {answers()}
                   </Card>
                 </div>
               </div>
