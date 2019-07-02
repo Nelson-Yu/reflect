@@ -57,17 +57,17 @@ class Dashboard extends Component {
             <div style={{ padding: 24 }}>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-                  <Card bordered={true} style={{ height: "230px" }}>
+                  <Card bordered={true} style={{ height: "165px" }}>
                     <TopActivity />
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card bordered={true} style={{ height: "230px" }}>
+                  <Card bordered={true} style={{ height: "165px" }}>
                     <ProductivityStreak />
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card bordered={true} style={{ height: "230px" }}>
+                  <Card bordered={true} style={{ height: "165px" }}>
                     <WeeklyHours />
                   </Card>
                 </Col>
