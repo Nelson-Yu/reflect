@@ -71,7 +71,7 @@ header.ant-layout-header {
 }
 
 div.ant-card {
-    border-radius: 15px;
+    border-radius: 10px;
     background: #ffffff;
     border: none;
     box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 10px 10px rgba(0,0,0,0.17);
@@ -336,7 +336,7 @@ div.ant-card {
     justify-content: center;
     align-items: center;
   }
-  
+
 .submission-badge {
     display: inline-block;
     min-width: 16px;

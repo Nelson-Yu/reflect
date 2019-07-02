@@ -161,14 +161,14 @@ class Archive extends Component {
             <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
               <div style={{ padding: "24px"}}>
                 <h3> This Will Be The Calender</h3>
-                <Card style={{ width: 400, border: '1px solid #d9d9d9', borderRadius: 4, float: 'left', }}>
+                <Card style={{ width: "60vh", border: '1px solid #d9d9d9', borderRadius: 4, float: 'left', }}>
            {/*       <Alert
                     message={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`}
                   />*/}
                   <Calendar value={this.state.value} onSelect={this.onSelect} fullscreen={false} onPanelChange={this.onPanelChange}/>
                 </Card>
                 <div>
-                  <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
+                  <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, marginLeft: "5vw", float: 'left'}}>
                     <h4>Mood Rank: </h4>
                     <p>{colorBadge()}</p>
                     {answers()}

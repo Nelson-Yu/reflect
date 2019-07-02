@@ -46,7 +46,7 @@ class Dashboard extends Component {
       <>
         <Layout style={{  marginLeft: 200, height: '1750px' }}>
           <Header style={{ background: "#fff", padding: 0, }}>
-            <span className="page-header"><strong>Hi Nelson! Welcome To Reflect!</strong></span> 
+            <span className="page-header"><strong>Hi Nelson! Welcome To Reflect!</strong></span>
             <span className="page-date">{currentDate}</span>
           </Header>
 {/*            <Breadcrumb style={{ margin: "16px", float: 'right', background: '#f4f3ef' }}>
