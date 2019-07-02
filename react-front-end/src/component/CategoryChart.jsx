@@ -84,7 +84,7 @@ class Categories extends Component {
               categoryData: timeSpent,
               loading: false
             });
-          }, 2000);
+          }, 20000);
         });
     });
   };

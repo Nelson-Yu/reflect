@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import moment from 'moment-timezone';
+import moment from "moment-timezone";
 import Productivity from "./ProductivityPulse";
 import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
@@ -21,7 +21,7 @@ import {
   Card,
   Row,
   Col,
-  Statistic,
+  Statistic
 } from "antd";
 
 import {
@@ -40,30 +40,34 @@ class Dashboard extends Component {
   }
 
   render() {
-    const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
+    const currentDate = moment()
+      .tz("America/Vancouver")
+      .format("dddd, MMMM Do YYYY");
 
     return (
       <>
-        <Layout style={{  marginLeft: 200, height: '1750px' }}>
-          <Header style={{ background: "#fff", padding: 0, }}>
-            <span className="page-header"><strong>Hi Nelson! Welcome To Reflect!</strong></span>
+        <Layout style={{ marginLeft: 200, height: "1750px" }}>
+          <Header style={{ background: "#fff", padding: 0 }}>
+            <span className="page-header">
+              <strong>Hi Nelson! Welcome To Reflect!</strong>
+            </span>
             <span className="page-date">{currentDate}</span>
           </Header>
-{/*            <Breadcrumb style={{ margin: "16px", float: 'right', background: '#f4f3ef' }}>
+          {/*            <Breadcrumb style={{ margin: "16px", float: 'right', background: '#f4f3ef' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Ol' Nelly</Breadcrumb.Item>
             </Breadcrumb>*/}
-          <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
-            <div style={{ padding: 24, }}>
+          <Content style={{ margin: "0 16px", borderTop: "1px solid #908884" }}>
+            <div style={{ padding: 24 }}>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-<<<<<<< HEAD
-                  <Card title="Insight 1" bordered={true} className="card1">
-                    <Statistic
-=======
-                  <Card title="Top Activity" bordered={true}>
+                  <Card
+                    title="Top Activity"
+                    bordered={true}
+                    style={{ height: "230px" }}
+                    id="insight1"
+                  >
                     {/* <Statistic
->>>>>>> 84a6705456e2ae37038224d76f043e760906900a
                       title="Active"
                       value={11.28}
                       precision={2}
@@ -71,17 +75,17 @@ class Dashboard extends Component {
                       prefix={<Icon type="arrow-up" />}
                       suffix="%"
                     /> */}
-                    <TopActivity/>
+                    <TopActivity />
                   </Card>
                 </Col>
                 <Col span={8}>
-<<<<<<< HEAD
-                  <Card title="Insight 2" bordered={true} className="card2">
-                    <Statistic
-=======
-                  <Card title="Productivity Streak" bordered={true}>
+                  <Card
+                    title="Productivity Streak"
+                    bordered={true}
+                    style={{ height: "230px" }}
+                    id="insight1"
+                  >
                     {/* <Statistic
->>>>>>> 84a6705456e2ae37038224d76f043e760906900a
                       title="Idle"
                       value={9.3}
                       precision={2}
@@ -89,17 +93,17 @@ class Dashboard extends Component {
                       prefix={<Icon type="arrow-down" />}
                       suffix="%"
                     /> */}
-                    <ProductivityStreak/>
+                    <ProductivityStreak />
                   </Card>
                 </Col>
                 <Col span={8}>
-<<<<<<< HEAD
-                  <Card title="Insight 3" bordered={true} className="card3">
-                    <Statistic
-=======
-                  <Card title="Most Time Spent" bordered={true}>
+                  <Card
+                    title="Most Time Spent"
+                    bordered={true}
+                    style={{ height: "230px" }}
+                    id="insight1"
+                  >
                     {/* <Statistic
->>>>>>> 84a6705456e2ae37038224d76f043e760906900a
                       title="Yeeeeeeeeet"
                       value={69}
                       precision={2}
@@ -107,30 +111,50 @@ class Dashboard extends Component {
                       prefix={<Icon type="dribbble" />}
                       suffix="%"
                     /> */}
-                    <WeeklyHours/>
+                    <WeeklyHours />
                   </Card>
                 </Col>
               </Row>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-                  <Card title="Productivity Chart" bordered={true}>
+                  <Card
+                    title="Productivity Chart"
+                    bordered={true}
+                    style={{ height: "350px" }}
+                    id="chart1"
+                  >
                     <Productivity />
                   </Card>
                 </Col>
                 <Col span={16}>
-                  <Card title="Mood Correlation Chart" bordered={true}>
+                  <Card
+                    title="Mood Correlation Chart"
+                    bordered={true}
+                    style={{ height: "350px" }}
+                    id="chart1"
+                  >
                     <Correlations />
                   </Card>
                 </Col>
               </Row>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={14}>
-                  <Card title="Mood" bordered={true}>
+                  <Card
+                    title="Mood"
+                    bordered={true}
+                    style={{ height: "420px" }}
+                    id="chart1"
+                  >
                     <Mood />
                   </Card>
                 </Col>
                 <Col span={10}>
-                  <Card title="Category Chart" bordered={true}>
+                  <Card
+                    title="Category Chart"
+                    bordered={true}
+                    style={{ height: "330px" }}
+                    id="chart1"
+                  >
                     <Categories />
                   </Card>
                 </Col>

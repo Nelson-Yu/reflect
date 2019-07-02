@@ -165,7 +165,7 @@ class Correlations extends Component {
           );
           setTimeout(() => {
             this.setState({ pulse: results, mood: results, loading: false });
-          }, 2000);
+          }, 20000);
         }
       );
       this.fetchPulse();

@@ -77,7 +77,7 @@ class Mood extends Component {
               rank: moodRank,
               loading: false
             });
-          }, 2000);
+          }, 20000);
         });
     });
   };
@@ -94,13 +94,13 @@ class Mood extends Component {
           <Spinner height={250} />
         ) : (
           <>
-          <MoodDisplay/>
-          <Bar
-            data={this.state.rank}
-            options={chartOptions}
-            width={400}
-            height={150}
-          />
+            <MoodDisplay />
+            <Bar
+              data={this.state.rank}
+              options={chartOptions}
+              width={400}
+              height={150}
+            />
           </>
         )}
       </>

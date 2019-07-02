@@ -82,15 +82,12 @@ class Productivity extends Component {
             pointRadius: 0,
             pointHoverRadius: 0,
             backgroundColor: [
-<<<<<<< HEAD
-=======
               "#4EBA64",
->>>>>>> 84a6705456e2ae37038224d76f043e760906900a
               "#4acccd",
               "#A8C686",
               "#fcc468",
-              "#b917b9", 
-              "#ef8157",
+              "#b917b9",
+              "#ef8157"
             ],
             borderWidth: 0,
             data: canvas
@@ -119,7 +116,7 @@ class Productivity extends Component {
               productivity: productivityData,
               loading: false
             });
-          }, 2000);
+          }, 200000);
         });
     });
   };

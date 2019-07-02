@@ -47,8 +47,8 @@ header.ant-layout-header {
 }
 
 .ant-layout-header h3 {
-  background: #f4f3ef;
-  padding-left: 10px;
+    background: #f4f3ef;
+    padding-left: 10px;
 }
 
 .ant-layout-content {
@@ -74,8 +74,9 @@ div.ant-card {
     border-radius: 10px;
     background: #ffffff;
     border: none;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.20), 0 10px 10px rgba(0,0,0,0.17);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.17);
 }
+
 
 /* CONTENT HEADER */
 
@@ -88,8 +89,9 @@ div.ant-card {
 .page-date {
     padding: 0px 75px;
     float: right;
-    font-size: 1.2em
+    font-size: 1.2em;
 }
+
 
 /* INSIGHT 1 */
 
@@ -98,7 +100,7 @@ div.ant-card {
     position: relative;
     border-radius: 50%;
     border: 5px double white;
-    background: #FBC658;
+    background: #fbc658;
     padding: 12.5px;
     text-align: center;
     height: 100px;
@@ -109,41 +111,40 @@ div.ant-card {
     transition: background-color 1s ease-out;
 }
 
-.top-activity-badge .mood-up{
+.top-activity-badge .mood-up {
     display: none;
     font-size: 20px;
     padding-top: 10px;
     color: #fefefe;
 }
 
-.top-activity-badge img{
+.top-activity-badge img {
     height: 60px;
     width: 60px;
 }
 
 .top-activity-badge:hover {
-    background: #4EBA64;
+    background: #4eba64;
     cursor: pointer;
 }
 
-
-.top-activity-badge:hover .mood-up{
+.top-activity-badge:hover .mood-up {
     display: inline;
 }
 
-.top-activity-badge:hover img{
+.top-activity-badge:hover img {
     display: none;
 }
 
-
-.top-activity-text{
+.top-activity-text {
     font-size: 16px;
-    padding: 24px 0px 0px;;
+    padding: 24px 0px 0px;
 }
 
-.top-activity-text strong{
-    color: #4EBA64;
+.top-activity-text strong {
+    color: #4eba64;
 }
+
 
 /* INSIGHT 2 */
 
@@ -163,14 +164,14 @@ div.ant-card {
     transition: background-color 1s ease-out;
 }
 
-.productivity-badge .streak-up{
+.productivity-badge .streak-up {
     display: none;
     font-size: 20px;
     padding-top: 10px;
     color: #fefefe;
 }
 
-.productivity-badge img{
+.productivity-badge img {
     height: 60px;
     width: 60px;
 }
@@ -180,24 +181,23 @@ div.ant-card {
     cursor: pointer;
 }
 
-
-.productivity-badge:hover .streak-up{
+.productivity-badge:hover .streak-up {
     display: inline;
 }
 
-.productivity-badge:hover img{
+.productivity-badge:hover img {
     display: none;
 }
 
-
-.productivity-text{
+.productivity-text {
     font-size: 16px;
-    padding: 24px 0px 0px;;
+    padding: 24px 0px 0px;
 }
 
-.productivity-text strong{
+.productivity-text strong {
     color: #b917b9;
 }
+
 
 /* INSIGHT 3 */
 
@@ -206,7 +206,7 @@ div.ant-card {
     position: relative;
     border-radius: 50%;
     border: 5px double white;
-    background: #EF8157;
+    background: #ef8157;
     padding: 12.5px;
     text-align: center;
     height: 100px;
@@ -217,14 +217,14 @@ div.ant-card {
     transition: background-color 1s ease-out;
 }
 
-.weekly-badge .sofdev-up{
+.weekly-badge .sofdev-up {
     display: none;
     font-size: 20px;
     padding-top: 10px;
     color: #fefefe;
 }
 
-.weekly-badge img{
+.weekly-badge img {
     height: 60px;
     width: 60px;
 }
@@ -234,23 +234,21 @@ div.ant-card {
     cursor: pointer;
 }
 
-
-.weekly-badge:hover .sofdev-up{
+.weekly-badge:hover .sofdev-up {
     display: inline;
 }
 
-.weekly-badge:hover img{
+.weekly-badge:hover img {
     display: none;
 }
 
-
-.weekly-text{
+.weekly-text {
     font-size: 16px;
-    padding: 24px 0px 0px;;
+    padding: 24px 0px 0px;
 }
 
-.weekly-text strong{
-    color: #EF8157;
+.weekly-text strong {
+    color: #ef8157;
 }
 
 
@@ -272,7 +270,7 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: #4EBA64;
+    background: #4eba64;
     color: #fefefe;
 }
 
@@ -284,7 +282,7 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: #FBC658;
+    background: #fbc658;
     color: #2c2b2b;
 }
 
@@ -296,15 +294,15 @@ div.ant-card {
     border-radius: 50%;
     font-size: 30px;
     text-align: center;
-    background: #EF8157;
+    background: #ef8157;
     color: #fefefe;
 }
 
 .mood-comparison {
     padding: 10px 30px;
     font-size: 16px;
-
 }
+
 
 /* SENTIBOT ON SUBMISSION */
 
@@ -329,24 +327,14 @@ div.ant-card {
 
 .ant-card-body .CircularProgressbar {
     width: 100px;
+    height: 100%;
 }
 
 .submission-wrapper {
     display: flex;
     justify-content: center;
-<<<<<<< HEAD
-    align-content: center;
-    height: 20vw;
-}
-
-.card1,
-.card2,
-.card3 {
-    height: 10vw;
-}
-=======
     align-items: center;
-  }
+}
 
 .submission-badge {
     display: inline-block;
@@ -362,7 +350,12 @@ div.ant-card {
 
 
 /* tasks css */
+
 .task-badges {
     padding-bottom: 12px;
 }
->>>>>>> 84a6705456e2ae37038224d76f043e760906900a
+
+#chart1:before {
+    display: flex;
+    justify-content: center;
+}
