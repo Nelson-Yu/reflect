@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment-timezone";
 
+import Activities from "./forms/Activities";
 import ActivityForm from "./forms/ActivityForm";
+import { Activities3Days } from "./forms/Activities3Days";
 
 import { Layout,
   Menu,
@@ -18,10 +20,30 @@ const { Header, Content, Footer, Sider } = Layout;
 class Activity extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      activities: Activities,
+      submitted: false
+    }
+  }
+
+  submissionHandler = () => {
+    this.setState({
+        submitted: true
+    });
+    console.log("Submission State" + this.state.submitted)
   }
 
   render() {
     const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
+    const submitted = this.state.submitted;
+    let card;
+
+    if (submitted) {
+      card = <Activities3Days {...this.state.activities}/>
+    } else {
+      // card = <Activities3Days {...this.state.activities}/>
+      card = <ActivityForm action={this.submissionHandler}/>
+    }
 
     return (
       <>
@@ -32,7 +54,8 @@ class Activity extends Component {
             </Header>
             <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
               <div style={{ padding: "24px"}}>
-                <ActivityForm/>
+                {/* <ActivityForm/> */}
+                {card}
               </div>
             </Content>
           </Layout>
