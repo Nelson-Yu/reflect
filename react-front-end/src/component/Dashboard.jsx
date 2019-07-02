@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import moment from 'moment-timezone';
+import moment from "moment-timezone";
 import Productivity from "./ProductivityPulse";
 import Categories from "./CategoryChart";
 import Correlations from "./MoodCorrelationChart";
@@ -21,7 +21,7 @@ import {
   Card,
   Row,
   Col,
-  Statistic,
+  Statistic
 } from "antd";
 
 import {
@@ -40,54 +40,77 @@ class Dashboard extends Component {
   }
 
   render() {
-    const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
+    const currentDate = moment()
+      .tz("America/Vancouver")
+      .format("dddd, MMMM Do YYYY");
 
     return (
       <>
-        <Layout style={{  marginLeft: 200, height: '1750px' }}>
-          <Header style={{ background: "#fff", padding: 0, }}>
-            <span className="page-header"><strong>Hi Nelson, Welcome To Reflect</strong></span>
+        <Layout style={{ marginLeft: 200, height: "1750px" }}>
+          <Header style={{ background: "#fff", padding: 0 }}>
+            <span className="page-header">
+              <strong>Hi Nelson, Welcome To Reflect</strong>
+            </span>
             <span className="page-date">{currentDate}</span>
           </Header>
-          <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
-            <div style={{ padding: 24, }}>
+          <Content style={{ margin: "0 16px", borderTop: "1px solid #908884" }}>
+            <div style={{ padding: 24 }}>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-                  <Card bordered={true}>
-                    <TopActivity/>
+                  <Card bordered={true} style={{ height: "230px" }}>
+                    <TopActivity />
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card  bordered={true}>
-                    <ProductivityStreak/>
+                  <Card bordered={true} style={{ height: "230px" }}>
+                    <ProductivityStreak />
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card  bordered={true}>
-                    <WeeklyHours/>
+                  <Card bordered={true} style={{ height: "230px" }}>
+                    <WeeklyHours />
                   </Card>
                 </Col>
               </Row>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
-                  <Card title="Productivity Pulse" bordered={true}>
+                  <Card
+                    title="Productivity Pulse"
+                    bordered={true}
+                    style={{ height: "350px" }}
+                  >
                     <Productivity />
                   </Card>
                 </Col>
                 <Col span={16}>
-                  <Card title="Mood-Productivity Correlation" bordered={true}>
+                  <Card
+                    title="Mood-Productivity Correlation"
+                    bordered={true}
+                    style={{ height: "350px" }}
+                    id="chart1"
+                  >
                     <Correlations />
                   </Card>
                 </Col>
               </Row>
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={14}>
-                  <Card title="Weekly Mood" bordered={true}>
+                  <Card
+                    title="Weekly Mood"
+                    bordered={true}
+                    style={{ height: "420px" }}
+                    id="chart1"
+                  >
                     <Mood />
                   </Card>
                 </Col>
                 <Col span={10}>
-                  <Card title="Spotlight On Today" bordered={true}>
+                  <Card
+                    title="Spotlight On Today"
+                    bordered={true}
+                    style={{ height: "330px" }}
+                    id="chart1"
+                  >
                     <Categories />
                   </Card>
                 </Col>

@@ -108,7 +108,7 @@ class Categories extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <>
+      <div id="category-chart">
         {loading ? (
           <Spinner />
         ) : (
@@ -116,10 +116,10 @@ class Categories extends Component {
             data={this.state.categoryData}
             options={chartOptions}
             width={400}
-            height={300}
+            height={250}
           />
         )}
-      </>
+      </div>
     );
   }
 }

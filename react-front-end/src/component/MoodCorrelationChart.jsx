@@ -7,6 +7,15 @@ const chartOptions = {
   legend: {
     display: true,
     position: "bottom"
+  },
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true
+        }
+      }
+    ]
   }
 };
 
@@ -169,7 +178,7 @@ class Correlations extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <>
+      <div id="correlation-chart">
         {loading ? (
           <Spinner height={150} />
         ) : (
@@ -180,7 +189,7 @@ class Correlations extends Component {
             height={150}
           />
         )}
-      </>
+      </div>
     );
   }
 }

@@ -89,21 +89,21 @@ class Mood extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <>
+      <div id="mood-chart">
         {loading ? (
           <Spinner height={250} />
         ) : (
           <>
-          <MoodDisplay/>
-          <Bar
-            data={this.state.rank}
-            options={chartOptions}
-            width={400}
-            height={150}
-          />
+            <MoodDisplay />
+            <Bar
+              data={this.state.rank}
+              options={chartOptions}
+              width={400}
+              height={150}
+            />
           </>
         )}
-      </>
+      </div>
     );
   }
 }
