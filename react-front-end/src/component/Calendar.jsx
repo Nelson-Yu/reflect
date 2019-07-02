@@ -112,11 +112,27 @@ class Archive extends Component {
     const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
     const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
 
+    const colorBadge = () => {
+      if (moodRating < 3.4) {
+        return (
+          <span className="badge-red">{moodRating}</span>
+        )
+      } else if (moodRating > 6.6){
+        return (
+          <span className="badge-green">{moodRating}</span>
+        )
+      } else {
+        return (
+          <span className="badge-yellow">{moodRating}</span>
+        )
+      }
+    }
+
     return (
       <>
           <Layout style={{ marginLeft: 200 }}>
             <Header style={{ background: "#fff", padding: 0, }}>
-              <span className="page-header"><strong>Look Back On Your Past Reflections!</strong></span> 
+              <span className="page-header"><strong>Look Back On Your Past Reflections!</strong></span>
               <span className="page-date">{currentDate}</span>
             </Header>
             <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>
@@ -131,7 +147,7 @@ class Archive extends Component {
                 <div>
                   <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: 700, float: 'right'}}>
                     <h4>Mood Rank: </h4>
-                    <p>{moodRating}</p>
+                    <p>{colorBadge()}</p>
                     <h4>Question 1</h4>
                     <p>{this.state.answer_1}</p>
                     <h4>Question 2</h4>
