@@ -78,7 +78,6 @@ class Dashboard extends Component {
                     title="Productivity Pulse"
                     bordered={true}
                     style={{ height: "350px" }}
-                    id="chart1"
                   >
                     <Productivity />
                   </Card>

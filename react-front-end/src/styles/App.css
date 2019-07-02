@@ -365,7 +365,10 @@ div.ant-card {
 
 div #productivity-chart,
 #correlation-chart,
-#category-chart {
+#category-chart,
+#insight1,
+#insight2,
+#insight3 {
     display: flex;
     justify-content: center;
 }
