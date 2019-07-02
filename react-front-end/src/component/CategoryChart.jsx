@@ -84,7 +84,7 @@ class Categories extends Component {
               categoryData: timeSpent,
               loading: false
             });
-          }, 20000);
+          }, 2000);
         });
     });
   };
@@ -108,7 +108,7 @@ class Categories extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <>
+      <div id="category-chart">
         {loading ? (
           <Spinner />
         ) : (
@@ -119,7 +119,7 @@ class Categories extends Component {
             height={250}
           />
         )}
-      </>
+      </div>
     );
   }
 }

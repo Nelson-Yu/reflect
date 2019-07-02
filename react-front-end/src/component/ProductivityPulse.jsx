@@ -115,7 +115,7 @@ class Productivity extends Component {
               productivity: productivityData,
               loading: false
             });
-          }, 200000);
+          }, 2000);
         });
     });
   };
@@ -127,7 +127,7 @@ class Productivity extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <div>
+      <div id="productivity-chart">
         {loading ? (
           <Spinner height={250} />
         ) : (

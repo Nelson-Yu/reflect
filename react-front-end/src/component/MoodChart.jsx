@@ -77,7 +77,7 @@ class Mood extends Component {
               rank: moodRank,
               loading: false
             });
-          }, 20000);
+          }, 2000);
         });
     });
   };
@@ -89,7 +89,7 @@ class Mood extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <>
+      <div id="mood-chart">
         {loading ? (
           <Spinner height={250} />
         ) : (
@@ -103,7 +103,7 @@ class Mood extends Component {
             />
           </>
         )}
-      </>
+      </div>
     );
   }
 }

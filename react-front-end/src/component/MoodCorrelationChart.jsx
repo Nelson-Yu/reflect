@@ -165,7 +165,7 @@ class Correlations extends Component {
           );
           setTimeout(() => {
             this.setState({ pulse: results, mood: results, loading: false });
-          }, 20000);
+          }, 2000);
         }
       );
       this.fetchPulse();
@@ -177,7 +177,7 @@ class Correlations extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <>
+      <div id="correlation-chart">
         {loading ? (
           <Spinner height={150} />
         ) : (
@@ -188,7 +188,7 @@ class Correlations extends Component {
             height={150}
           />
         )}
-      </>
+      </div>
     );
   }
 }

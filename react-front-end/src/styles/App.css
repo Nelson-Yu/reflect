@@ -1,5 +1,4 @@
-@import '~antd/dist/antd.css';
-
+@import "~antd/dist/antd.css";
 .App {
     text-align: center;
 }
@@ -33,7 +32,6 @@
         transform: rotate(360deg);
     }
 }
-
 
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
     background: #fbc658;
@@ -78,11 +76,6 @@ div.ant-card {
     background: #ffffff;
     border: none;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.17);
-}
-
-div.ant-card-body::before {
-    display: flex;
-    justify-content: center;
 }
 
 
@@ -202,13 +195,9 @@ div.ant-card-body::before {
     font-size: 16px;
     padding: 24px 0px 0px;
 }
-<<<<<<< HEAD
 
 
-/* 
-=======
 /*
->>>>>>> d43aae2beee13e9f1f8b261a9238385544d9cfd0
 .productivity-text strong{
     color: #51cbcf;
 } */
@@ -369,4 +358,19 @@ div.ant-card-body::before {
 
 .task-badges {
     padding-bottom: 12px;
+}
+
+
+/* charts */
+
+div #productivity-chart,
+#correlation-chart,
+#category-chart {
+    display: flex;
+    justify-content: center;
+}
+
+div #mood-chart:before {
+    display: flex;
+    justify-content: center;
 }
