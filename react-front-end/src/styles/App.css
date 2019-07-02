@@ -77,6 +77,11 @@ div.ant-card {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.17);
 }
 
+div.ant-card-body::before {
+    display: flex;
+    justify-content: center;
+}
+
 
 /* CONTENT HEADER */
 
@@ -353,9 +358,4 @@ div.ant-card {
 
 .task-badges {
     padding-bottom: 12px;
-}
-
-#chart1:before {
-    display: flex;
-    justify-content: center;
 }
