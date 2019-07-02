@@ -70,13 +70,13 @@ class LandingPage extends Component {
           <div style={{ margin: "0 0 0 0",width: '100px', position: 'absolute', bottom: '0px', right: '0px' }}>
             <img src={leafbottomright} alt="LeafBottomeRight" style={{width: '100%', height: 'auto'}} />
           </div>
-          <div style={{ float: 'left', margin: "130px 0 0 150px", width: '400px' }}>
+          <div style={{ float: 'left', margin: "130px 0 0 200px", width: '60vh' }}>
             <img src={landingscene} alt="LandingScene" style={{width: '100%', height: 'auto'}} />
           </div>
           <div style={{ float: 'right', margin: "0 0 0 0",width: '150px' }}>
             <img src={leaftopright} alt="LeafTopright" style={{width: '100%', height: 'auto'}} />
           </div>
-          <Card title = "Login" bordered={true} style={{ padding: "0 0px 0 0px", margin: "0 200px 0 100px", width: 400, float: 'right'}}>
+          <Card title = "Login" bordered={true} style={{ padding: "0 0px 0 0px", margin: "20vh 200px 0 100px", width: 400, float: 'right'}}>
             <Form layout={formLayout} style={{ margin: "0 45px 0 20px"}}>
               <Form.Item  {...formItemLayout} style={{ margin: "0 25px 0 20px"}}>
                 <Input placeholder="Username" style={{width: '265px', margin: "0 25px 0 0px"}}/>
