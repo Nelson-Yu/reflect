@@ -85,8 +85,8 @@ class Productivity extends Component {
               "#4acccd",
               "#4EBA64",
               "#fcc468",
-              "#b917b9", 
-              "#ef8157",
+              "#b917b9",
+              "#ef8157"
             ],
             borderWidth: 0,
             data: canvas
@@ -127,7 +127,7 @@ class Productivity extends Component {
   render() {
     const { loading } = this.state;
     return (
-      <div>
+      <div id="productivity-chart">
         {loading ? (
           <Spinner height={250} />
         ) : (
