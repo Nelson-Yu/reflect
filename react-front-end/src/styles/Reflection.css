@@ -1,0 +1,57 @@
+/* Reflection Form */
+
+
+.reflection-form .reflection-question {
+  font-size: 1.5em;
+}
+
+.reflection-form textarea {
+  font-size: 1.5em;
+}
+
+.reflection-form .ant-menu-item {
+  width: 2em;
+  height: 2em;
+}
+
+.sentibot-form .robot {
+  transform: translate(-20px, 100px);
+  width: 20vw;
+  height: 20vw;
+}
+
+.sentibot-submission {
+  text-align: center;
+}
+
+.sentibot-submission p {
+  font-size: 30px;
+}
+
+.sentibot-submission .robot {
+  width: 20vw;
+  height: 22vw;
+}
+
+.ant-card-body .CircularProgressbar {
+  width: 100px;
+}
+
+.submission-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submission-badge {
+  display: inline-block;
+  min-width: 16px;
+  padding: 25px;
+  border-radius: 50%;
+  font-size: 75px;
+  text-align: center;
+  background: #51cbcf;
+  color: #fefefe;
+  border: 10px double #fefefe;
+}
+

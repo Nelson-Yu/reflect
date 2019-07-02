@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment-timezone";
+import "../styles/Reflection.css"
 
 import { Layout,
   Menu,

@@ -112,24 +112,21 @@ class Answer extends Component {
                   </Radio.Group>
                 </Form.Item>
                 <Form.Item {...formItemLayout}>
-                  <p>How was your day?</p>
+                  <p className="reflection-question">How was your day?</p>
                   <TextArea
-                  placeholder="input placeholder"
                   onChange={this.handleAnswer1}
                   autosize={{ minRows: 2, maxRows: 4 }}
                   />
                 </Form.Item>
                 <Form.Item {...formItemLayout}>
-                  <p>What was the most impactful thing you did today?</p>
+                  <p className="reflection-question">What was the most impactful thing you did today?</p>
                   <TextArea
-                  placeholder="input placeholder"
                   onChange={this.handleAnswer2}
                   autosize={{ minRows: 2, maxRows: 4 }}/>
                 </Form.Item>
                 <Form.Item {...formItemLayout}>
-                  <p>Is there anything exciting happening tomorrow?</p>
+                  <p className="reflection-question">Is there anything exciting happening tomorrow?</p>
                   <TextArea
-                  placeholder="input placeholder"
                   onChange={this.handleAnswer3}
                   autosize={{ minRows: 2, maxRows: 4 }}/>
                 </Form.Item>
