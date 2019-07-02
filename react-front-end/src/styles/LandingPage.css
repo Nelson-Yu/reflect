@@ -13,7 +13,7 @@
 }
 
 div #login-title .ant-card-head-title {
-  font-size: 2em;
+  font-size: 1.3em;
 }
 
 .ant-input:focus {
@@ -25,10 +25,18 @@ div #login-title .ant-card-head-title {
 }
 
 .ant-checkbox-inner {
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
 }
 
 .ant-checkbox:hover {
   border-color: #42d0ce;
+}
+
+#headline {
+  text-align: center;
+  color: #4d4843;
+  font-size: 2em;
+  margin-top: 10vh;
+  text-decoration: underline;
 }

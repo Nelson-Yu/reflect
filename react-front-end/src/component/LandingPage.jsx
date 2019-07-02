@@ -54,8 +54,8 @@ class LandingPage extends Component {
         : null;
     return (
       <Layout>
-        <Header className="header" style={{background: 'linear-gradient(-45deg, #353230, #66615a)', paddingLeft: '70px', height: '100px' }}>
-          <h1 style={{ fontSize: '2.5em', color: 'white', margin: 'auto', width: '100%', padding: '15px 0 20px 0'}}> R e f l e c t </h1>
+        <Header className="header" style={{background: 'linear-gradient(-45deg, #353230, #66615a)', paddingLeft: '70px', height: '120px' }}>
+          <h1 style={{ fontSize: '2.5em', color: 'white', margin: 'auto', width: '100%', padding: '20px 0 25px 0'}}> R e f l e c t </h1>
         </Header>
  {/*       <div style={{ float: 'left' }}>
           <img src={landingscene} alt="LandingScene" style={{ float: 'left' }} />
@@ -64,32 +64,33 @@ class LandingPage extends Component {
           <div style={{ float: 'left', margin: "0 0 0 0",width: '100px' }}>
             <img src={leaftopleft} alt="LeafTopLeft" style={{width: '100%', height: 'auto'}} />
           </div>
-          <div style={{margin: "0 0 0 0",width: '75px', position: 'absolute', bottom: '0px' }}>
-            <img src={leafbottomleft} alt="LeafBottomeLeft" style={{width: '100%', height: 'auto'}} />
-          </div>
-          <div style={{ margin: "0 0 0 0",width: '100px', position: 'absolute', bottom: '0px', right: '0px' }}>
-            <img src={leafbottomright} alt="LeafBottomeRight" style={{width: '100%', height: 'auto'}} />
-          </div>
-          <div style={{ float: 'left', margin: "130px 0 0 10vw", width: '60vh' }}>
-            <img src={landingscene} alt="LandingScene" style={{width: '100%', height: 'auto'}} />
-          </div>
           <div style={{ float: 'right', margin: "0 0 0 0",width: '150px' }}>
             <img src={leaftopright} alt="LeafTopright" style={{width: '100%', height: 'auto'}} />
           </div>
-          <Card id = "login-title" title = "Login" bordered={true} style={{ padding: "0 0px 0 0px", margin: "20vh 10vw 0 5vw", width: '30vw', float: 'right'}}>
+          <h2 id="headline">Personal Wellness and Productivity Dashboard. </h2>
+          <div style={{ float: 'left', margin: "10vh 0 0 10vw", width: '50vh' }}>
+            <img src={landingscene} alt="LandingScene" style={{width: '100%', height: 'auto'}} />
+          </div>
+          <div style={{margin: "0 0 0 0",width: '75px', position: 'absolute', bottom: '0px' }}>
+            <img src={leafbottomleft} alt="LeafBottomLeft" style={{width: '100%', height: 'auto'}} />
+          </div>
+          <div style={{ margin: "0 0 0 0",width: '100px', position: 'absolute', bottom: '0px', right: '0px' }}>
+            <img src={leafbottomright} alt="LeafBottomRight" style={{width: '100%', height: 'auto'}} />
+          </div>
+          <Card id = "login-title" title = "Login" bordered={true} style={{ padding: "0 0px 0 0px", margin: "10vh 17vw 0 10vw", width: '25vw', float: 'right'}}>
             <Form layout={formLayout} style={{ margin: "0 45px 0 20px"}}>
               <Form.Item  {...formItemLayout} style={{ margin: "0 25px 0 20px"}}>
-                <Input placeholder="Username" style={{width: '190%', height: '50px', margin: "0 25px 10px 0px", fontSize: '1.5em',}}/>
+                <Input placeholder="Username" style={{width: '190%', height: '30px', margin: "0 25px 10px 0px", fontSize: '1em',}}/>
               </Form.Item>
               <Form.Item  {...formItemLayout} style={{ margin: "0 25px 0 20px"}}>
-                <Input placeholder="Password" type="password" style={{ width: '190%', height: '50px', margin: "0 25px 10px 0px", fontSize: '1.5em',}}/>
+                <Input placeholder="Password" type="password" style={{ width: '190%', height: '30px', margin: "0 25px 10px 0px", fontSize: '1em',}}/>
               </Form.Item>
-              <Checkbox style={{ height: '50px', padding: "0 20px 0 18px", fontSize: '1.5em'}}> Remember me </Checkbox>
-              <a className="login-form-forgot" href="" style={{ color: '#42d0ce', fontSize: '1.5em',}}> Forgot password </a>
-              <Form.Item {...buttonItemLayout} style={{ width: "100px", margin: "20px 0 20px 0" }}>
-                <Button type="primary" style={{ fontSize: '1.5em', height: '50px', width: '120px'}} onClick={(event) => {this.props.action(event); }}>Submit</Button>
+              <Checkbox style={{ padding: "0 20px 0 18px", fontSize: '0.9em'}}> Remember me </Checkbox>
+              <a className="login-form-forgot" href="" style={{ color: '#42d0ce', fontSize: '0.9em',}}> Forgot password </a>
+              <Form.Item {...buttonItemLayout} style={{ width: "100px", margin: "20px 0 10px 0" }}>
+                <Button type="primary" style={{ fontSize: '1em', height: '30px', width: '100px'}} onClick={(event) => {this.props.action(event); }}>Submit</Button>
               </Form.Item>
-              <a href="" style={{ float: 'left', margin: "0 0 0 20px", color: '#42d0ce', fontSize: '1.5em',}}>Or register now!</a>
+              <a href="" style={{ float: 'left', margin: "0 0 0 20px", color: '#42d0ce', fontSize: '0.9em',}}>Or register now!</a>
             </Form>
           </Card>
         </div>
