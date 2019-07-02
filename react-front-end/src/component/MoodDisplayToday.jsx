@@ -54,7 +54,7 @@ class MoodDisplay extends Component {
   }
 
   render() {
-    const currentDate = moment().tz("America/Vancouver").format("YYYY-MM-DD");
+    const currentDate = moment().tz("America/Vancouver").format("dddd, MMMM Do YYYY");
     const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
 
     const colorBadge = () => {
@@ -85,11 +85,11 @@ class MoodDisplay extends Component {
       }
 
       if (moodRating > this.state.average) {
-        return (<>Nice! Today your mood rating is higher than your weekly average of {this.state.average}. Keep it up!</>)
+        return (<>Nice! Today your mood rating is higher than your weekly average of {this.state.average}.</>)
       } else if (moodRating == this.state.average) {
-        return (<>Not bad! Today your mood is the same as your weekly average of {this.state.average}. Way to be consistent!</>)
+        return (<>Today your mood is the same as your weekly average of {this.state.average}. Way to be consistent!</>)
       } else if (moodRating < this.state.average) {
-        return (<>Well, there's always tomorrow! Today your mood is lower than your weekly average of {this.state.average}. Let's have a better day tomorrow!</>)
+        return (<>Well, there's always tomorrow! Today your mood is lower than your weekly average of {this.state.average}.</>)
       }
     }
 
