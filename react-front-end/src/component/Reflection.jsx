@@ -49,7 +49,7 @@ class Reflection extends Component {
       <>
         <Layout style={{ marginLeft: 200 }}>
             <Header style={{ background: "#fff", padding: 0, }}>
-              <span className="page-header"><strong>Time To Reflect</strong></span> 
+              <span className="page-header"><strong>Tell Us About Your Day</strong></span> 
               <span className="page-date">{currentDate}</span>
             </Header>
           <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>

@@ -52,7 +52,7 @@ class ReflectionResult extends Component {
     return (
       <> 
       { (!loading) ? (
-        <Card title = "Calculating Mood Score..." bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
+        <Card bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
           <div className="sentibot-submission">
             <p className="submission-text"> 
               <strong>SentiBOT Is Calculating...</strong>
@@ -66,7 +66,7 @@ class ReflectionResult extends Component {
           </div>
         </Card>
       ) : (
-        <Card title = "SentiBOT Has Processed Your Reflection" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
+        <Card bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
           <div className="sentibot-submission">
             <p className="submission-text"> 
               <strong>Calculation Complete!</strong>
