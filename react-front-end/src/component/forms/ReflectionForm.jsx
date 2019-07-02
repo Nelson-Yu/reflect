@@ -95,7 +95,7 @@ class Answer extends Component {
         : null;
     return (
       <>
-        <Card title = "Tell Us About Your Day!" bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 150px" }}>
+        <Card bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 150px" }}>
           <Row gutter={24}>
             <Col span={8} className="sentibot-form">
               <Robot />

@@ -65,9 +65,9 @@ class Siderbar extends Component {
             }}
             >
 
-            <div className="logo" style={{color: "white", fontSize: "30px", textAlign: "center", paddingBottom: '20px'}}> REFLECT </div>
+            <div className="logo" style={{color: "white", fontSize: "2em", textAlign: "center", padding: '15px 0 15px 0'}}> R e f l e c t </div>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" style={{ background: 'transparent' }}>
-              <Menu.Item key="1" style={{marginBottom: '15px' }} >
+              <Menu.Item key="1" style={{margin: '15px 0 15px 0' }} >
                 <Icon style={{ fontSize: '20px'}} type="pie-chart" />
                 <span style={{ fontSize: '130%'}} >Dashboard</span>
                 <Link to='/' />

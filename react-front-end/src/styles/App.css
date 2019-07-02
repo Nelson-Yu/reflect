@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .App {
     text-align: center;
 }
@@ -32,8 +34,9 @@
     }
 }
 
-.ant-menu-item:selected {
-    background: red;
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background: #fbc658;
 }
 
 .ant-layout {
@@ -199,9 +202,13 @@ div.ant-card-body::before {
     font-size: 16px;
     padding: 24px 0px 0px;
 }
+<<<<<<< HEAD
 
 
 /* 
+=======
+/*
+>>>>>>> d43aae2beee13e9f1f8b261a9238385544d9cfd0
 .productivity-text strong{
     color: #51cbcf;
 } */
