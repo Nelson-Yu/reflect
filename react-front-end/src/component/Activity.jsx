@@ -49,7 +49,7 @@ class Activity extends Component {
       <>
           <Layout style={{ marginLeft: 200 }}>
             <Header style={{ background: "#fff", padding: 0, }}>
-              <span className="page-header"><strong>What Did You Do Today?</strong></span> 
+              <span className="page-header">What Did You Do Today?</span> 
               <span className="page-date">{currentDate}</span>
             </Header>
             <Content style={{ margin: "0 16px", borderTop: '1px solid #908884' }}>

@@ -83,13 +83,13 @@ div.ant-card {
 /* CONTENT HEADER */
 
 .page-header {
-    padding: 0px 75px;
-    font-size: 2em;
+    padding: 0px 2em;
+    font-size: 1.5em;
     color: #625d56;
 }
 
 .page-date {
-    padding: 0px 75px;
+    padding: 0px 2em;
     float: right;
     font-size: 1.2em;
 }
@@ -308,52 +308,6 @@ div.ant-card {
     padding: 10px 30px;
     font-size: 16px;
 }
-
-
-/* SENTIBOT ON SUBMISSION */
-
-.sentibot-form .robot {
-    transform: translate(-20px, 100px);
-    width: 20vw;
-    height: 20vw;
-}
-
-.sentibot-submission {
-    text-align: center;
-}
-
-.sentibot-submission p {
-    font-size: 30px;
-}
-
-.sentibot-submission .robot {
-    width: 20vw;
-    height: 22vw;
-}
-
-.ant-card-body .CircularProgressbar {
-    width: 100px;
-    height: 100%;
-}
-
-.submission-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.submission-badge {
-    display: inline-block;
-    min-width: 16px;
-    padding: 25px;
-    border-radius: 50%;
-    font-size: 75px;
-    text-align: center;
-    background: #51cbcf;
-    color: #fefefe;
-    border: 10px double #fefefe;
-}
-
 
 /* tasks css */
 

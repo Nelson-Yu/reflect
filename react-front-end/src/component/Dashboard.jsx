@@ -46,11 +46,9 @@ class Dashboard extends Component {
 
     return (
       <>
-        <Layout style={{ marginLeft: 200, height: "1750px" }}>
-          <Header style={{ background: "#fff", padding: 0 }}>
-            <span className="page-header">
-              <strong>Hi Nelson, Welcome To Reflect</strong>
-            </span>
+        <Layout style={{  marginLeft: 200, height: '1750px' }}>
+          <Header style={{ background: "#fff", padding: 0, }}>
+            <span className="page-header">Hi Nelson, Welcome To Reflect</span>
             <span className="page-date">{currentDate}</span>
           </Header>
           <Content style={{ margin: "0 16px", borderTop: "1px solid #908884" }}>

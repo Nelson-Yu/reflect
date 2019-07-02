@@ -95,41 +95,38 @@ class Answer extends Component {
         : null;
     return (
       <>
-        <Card bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 150px" }}>
+        <Card bordered={true} style={{ padding: "0 1.2em", margin: "0 15em" }}>
           <Row gutter={24}>
-            <Col span={8} className="sentibot-form">
+            <Col span={6} className="sentibot-form">
               <Robot />
             </Col>
-            <Col span={16}>
+            <Col span={18}>
               <Form layout={formLayout} className="reflection-form">
                 <Form.Item >
                   <Radio.Group size="large" >
-                    <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187146.svg'}/></Radio.Button>
-                    <Radio.Button value="-0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187143.svg'} /></Radio.Button>
-                    <Radio.Button value="0" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187136.svg'} /></Radio.Button>
-                    <Radio.Button value="0.5" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187142.svg'} /></Radio.Button>
-                    <Radio.Button value="1" onClick={this.handleEmoji}><img className="ant-menu-item" src={'https://image.flaticon.com/icons/svg/187/187159.svg'} /></Radio.Button>
+                    <Radio.Button value="-1" onClick={this.handleEmoji}><img className="ant-menu-item emoji-button" src={'https://image.flaticon.com/icons/svg/187/187146.svg'}/></Radio.Button>
+                    <Radio.Button value="-0.5" onClick={this.handleEmoji}><img className="ant-menu-item emoji-button" src={'https://image.flaticon.com/icons/svg/187/187143.svg'} /></Radio.Button>
+                    <Radio.Button value="0" onClick={this.handleEmoji}><img className="ant-menu-item emoji-button" src={'https://image.flaticon.com/icons/svg/187/187136.svg'} /></Radio.Button>
+                    <Radio.Button value="0.5" onClick={this.handleEmoji}><img className="ant-menu-item emoji-button" src={'https://image.flaticon.com/icons/svg/187/187142.svg'} /></Radio.Button>
+                    <Radio.Button value="1" onClick={this.handleEmoji}><img className="ant-menu-item emoji-button" src={'https://image.flaticon.com/icons/svg/187/187159.svg'} /></Radio.Button>
                   </Radio.Group>
                 </Form.Item>
                 <Form.Item {...formItemLayout}>
-                  <p>How was your day?</p>
+                  <p className="reflection-question">How was your day?</p>
                   <TextArea
-                  placeholder="input placeholder"
                   onChange={this.handleAnswer1}
                   autosize={{ minRows: 2, maxRows: 4 }}
                   />
                 </Form.Item>
                 <Form.Item {...formItemLayout}>
-                  <p>What was the most impactful thing you did today?</p>
+                  <p className="reflection-question">What was the most impactful thing you did today?</p>
                   <TextArea
-                  placeholder="input placeholder"
                   onChange={this.handleAnswer2}
                   autosize={{ minRows: 2, maxRows: 4 }}/>
                 </Form.Item>
                 <Form.Item {...formItemLayout}>
-                  <p>Is there anything exciting happening tomorrow?</p>
+                  <p className="reflection-question">Is there anything exciting happening tomorrow?</p>
                   <TextArea
-                  placeholder="input placeholder"
                   onChange={this.handleAnswer3}
                   autosize={{ minRows: 2, maxRows: 4 }}/>
                 </Form.Item>
