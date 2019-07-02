@@ -16,7 +16,6 @@ input[type="checkbox"][id^="cb"] {
 }
 
 .activity-icon {
-  /* border: 1px solid #fff; */
   border-radius: 50%;
   border: 5px double white;
   background: #EF8157;
@@ -67,10 +66,6 @@ input[type="checkbox"][id^="cb"] {
 }
 
 /* Submission Card */
-/* 
-.today-activity {
-  padding: 10em 0em;
-} */
 
 .today-activity .activity-badge {
   display: inline-block;
@@ -95,32 +90,3 @@ input[type="checkbox"][id^="cb"] {
 .today-activity .activity-date{
   font-size: 1.5em;
 }
-
-/* .last-3-days .activity-badge {
-  display: inline-block;
-  position: relative;
-  border-radius: 50%;
-  border: 5px double white;
-  background: #FBC658;
-  padding: 1.2em;
-  margin: 0.2em;
-  text-align: center;
-  height: 6em;
-  width: 6em;
-  cursor: pointer;
-}
-
-.last-3-days .activity-badge img{
-  padding: 5px;
-  height: 3em;
-  width: 3em;
-}
-
-.last-3-days .activity-date{
-  font-size: 1.5em;
-}
-
-
-.last-3-days .l3-activity-date{
-  font-size: 1em;
-} */
