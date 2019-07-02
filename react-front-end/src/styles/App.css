@@ -36,7 +36,8 @@
 
 
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background: #fbc658;
+    background: transparent;
+    text-decoration: underline;
 }
 
 .ant-layout {
