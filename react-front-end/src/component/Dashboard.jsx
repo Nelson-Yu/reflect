@@ -137,12 +137,6 @@ class Dashboard extends Component {
                 </Col>
               </Row>
 
-              <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
-                <Col span={10}>
-                  <Tasks />
-                </Col>
-                <Col span={14} />
-              </Row>
             </div>
           </Content>
         </Layout>
