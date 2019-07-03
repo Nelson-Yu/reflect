@@ -76,9 +76,8 @@
 }
 
 .sentibot-submission-score .robot {
-  transform: translate(13em, 0em);
-  width: 20vw;
-  height: 20vw;
+  transform: translate(0em, 0em);
+  height: 25vw;
 }
 
 .ant-card-body .CircularProgressbar {

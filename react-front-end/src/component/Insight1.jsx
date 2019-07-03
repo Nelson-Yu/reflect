@@ -27,8 +27,8 @@ class TopActivity extends Component {
         {loading ? (
           <Spinner height={250} />
         ) : (
-          <Row gutter={24}>
-            <Col span={7} style={{ padding: "0px" }}>
+          <div className="insight-box">
+            <div className="activity-div">
               <span className="top-activity-badge">
                 <p className="mood-up">
                   <strong>
@@ -38,14 +38,14 @@ class TopActivity extends Component {
                 </p>
                 <img src="https://img.icons8.com/ios/100/000000/friends-filled.png" />
               </span>
-            </Col>
-            <Col span={17} style={{ padding: "0px" }}>
+            </div>
+            <div className="activity-text-div">
               <p className="top-activity-text">
                 Your <strong>mood</strong> tends to be better when you{" "}
                 <strong>socialize</strong> more.
               </p>
-            </Col>
-          </Row>
+            </div>
+          </div>
         )}
       </div>
     );

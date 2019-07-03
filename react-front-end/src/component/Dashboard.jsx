@@ -9,8 +9,10 @@ import Tasks from "./Tasks";
 import TopActivity from "./Insight1";
 import ProductivityStreak from "./Insight2";
 import WeeklyHours from "./Insight3";
+import TaskCompletion from "./Insight4";
 import Spinner from "./loaders/Spinner";
 
+import "../styles/Insights.css"
 import { Line, Pie, Bar, HorizontalBar } from "react-chartjs-2";
 
 import {
@@ -63,25 +65,25 @@ class Dashboard extends Component {
                 <Col span={16}>
                   <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                     <Col span={12}>
-                      <Card bordered={true} style={{ height: "165px" }}>
+                      <Card bordered={true} style={{ height: "9em" }} className="insight-ant-card">
                         <TopActivity />
                       </Card>
                     </Col>
                     <Col span={12}>
-                      <Card bordered={true} style={{ height: "165px" }}>
+                      <Card bordered={true} style={{ height: "9em" }} className="insight-ant-card">
                         <ProductivityStreak />
                       </Card>
                     </Col>
                   </Row>
-                  <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
+                  <Row gutter={48} style={{ margin: "0 0 48px 0" }} >
                     <Col span={12}>
-                      <Card bordered={true} style={{ height: "165px" }}>
+                      <Card bordered={true} style={{ height: "9em" }} className="insight-ant-card">
                         <WeeklyHours />
                       </Card>
                     </Col>
                     <Col span={12}>
-                      <Card bordered={true} style={{ height: "165px" }}>
-                        <WeeklyHours />
+                      <Card bordered={true} style={{ height: "9em" }} className="insight-ant-card">
+                        <TaskCompletion />
                       </Card>
                     </Col>
                   </Row>

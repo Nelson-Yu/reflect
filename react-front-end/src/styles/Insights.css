@@ -1,0 +1,263 @@
+
+/* INSIGHT 1 */
+
+.insight-box { 
+  /* width: 100%; */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.insight-ant-card {
+  padding: 1em;
+}
+
+.insight-ant-card .ant-card-body {
+  padding: 0;
+}
+
+.top-activity-badge {
+  float: left;
+  display: inline;
+  position: relative;
+  border-radius: 50%;
+  border: 5px double white;
+  padding: 0.8em;
+  margin-right: 2em;
+  text-align: center;
+  height: 7em;
+  width: 7em;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
+
+.top-activity-badge .mood-up {
+  display: none;
+  font-size: 1.5em;
+  padding-top: 0.8em;
+  color: #fefefe;
+}
+
+.top-activity-badge img {
+  height: 4.5em;
+  width: 4.5em;
+}
+
+
+.top-activity-badge:hover .mood-up {
+  display: inline;
+}
+
+.top-activity-badge:hover img {
+  display: none;
+}
+
+.activity-text-div {
+  display: inline;
+  font-size: 1.2em;
+}
+.top-activity-text {
+  margin: 1.2em 1em;
+}
+
+
+#insight1 .top-activity-badge {
+  background: #fbc658;
+}
+
+#insight1 .top-activity-badge:hover {
+  background: #4eba64;
+  cursor: pointer;
+}
+
+#insight2 .top-activity-badge {
+  background: #51cbcf;
+}
+
+#insight2 .top-activity-badge:hover {
+  background: #ef8157;
+  cursor: pointer;
+}
+
+#insight3 .top-activity-badge {
+  background: #ef8157;
+}
+
+#insight3 .top-activity-badge:hover {
+  background: #51cbcf;
+  cursor: pointer;
+}
+
+#insight4 .top-activity-badge {
+  background: #4eba64;
+}
+
+#insight4 .top-activity-badge:hover {
+  background: #fbc658;
+  cursor: pointer;
+}
+
+
+
+
+/* INSIGHT 2 */
+
+.productivity-badge {
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  border: 5px double white;
+  background: #51cbcf;
+  padding: 12.5px;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
+
+.productivity-badge .streak-up {
+  display: none;
+  font-size: 20px;
+  padding-top: 10px;
+  color: #fefefe;
+}
+
+.productivity-badge img {
+  height: 60px;
+  width: 60px;
+}
+
+.productivity-badge:hover {
+  background: #b917b9;
+  cursor: pointer;
+}
+
+.productivity-badge:hover .streak-up {
+  display: inline;
+}
+
+.productivity-badge:hover img {
+  display: none;
+}
+
+.productivity-text {
+  font-size: 16px;
+  padding: 24px 0px 0px;
+}
+
+
+/*
+.productivity-text strong{
+  color: #51cbcf;
+} */
+
+
+/* INSIGHT 3 */
+
+.weekly-badge {
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  border: 5px double white;
+  background: #ef8157;
+  padding: 12.5px;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
+
+.weekly-badge .sofdev-up {
+  display: none;
+  font-size: 20px;
+  padding-top: 10px;
+  color: #fefefe;
+}
+
+.weekly-badge img {
+  height: 60px;
+  width: 60px;
+}
+
+.weekly-badge:hover {
+  background: #66615a;
+  cursor: pointer;
+}
+
+.weekly-badge:hover .sofdev-up {
+  display: inline;
+}
+
+.weekly-badge:hover img {
+  display: none;
+}
+
+.weekly-text {
+  font-size: 16px;
+  padding: 24px 0px 0px;
+}
+
+#insight1
+
+/* INSIGHT 4 */
+
+.completed-task-badge {
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  border: 5px double white;
+  background: #ef8157;
+  padding: 12.5px;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  -webkit-transition: background-color 0.5s ease-out;
+  -moz-transition: background-color 0.5s ease-out;
+  -o-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
+
+.completed-task-badge .task-up {
+  display: none;
+  font-size: 20px;
+  padding-top: 10px;
+  color: #fefefe;
+}
+
+.completed-task-badge img {
+  height: 60px;
+  width: 60px;
+}
+
+.completed-task-badge:hover {
+  background: #66615a;
+  cursor: pointer;
+}
+
+.completed-task-badge:hover .task-up {
+  display: inline;
+}
+
+.completed-task-badge:hover img {
+  display: none;
+}
+
+.task-text {
+  font-size: 16px;
+  padding: 24px 0px 0px;
+}
+
+
+
+/* .weekly-text strong{
+  color: #EF8157;
+} */

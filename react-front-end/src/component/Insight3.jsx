@@ -26,23 +26,26 @@ class WeeklyHours extends Component {
       <div id="insight3">
         {loading ? (
           <Spinner height={250} />
-        ) : (
-          <Row gutter={24}>
-            <Col span={7} style={{ padding: "0px" }}>
-              <span className="weekly-badge">
-                <p className="sofdev-up">
-                  <strong>30+ Hours</strong>
-                </p>
-                <img src="https://img.icons8.com/ios/100/000000/laptop-application-filled.png" />
-              </span>
-            </Col>
-            <Col span={17} style={{ padding: "0px" }}>
-              <p className="weekly-text">
-                This week you have logged <strong>30+</strong> hours on{" "}
-                <strong>Software Development.</strong>
+        ) : (          
+          <div className="insight-box">
+          <div className="activity-div">
+            <span className="top-activity-badge">
+              <p className="mood-up">
+                <strong>
+                  30+ Hours
+                </strong>
               </p>
-            </Col>
-          </Row>
+              <img src="https://img.icons8.com/ios/100/000000/laptop-application-filled.png" />
+            </span>
+          </div>
+          <div className="activity-text-div">
+            <p className="top-activity-text">
+              This week you have logged <strong>30+</strong> hours on{" "}
+              <strong>Software Development.</strong>
+            </p>
+          </div>
+        </div>
+
         )}
       </div>
     );
