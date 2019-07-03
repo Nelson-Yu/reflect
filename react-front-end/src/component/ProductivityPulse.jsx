@@ -6,8 +6,7 @@ import Spinner from "./loaders/Spinner";
 const chartOptions = {
   legend: {
     display: true,
-    position: "bottom",
-    fontSize: 28
+    position: "bottom"
   },
 
   tooltips: {
