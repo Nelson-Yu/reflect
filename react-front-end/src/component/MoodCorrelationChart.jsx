@@ -2,18 +2,26 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
 import Spinner from "./loaders/Spinner";
+import moment from "moment";
 
 const chartOptions = {
   legend: {
     display: true,
-    position: "bottom"
+    position: "bottom",
   },
   scales: {
     yAxes: [
       {
         ticks: {
           beginAtZero: true,
-          fontSize: 20
+          fontSize: 18
+        }
+      }
+    ],
+    xAxes: [
+      {
+        ticks: {
+          fontSize: 18
         }
       }
     ]
@@ -158,7 +166,7 @@ class Correlations extends Component {
             .map(({ rank }) => rank);
           const dates = pulseResult
             .slice(0, shortestLength)
-            .map(({ date }) => date);
+            .map(({ date }) => moment(date).format("MMM Do"),            );
           console.log("pulses:", pulses);
           console.log("moods:", moods);
           console.log("dates:", dates);
