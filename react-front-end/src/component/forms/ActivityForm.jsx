@@ -60,7 +60,7 @@ class ActivityForm extends Component {
 
   render() {
     return (
-      <Card bordered={true} style={{ padding: "0 2em", margin: "0% 25%" }}>
+      <Card bordered={true} style={{ padding: "0 2em", margin: "0% 20%" }}>
         <form className="activity-form">
             <>
               <ul className="activity-container">

@@ -118,11 +118,11 @@ class Archive extends Component {
 
         return (
           <div>
-            <h4>How was your day?</h4>
+            <h4>How are you today?</h4>
             <p>{this.state.answer_1}</p>
-            <h4>What was the most impactful thing you did today?</h4>
+            <h4>What was the most impactful thing you did or learned today?</h4>
             <p>{this.state.answer_2}</p>
-            <h4>Is there anything exciting happening tomorrow?</h4>
+            <h4>Are you getting closer to meeting your goals? What did you do?</h4>
             <p>{this.state.answer_3}</p>
           </div>
         )

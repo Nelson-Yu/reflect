@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { Link, Switch, Route } from 'react-router-dom';
+
 import axios from "axios";
 import moment from "moment-timezone";
-import { Col, Row, Card } from "antd";
+import { Col, Row, Card, Button } from "antd";
+import Dashboard from "../Dashboard";
 
 export const Activities3Days = props => {
 
@@ -13,7 +16,7 @@ export const Activities3Days = props => {
   return (
     <>
 
-      <Card bordered={true} style={{ padding: "0 2em", margin: "0% 25%" }}>
+      <Card bordered={true} style={{ padding: "0 2em", margin: "0% 20%" }}>
         <div className="activity-form"> 
           <div className="today-activity">
             <p>
@@ -32,7 +35,6 @@ export const Activities3Days = props => {
                 <img src={props[10].image}/> 
               </span>
             </p>
-
           </div>
           {/* <div className="last-3-days">
             <p>

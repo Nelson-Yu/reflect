@@ -89,7 +89,7 @@ class MoodDisplay extends Component {
       } else if (moodRating == this.state.average) {
         return (<>Today your mood is the same as your weekly average of {this.state.average}. Way to be consistent!</>)
       } else if (moodRating < this.state.average) {
-        return (<>Well, there's always tomorrow! Today your mood is lower than your weekly average of {this.state.average}.</>)
+        return (<>Well...there's always tomorrow! Today your mood is lower than your weekly average of {this.state.average}.</>)
       }
     }
 
