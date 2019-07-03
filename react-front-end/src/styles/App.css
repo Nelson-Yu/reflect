@@ -183,8 +183,8 @@ div.ant-card {
 
 /* tasks css */
 
-.task-badges {
-    padding-bottom: 12px;
+.ant-card-extra span {
+    font-size: 1.2em;
 }
 
 

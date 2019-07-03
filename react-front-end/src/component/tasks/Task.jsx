@@ -4,11 +4,10 @@ import { Button, Checkbox, Icon } from 'antd';
 class TodoItem extends Component {
   getStyle = () => {
     return {
-      padding: '5px',
-      borderBottom: '1px #ccc dotted',
+      borderTop: '1px #ccc solid',
       textDecoration: this.props.task.completed ? 'line-through' : 'none',
       color: this.props.task.completed ? '#4EBA64' : '#EF8157',
-      fontSize: '16px',
+      fontSize: '1.2em',
     }
   };
 

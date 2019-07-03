@@ -89,7 +89,9 @@ class Dashboard extends Component {
                   </Row>
                 </Col>
                 <Col span={8}>
-                  <Tasks />
+                  {/* <Card title="Tasks" style={{ height: "21.5em", overflow: "auto" }}bordered={true}> */}
+                    <Tasks />
+                  {/* </Card> */}
                 </Col >
               </Row>
 

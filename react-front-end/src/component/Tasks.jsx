@@ -106,12 +106,19 @@ class Tasks extends Component {
   }
 
   render() {
+    const completionBadges = (
+      <div className="task-badges">
+        <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "1.2em" }} /> <span>Complete &nbsp; &nbsp;</span>  
+        <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "1.2em" }}/> <span>Incomplete</span>
+      </div>
+    );
+
     return (
-      <Card title="Tasks" bordered={true}>
-        <div className="task-badges">
+      <Card title="Tasks" extra={completionBadges} style={{ height: "21.5em", overflow: "auto" }}bordered={true}>
+        {/* <div className="task-badges">
           <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "16px" }} /> <span>Complete &nbsp; &nbsp;</span>  
           <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "16px" }}/> <span>Incomplete</span>
-        </div>
+        </div> */}
         <AddToDo addToDo={this.addToDo} /> 
         <br/>
         <ToDo todo={this.state.todo} markComplete={this.markComplete} deleteTask={this.deleteTask}/>
