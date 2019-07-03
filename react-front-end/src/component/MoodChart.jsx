@@ -89,7 +89,7 @@ class Mood extends Component {
               rank: moodRank,
               loading: false
             });
-          }, 2000);
+          }, 1000);
         });
     });
   };

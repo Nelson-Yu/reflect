@@ -16,7 +16,7 @@ class TopActivity extends Component {
       this.setState({
         loading: false
       });
-    }, 2000);
+    }, 1000);
   }
 
   render() {

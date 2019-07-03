@@ -117,7 +117,7 @@ class Productivity extends Component {
               productivity: productivityData,
               loading: false
             });
-          }, 2000);
+          }, 1000);
         });
     });
   };
