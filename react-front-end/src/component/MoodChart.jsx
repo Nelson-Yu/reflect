@@ -23,7 +23,10 @@ const chartOptions = {
         }
       }
     ]
-  }
+  },
+  responsive: true,
+  maintainAspectRatio: false
+
 };
 
 class Mood extends Component {
@@ -95,12 +98,14 @@ class Mood extends Component {
         ) : (
           <>
             <MoodDisplay />
-            <Bar
-              data={this.state.rank}
-              options={chartOptions}
-              width={400}
-              height={150}
-            />
+            <div>
+              <Bar
+                data={this.state.rank}
+                options={chartOptions}
+                width={300}
+                height={200}
+              />
+            </div>
           </>
         )}
       </div>

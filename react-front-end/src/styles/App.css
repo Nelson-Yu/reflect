@@ -94,6 +94,9 @@ div.ant-card {
     font-size: 1.2em;
 }
 
+.ant-card-head-title {
+    font-size: 1.2em;
+}
 
 /* INSIGHT 1 */
 
@@ -331,4 +334,8 @@ div #productivity-chart,
 div #mood-chart:before {
     display: flex;
     justify-content: center;
+}
+
+#chart1 {
+    height: 20em;
 }
