@@ -6,7 +6,7 @@
   display: block;
   margin: 0 auto;
   margin-left: -300px;
-  transform: scale(0.6) translate(0, -100%);
+  transform: scale(0.5) translate(0, -120%);
   transform-origin: center;
   height: 800px;
   width: 600px;
