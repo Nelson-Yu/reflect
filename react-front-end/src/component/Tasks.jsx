@@ -108,8 +108,8 @@ class Tasks extends Component {
   render() {
     const completionBadges = (
       <div className="task-badges">
-        <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "1.2em" }} /> <span>Complete &nbsp; &nbsp;</span>  
-        <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "1.2em" }}/> <span>Incomplete</span>
+        <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "1em" }} /> <span>Complete &nbsp; &nbsp;</span>  
+        <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "1em" }}/> <span>Incomplete</span>
       </div>
     );
 

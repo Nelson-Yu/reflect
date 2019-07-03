@@ -28,14 +28,17 @@ exports.seed = function(knex, Promise) {
         {id: 1021, user_id: 1, date: '2019-06-21', rank: 6, emoji_rank: 0.5},
         {id: 1022, user_id: 1, date: '2019-06-22', rank: 4, emoji_rank: 0.5},
         {id: 1023, user_id: 1, date: '2019-06-23', rank: 3.6, emoji_rank: 0.5},
-        {id: 1024, user_id: 1, date: '2019-06-24', rank: 5, emoji_rank: 0.5},
-        {id: 1025, user_id: 1, date: '2019-06-25', rank: 6, emoji_rank: 0.5},
+        {id: 1024, user_id: 1, date: '2019-06-24', rank: 4.7, emoji_rank: 0.5},
+        {id: 1025, user_id: 1, date: '2019-06-25', rank: 6.2, emoji_rank: 0.5},
         {id: 1026, user_id: 1, date: '2019-06-26', rank: 7.3, emoji_rank: 0.5},
-        {id: 1027, user_id: 1, date: '2019-06-27', rank: 8, emoji_rank: 1},
-        {id: 1028, user_id: 1, date: '2019-06-28', rank: 8, emoji_rank: 1},
-        {id: 1029, user_id: 1, date: '2019-06-29', rank: 8, emoji_rank: 1},
+        {id: 1027, user_id: 1, date: '2019-06-27', rank: 7.5, emoji_rank: 1},
+        {id: 1028, user_id: 1, date: '2019-06-28', rank: 8.4, emoji_rank: 1},
+        {id: 1029, user_id: 1, date: '2019-06-29', rank: 8.0, emoji_rank: 1},
         {id: 1030, user_id: 1, date: '2019-06-30', rank: 7.7, emoji_rank: 1},
-        {id: 1031, user_id: 1, date: '2019-07-01', rank: 7.2, emoji_rank: 1}
+        {id: 1031, user_id: 1, date: '2019-07-01', rank: 7.0, emoji_rank: 1},
+        {id: 1032, user_id: 1, date: '2019-07-02', rank: 7.2, emoji_rank: 1},
+        // {id: 1031, user_id: 1, date: '2019-07-03', rank: 7.5, emoji_rank: 1}
+
       ]);
     });
 };
