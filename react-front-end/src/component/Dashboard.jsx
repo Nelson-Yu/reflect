@@ -57,23 +57,41 @@ class Dashboard extends Component {
           </div>
           <Content style={{ margin: "0 16px", borderTop: "1px solid #908884" }}>
             <div style={{ padding: 24 }}>
-              <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
-                <Col span={8}>
-                  <Card bordered={true} style={{ height: "165px" }}>
-                    <TopActivity />
-                  </Card>
+
+
+              <Row gutter={24} style={{ margin: "0 0 48px 0" }}>
+                <Col span={16}>
+                  <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
+                    <Col span={12}>
+                      <Card bordered={true} style={{ height: "165px" }}>
+                        <TopActivity />
+                      </Card>
+                    </Col>
+                    <Col span={12}>
+                      <Card bordered={true} style={{ height: "165px" }}>
+                        <ProductivityStreak />
+                      </Card>
+                    </Col>
+                  </Row>
+                  <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
+                    <Col span={12}>
+                      <Card bordered={true} style={{ height: "165px" }}>
+                        <WeeklyHours />
+                      </Card>
+                    </Col>
+                    <Col span={12}>
+                      <Card bordered={true} style={{ height: "165px" }}>
+                        <WeeklyHours />
+                      </Card>
+                    </Col>
+                  </Row>
                 </Col>
                 <Col span={8}>
-                  <Card bordered={true} style={{ height: "165px" }}>
-                    <ProductivityStreak />
-                  </Card>
-                </Col>
-                <Col span={8}>
-                  <Card bordered={true} style={{ height: "165px" }}>
-                    <WeeklyHours />
-                  </Card>
-                </Col>
+                  <Tasks />
+                </Col >
               </Row>
+
+
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={8}>
                   <Card
@@ -95,6 +113,7 @@ class Dashboard extends Component {
                   </Card>
                 </Col>
               </Row>
+
               <Row gutter={48} style={{ margin: "0 0 48px 0" }}>
                 <Col span={14}>
                   <Card
