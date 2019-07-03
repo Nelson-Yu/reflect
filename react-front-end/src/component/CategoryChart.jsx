@@ -36,7 +36,10 @@ const chartOptions = {
         }
       }
     ]
-  }
+  }, 
+  responsive: true,
+  maintainAspectRatio: false
+
 };
 
 class Categories extends Component {
@@ -116,7 +119,7 @@ class Categories extends Component {
             data={this.state.categoryData}
             options={chartOptions}
             width={400}
-            height={250}
+            height={320}
           />
         )}
       </div>

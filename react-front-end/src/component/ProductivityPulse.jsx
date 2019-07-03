@@ -54,7 +54,9 @@ const chartOptions = {
         }
       }
     ]
-  }
+  },
+  responsive: true,
+  maintainAspectRatio: false
 };
 
 class Productivity extends Component {
@@ -134,7 +136,7 @@ class Productivity extends Component {
           <Doughnut
             data={this.state.productivity}
             options={chartOptions}
-            height={250}
+            height={350}
           />
         )}
       </div>

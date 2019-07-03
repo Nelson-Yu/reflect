@@ -12,11 +12,14 @@ const chartOptions = {
     yAxes: [
       {
         ticks: {
-          beginAtZero: true
+          beginAtZero: true,
+          fontSize: 20
         }
       }
     ]
-  }
+  },
+  responsive: true,
+  maintainAspectRatio: false
 };
 
 class Correlations extends Component {
@@ -186,7 +189,7 @@ class Correlations extends Component {
             data={this.state.pulse && this.state.mood}
             options={chartOptions}
             width={400}
-            height={150}
+            height={350}
           />
         )}
       </div>

@@ -97,7 +97,8 @@ class Dashboard extends Component {
                   <Card
                     title="Productivity Pulse"
                     bordered={true}
-                    style={{ height: "350px" }}
+                    style={{ height: "450px" }}
+                    id="chart1"
                   >
                     <Productivity />
                   </Card>
@@ -106,7 +107,7 @@ class Dashboard extends Component {
                   <Card
                     title="Mood-Productivity Correlation"
                     bordered={true}
-                    style={{ height: "350px" }}
+                    style={{ height: "450px" }}
                     id="chart1"
                   >
                     <Correlations />
@@ -129,7 +130,7 @@ class Dashboard extends Component {
                   <Card
                     title="Spotlight On Today"
                     bordered={true}
-                    style={{ height: "330px" }}
+                    style={{ height: "420px" }}
                     id="chart1"
                   >
                     <Categories />

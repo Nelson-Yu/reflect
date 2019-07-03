@@ -14,10 +14,17 @@
 
 .reflection-form .ant-menu-item {
   height: 4em;
+  /* padding: 0 1em; */
 }
 
-
 .reflection-form .ant-radio-group-large .ant-radio-button-wrapper {
+  height: 4em;
+  /* width: 8em; */
+  border: none;
+  border-radius: 0%;
+}
+
+.reflection-form .ant-radio-group-large .ant-radio-button-wrapper-checked {
   height: 6em;
   /* width: 8em; */
   border: none;
@@ -28,11 +35,18 @@
   padding: 0;
 }
 
-.reflection-form:not (.ant-radio-button-wrapper-checked){
-
+.reflection-form .ant-radio-button-wrapper-checked{
+  color: transparent;
+  border-color: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
-.ant-radio-button-wrapper-checked:hover{
+.reflection-form .ant-radio-button-wrapper-checked .ant-menu-item {
+  height: 6em;
+}
+
+.reflection-form .ant-radio-button-wrapper-checked:hover{
   color: transparent;
   border-color: none;
   -webkit-box-shadow: none;
@@ -48,17 +62,23 @@
   height: 20vw; */
 }
 
-.sentibot-submission {
+.sentibot-submission, .sentibot-submission-score {
   text-align: center;
 }
 
-.sentibot-submission p {
+.sentibot-submission p, .sentibot-submission-score p {
   font-size: 30px;
 }
 
 .sentibot-submission .robot {
   width: 20vw;
   height: 22vw;
+}
+
+.sentibot-submission-score .robot {
+  transform: translate(13em, 0em);
+  width: 20vw;
+  height: 20vw;
 }
 
 .ant-card-body .CircularProgressbar {
@@ -73,10 +93,8 @@
 
 .submission-badge {
   display: inline-block;
-  min-width: 16px;
-  padding: 25px;
+  padding: 1em;
   border-radius: 50%;
-  font-size: 75px;
   text-align: center;
   background: #51cbcf;
   color: #fefefe;
