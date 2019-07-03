@@ -53,6 +53,10 @@
   box-shadow: none;
 }
 
+.ant-radio-button-wrapper .ant-radio-button-wrapper-checked:focus-within {
+
+}
+
 .reflection-form .ant-menu-item {
 }
 
