@@ -3,7 +3,7 @@ import axios from "axios";
 import { Col, Row, Icon } from "antd";
 import Spinner from "./loaders/Spinner";
 
-class ProductivityStreak extends Component {
+class TaskCompletion extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,26 +23,24 @@ class ProductivityStreak extends Component {
     const { loading } = this.state;
 
     return (
-      <div id="insight2">
+      <div id="insight4">
         {loading ? (
           <Spinner height={250} />
         ) : (
-          <div className="insight-box">
+        <div className="insight-box">
           <div className="activity-div">
             <span className="top-activity-badge">
               <p className="mood-up">
                 <strong>
-                  5 Day Streak
+                  25 Tasks
                 </strong>
               </p>
-              <img src="https://img.icons8.com/ios/100/000000/positive-dynamic-filled.png" />
+              <img src="https://img.icons8.com/ios/100/000000/checked-checkbox-filled.png" />
             </span>
           </div>
           <div className="activity-text-div">
             <p className="top-activity-text">
-              <strong>Productivity Pulse</strong> has been above{" "}
-              <strong>8.0</strong> for the last <strong>5 days</strong>. 
-              Keep it up!
+              You have completed <strong>25 tasks</strong> this week. Good job, let's finish the rest.
             </p>
           </div>
         </div>
@@ -52,4 +50,4 @@ class ProductivityStreak extends Component {
   }
 }
 
-export default ProductivityStreak;
+export default TaskCompletion;

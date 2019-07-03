@@ -28,11 +28,22 @@ const chartOptions = {
   },
 
   scales: {
+    yAxes: [
+      {
+        ticks: {
+          fontSize: 18
+        }
+      }
+    ],
     xAxes: [
       {
         scaleLabel: {
           display: true,
-          labelString: "Time Logged in Hours"
+          labelString: "Time Logged in Hours",
+          fontSize: 18
+        },
+        ticks: {
+          fontSize: 18
         }
       }
     ]
@@ -87,7 +98,7 @@ class Categories extends Component {
               categoryData: timeSpent,
               loading: false
             });
-          }, 2000);
+          }, 1000);
         });
     });
   };
