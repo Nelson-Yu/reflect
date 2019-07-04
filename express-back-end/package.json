@@ -9,8 +9,6 @@
         "go": "nodemon server.js"
     },
     "dependencies": {
-        "@google-cloud/language": "^3.2.1",
-        "@google-cloud/storage": "^2.5.0",
         "body-parser": "^1.18.3",
         "cors": "^2.8.5",
         "dotenv": "^8.0.0",

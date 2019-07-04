@@ -21,12 +21,50 @@ Each day, users are prompted to fill out a "reflection" form. The app then uses 
 
 ## Tech Stack
 
+Back-end
+* NodeJS
+* Express
+* Knex
+
+Front-end
+* React
+* React-Router
+* Axios
+
+Database
+* PostgreSQl
 
 ## Getting Started
 
+This application requires **TWO** servers to run! Clone this repository to your desired directory and navigate to the directory.
+
+#### Express-Back-End
+1. `cd express-back-end`
+2. `npm install`
+3. `cp .env-example .env`
+4. Update the .env file by filling in the database and RescueTime information
+5. `npm start`
+
+#### React-Front-End
+1. `cd react-front-end`
+2. `npm install`
+
+Navigate to localhost:3000 to find your application.
 
 ## Dependencies
-
+* NodeJS
+* Express
+* Knex
+* DotENV
+* Moment
+* PostgeSQL
+* Natural
+* React
+* React-Router
+* AntDesign
+* ChartJS
+* Axios
+* Cors
 
 ## Contributors
 
