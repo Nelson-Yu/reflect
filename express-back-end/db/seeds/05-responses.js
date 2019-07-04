@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
         {id: 1017, answer1: 'Pretty decent day', answer2: 'Styling our project', answer3: 'Yep, showed our project to cohortmates to get feedback', date: '2019-06-30'},
         {id: 1018, answer1: 'It was a solid day', answer2: 'Fixed some minor bugs on our project', answer3: 'Yep, researched on Google how to fix bugs', date: '2019-07-01'},
         {id: 1019, answer1: 'Tiring day but efficient', answer2: 'Fine-tuning our project layout', answer3: 'Yes, project is complete', date: '2019-07-02'},
-        // {id: 1018, answer1: 'I had a decent day', answer2: 'Practiced presentation for Demo Day', answer3: 'Yep, practiced presentation and feeling good about our project', date: '2019-07-03'},
+        {id: 1020, answer1: 'I had a decent day', answer2: 'Practiced presentation for Demo Day', answer3: 'Yep, practiced presentation and feeling good about our project', date: '2019-07-03'},
       ]);
     });
 };

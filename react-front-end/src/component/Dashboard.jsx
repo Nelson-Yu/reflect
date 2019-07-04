@@ -48,7 +48,7 @@ class Dashboard extends Component {
 
     return (
       <>
-        <Layout style={{  marginLeft: 200, height: '1750px' }}>
+        <Layout style={{  marginLeft: 200, height: '1600px' }}>
           <Header>
             <span className="page-header"  >Hi Liam, Welcome To Your Dashboard</span>
             <span className="page-date"  >{currentDate}</span>

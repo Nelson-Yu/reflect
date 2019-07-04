@@ -31,7 +31,7 @@ const chartOptions = {
     yAxes: [
       {
         ticks: {
-          fontSize: 18
+          fontSize: 15
         }
       }
     ],
@@ -47,7 +47,7 @@ const chartOptions = {
         }
       }
     ]
-  }, 
+  },
   responsive: true,
   maintainAspectRatio: false
 

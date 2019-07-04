@@ -43,7 +43,7 @@ class ReflectionResult extends Component {
   };
 
   componentDidMount() {
-    setTimeout(() => { this.fetchData() }, 3500) 
+    setTimeout(() => { this.fetchData() }, 3500)
     // this.fetchData();
   }
 
@@ -68,11 +68,11 @@ class ReflectionResult extends Component {
     }
 
     return (
-      <> 
+      <>
       { (!loading) ? (
-        <Card bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
+        <Card bordered={true} style={{ padding: "20px 0 20px", margin: "0 400px" }}>
           <div className="sentibot-submission">
-            <p className="submission-text"> 
+            <p className="submission-text">
               <strong>SentiBOT Is Calculating...</strong>
             </p>
             <Robot/>
@@ -84,11 +84,11 @@ class ReflectionResult extends Component {
           </div>
         </Card>
       ) : (
-        <Card bordered={true} style={{ padding: "0 20px 0 20px", margin: "0 400px" }}>
+        <Card bordered={true} style={{ padding: "40px 20px 0 20px", margin: "0 400px" }}>
           <div className="sentibot-submission-score">
             <Robot/>
             <div class="submission-wrapper">
-              <div className="submission-text"> 
+              <div className="submission-text">
                 <p><strong>SentiBOT Calculated Your Mood:</strong></p>
                 {/* <p class="submission-badge">{moodRating}</p> */}
                 {submissionColorBadge()}

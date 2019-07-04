@@ -16,11 +16,11 @@ const Activities = [
   {id: 'cb13', value: 'TV', image: "https://img.icons8.com/ios/100/000000/hdtv-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/hdtv-filled.png", isChecked: false },
   {id: 'cb14', value: 'Good Meal', image: "https://img.icons8.com/ios/100/000000/food-and-wine-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/food-and-wine-filled.png", isChecked: false },
   {id: 'cb15', value: 'Cook', image: "https://img.icons8.com/ios/100/000000/frying-pan-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/frying-pan-filled.png", isChecked: false },
-  {id: 'cb16', value: 'Work', image: "https://img.icons8.com/ios/100/000000/business-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/business-filled.png", isChecked: false },
-  {id: 'cb17', value: 'Slept In', image: "https://img.icons8.com/ios/50/000000/sleeping-in-bed-filled.png", image2: "https://img.icons8.com/ios/50/000000/ffffff/sleeping-in-bed-filled.png", isChecked: false },
-  {id: 'cb18', value: 'Sick', image: "https://img.icons8.com/ios/100/000000/sneeze-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/sneeze-filled.png", isChecked: false },
-  {id: 'cb19', value: 'Learn', image: "https://img.icons8.com/ios/100/000000/learning-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/learning-filled.png", isChecked: false },
-  {id: 'cb20', value: 'Shop', image: "https://img.icons8.com/ios/100/000000/shopping-cart-loaded-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/shopping-cart-loaded-filled.png", isChecked: false },
+  // {id: 'cb16', value: 'Work', image: "https://img.icons8.com/ios/100/000000/business-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/business-filled.png", isChecked: false },
+  // {id: 'cb17', value: 'Slept In', image: "https://img.icons8.com/ios/50/000000/sleeping-in-bed-filled.png", image2: "https://img.icons8.com/ios/50/000000/ffffff/sleeping-in-bed-filled.png", isChecked: false },
+  // {id: 'cb18', value: 'Sick', image: "https://img.icons8.com/ios/100/000000/sneeze-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/sneeze-filled.png", isChecked: false },
+  // {id: 'cb19', value: 'Learn', image: "https://img.icons8.com/ios/100/000000/learning-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/learning-filled.png", isChecked: false },
+  // {id: 'cb20', value: 'Shop', image: "https://img.icons8.com/ios/100/000000/shopping-cart-loaded-filled.png", image2: "https://img.icons8.com/ios/100/000000/ffffff/shopping-cart-loaded-filled.png", isChecked: false },
 ]
 
 export default Activities;

@@ -118,12 +118,12 @@ class Archive extends Component {
 
         return (
           <div>
-            <h4>How are you today?</h4>
-            <p>{this.state.answer_1}</p>
-            <h4>What was the most impactful thing you did or learned today?</h4>
-            <p>{this.state.answer_2}</p>
-            <h4>Are you getting closer to meeting your goals? What did you do?</h4>
-            <p>{this.state.answer_3}</p>
+            <h4 style={{fontSize: '1.2em'}} >How are you today?</h4>
+            <p  style={{fontSize: '1.2em'}} >{this.state.answer_1}</p>
+            <h4 style={{fontSize: '1.2em'}} >What was the most impactful thing you did or learned today?</h4>
+            <p style={{fontSize: '1.2em'}} >{this.state.answer_2}</p>
+            <h4 style={{fontSize: '1.2em'}} >Are you getting closer to meeting your goals? What did you do?</h4>
+            <p style={{fontSize: '1.2em'}} >{this.state.answer_3}</p>
           </div>
         )
       }
@@ -172,7 +172,7 @@ class Archive extends Component {
                 </Card>
                 <div>
                   <Card title={`You selected date: ${this.state.selectedValue && this.state.selectedValue.format('YYYY-MM-DD')}`} bordered={false} style={{ width: '40vw', marginLeft: "5vw", float: 'left'}}>
-                    <h4>Mood Rank: </h4>
+                    <h4 style={{fontSize: '1.2em'}} >Mood Rank: </h4>
                     <p>{colorBadge()}</p>
                     {answers()}
                   </Card>
