@@ -1,33 +1,73 @@
-# React + Express No-Fluff Boilerplate
+Reflect
+==============
 
-A boilerplate project for anyone interested in making a project that uses React and Express.
+Reflect is a personal wellness application designed for users to find correlations between their daily mood, computer productivity, and activities.
 
-This repository is a bootleg of @NimaBoscarino's [React Rails Boilerplate](https://github.com/NimaBoscarino/react-rails-boilerplate). It uses the same React app, but replaces the Rails server with an Express server.
+![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/LandingPage.png)
+![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/Dashboard.gif)
+![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/Reflection.gif)
 
-Note! This boilerplate has _no fluff_! That means that there's nothing set up for you to do authentication stuff, there's no Redux stuff, and there's no React Router stuff. On the Express end, there is no session storage or database connection.
+Each day, users are prompted to fill out a "reflection" form. The app then uses natural language proccessing (via [Natural](https://github.com/NaturalNode/natural)) to analyze the text-sentiment behind the user's answers in order to produce a mood score. Additionally, this app tracks the user's computer productivity data through [RescueTime](https://www.rescuetime.com/). Reflect compiles these sets of data and present them as graphs on the dashboard. Users can then observe how their productivity affects their mood and vice versa.
 
-The main important bit is that the React project has `proxy` set to `localhost:8080` in the `package.json` file, and that the Express app listens to port 8080 in `server.js`. Take a look!
+## Features
+* Users can fill out a "reflection" form 
+  * Reflect then analyzes the text-sentiment and gives a mood score
+* Users can track their productivity on their computer
+* Users can track their time spent on categorized websites (i.e. Social Networking)
+* Users can add post their daily activities
+* Users can create a tasks list
+* Users are able to observe graphs and insight cards that show the correlation of all collected datasets
+* Users are able to look back on past "reflection" answers in Calendar
 
-## Running the projects
+## Tech Stack
 
-You need **TWO** terminals for this.
+Back-end
+* NodeJS
+* Express
+* Knex
 
-In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:3000` in your browser.
+Front-end
+* React
+* React-Router
+* Axios
 
-In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn start` to launch the server.
+Database
+* PostgreSQl
 
-In the browser, you can click on the button and see the data get loaded.
+## Getting Started
 
-If this doesn't work, please message me!
+This application requires **TWO** servers to run! Clone this repository to your desired directory and navigate to the directory.
 
-## Next steps
+#### Express-Back-End
+1. `cd express-back-end`
+2. `npm install`
+3. `cp .env-example .env`
+4. Update the .env file by filling in the database and RescueTime information
+5. `npm start`
 
-From here, you can start working on your project!
+#### React-Front-End
+1. `cd react-front-end`
+2. `npm install`
 
-As soon as the dependencies are installed, your Express server can serve JSON and static assets (like images) in response to API calls from the React app. You can get started on developing your React app, routing plan, etc. right away! Any request that isn't handled by React is passed on to the Express server. That means that you can call a route like `/api/users` from React using `fetch`, `axios`, or something else, and Express will receive it as though they originated from the same app. For routing, best practice is to namespace all of your data routes to `/api`, so that they don't clash with other routing schemes, like React Router.
+Navigate to localhost:3000 to find your application.
 
-At some point, you'll likely want to install and configure a database driver for Postgres or MongoDB-- Refer to past projects for hints on how to do this!
+## Dependencies
+* NodeJS
+* Express
+* Knex
+* DotENV
+* Moment
+* PostgeSQL
+* Natural
+* React
+* React-Router
+* AntDesign
+* ChartJS
+* Axios
+* Cors
 
-## Contact
+## Contributors
 
-Please contact me on Slack (@garrettgsb) or Nima at `nima@lighthouselabs.com` if you have any questions or requests, or post an issue to this repo.
+* [Liam Hetherington](https://github.com/Liamhetherington)
+* [Nelson Yu](https://github.com/Nelson-Yu)
+* [Turner Schumann](https://github.com/turnerschumann)
