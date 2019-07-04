@@ -50,8 +50,8 @@ class Dashboard extends Component {
       <>
         <Layout style={{  marginLeft: 200, height: '1750px' }}>
           <Header>
-            <span className="page-header" style={{ marginTop: '15px' }} >Hi Liam, Welcome To Your Dashboard</span>
-            <span className="page-date" style={{ marginTop: '15px' }} >{currentDate}</span>
+            <span className="page-header"  >Hi Liam, Welcome To Your Dashboard</span>
+            <span className="page-date"  >{currentDate}</span>
           </Header>
           <div>
             <h3 className="R" style={{float: 'left', color: 'white', fontSize: "2.1em", width: "25px"  }}> R </h3>
@@ -75,7 +75,7 @@ class Dashboard extends Component {
                       </Card>
                     </Col>
                   </Row>
-                  <Row gutter={48} style={{ margin: "0 0 48px 0" }} >
+                  <Row gutter={48} style={{ margin: "0 0 0px 0" }} >
                     <Col span={12}>
                       <Card bordered={true} style={{ height: "9em" }} className="insight-ant-card">
                         <WeeklyHours />

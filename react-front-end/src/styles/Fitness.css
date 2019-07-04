@@ -32,9 +32,9 @@ input[type="checkbox"][id^="cb"] {
 }
 
 .activity-icon img {
-  padding: 0.2em;
-  height: 5.5em;
-  width: 5.5em;
+  padding: 0.15em;
+  height: 4em;
+  width: 4em;
   transition-duration: 0.2s;
   transform: scale(0.8);
   transform-origin: 50% 50%;
@@ -54,7 +54,7 @@ input[type="checkbox"][id^="cb"] {
   font-size: 1.2em;
   text-align: center;
   font-weight: 600;
-} 
+}
 
 .activity-icon:hover img {
   transform: scale(1.0)

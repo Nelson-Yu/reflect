@@ -50,7 +50,7 @@ class Reflection extends Component {
       <>
         <Layout style={{ marginLeft: 200 }}>
             <Header >
-              <span className="page-header">Tell Us About Your Day</span>
+              <span className="page-header">Reflect On Today</span>
               <span className="page-date">{currentDate}</span>
             </Header>
             <div>

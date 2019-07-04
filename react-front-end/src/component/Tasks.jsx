@@ -23,7 +23,7 @@ class Tasks extends Component {
         });
       });
   };
-  
+
   addToDo = title => {
 
     const data = {
@@ -44,7 +44,7 @@ class Tasks extends Component {
     }
 
   markComplete = id => {
-    
+
     this.setState({
       todo: this.state.todo.map(task => {
         if (task.id === id) {
@@ -52,16 +52,16 @@ class Tasks extends Component {
         }
         return task;
       })
-    })    
-    
-    const data = this.state.todo  
+    })
+
+    const data = this.state.todo
 
     axios.put('http://localhost:8080/api/tasks', { data })
       .then ((res) => {
         this.fetchData();
       })
   }
-    
+
   deleteTask = id => {
     const data = {
       id: id
@@ -107,19 +107,19 @@ class Tasks extends Component {
 
   render() {
     const completionBadges = (
-      <div className="task-badges">
-        <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "1em" }} /> <span>Complete &nbsp; &nbsp;</span>  
-        <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "1em" }}/> <span>Incomplete</span>
+      <div className="task-badges" >
+        <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "1.2em" }} /> <span>Complete &nbsp; &nbsp;</span>
+        <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "1.2em" }}/> <span>Incomplete</span>
       </div>
     );
 
     return (
-      <Card title="Tasks" extra={completionBadges} style={{ height: "21.5em", overflow: "auto" }}bordered={true}>
+      <Card title="Tasks" extra={completionBadges} style={{ height: "21.5em", overflow: "auto", borderBottom: '10px solid white', borderTop: '10px solid white' }}bordered={true}>
         {/* <div className="task-badges">
-          <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "16px" }} /> <span>Complete &nbsp; &nbsp;</span>  
+          <Badge count={this.completedCounter()} showZero style={{ backgroundColor: '#4EBA64', fontSize: "16px" }} /> <span>Complete &nbsp; &nbsp;</span>
           <Badge count={this.incompletedCounter()} showZero style={{ backgroundColor: '#EF8157', fontSize: "16px" }}/> <span>Incomplete</span>
         </div> */}
-        <AddToDo addToDo={this.addToDo} /> 
+        <AddToDo addToDo={this.addToDo} />
         <br/>
         <ToDo todo={this.state.todo} markComplete={this.markComplete} deleteTask={this.deleteTask}/>
       </Card>
