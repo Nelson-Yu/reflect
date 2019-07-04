@@ -1,13 +1,13 @@
 Reflect
 ==============
 
-Reflect is a personal wellness application designed for users to find correlations between their daily mood, computer productivty, and activities.
+Reflect is a personal wellness application designed for users to find correlations between their daily mood, computer productivity, and activities.
 
 ![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/LandingPage.png)
 ![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/Dashboard.gif)
 ![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/Reflection.gif)
 
-Each day, users are prompted to fill out a "reflection" form. The app then uses natural language proccessing (via [Natural](https://github.com/NaturalNode/natural)) to analyze the text-sentiment behind the user's answers in order to produce a mood score. Additionally, this app tracks the user's computer productivity data through [RescueTime](https://www.rescuetime.com/). Reflect compiles these sets of data and present them as graphs on the dashboard. Users can then observe how their productivty affects their mood and vice versa.
+Each day, users are prompted to fill out a "reflection" form. The app then uses natural language proccessing (via [Natural](https://github.com/NaturalNode/natural)) to analyze the text-sentiment behind the user's answers in order to produce a mood score. Additionally, this app tracks the user's computer productivity data through [RescueTime](https://www.rescuetime.com/). Reflect compiles these sets of data and present them as graphs on the dashboard. Users can then observe how their productivity affects their mood and vice versa.
 
 ## Features
 * Users can fill out a "reflection" form 
