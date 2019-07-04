@@ -41,7 +41,7 @@ class ProductivityStreak extends Component {
           <div className="activity-text-div">
             <p className="top-activity-text">
               <strong>Productivity Pulse</strong> has been above{" "}
-              <strong>8.0</strong> for the last <strong>5 days</strong>. 
+              <strong>7.0</strong> for the last <strong>2 days</strong>. 
               Keep it up!
             </p>
           </div>

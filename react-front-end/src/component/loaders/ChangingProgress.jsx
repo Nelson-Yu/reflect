@@ -3,7 +3,7 @@ import { CircularProgressbar } from "react-circular-progressbar";
 
 class ChangingProgressProvider extends React.Component {
   static defaultProps = {
-    interval: 500
+    interval: 600
   };
 
   state = {

@@ -116,7 +116,7 @@ App.get("/api/archive/:date", (req, res) => {
             data = {
                 rank: results
             };
-            console.log("The data is" + data.rank);
+            console.log(data);
             res.json(data);
         });
 });

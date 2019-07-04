@@ -50,7 +50,7 @@ class Dashboard extends Component {
       <>
         <Layout style={{  marginLeft: 200, height: '1750px' }}>
           <Header>
-            <span className="page-header" style={{ marginTop: '15px' }} >Hi Nelson, Welcome To Your Dashboard</span>
+            <span className="page-header" style={{ marginTop: '15px' }} >Hi Liam, Welcome To Your Dashboard</span>
             <span className="page-date" style={{ marginTop: '15px' }} >{currentDate}</span>
           </Header>
           <div>

@@ -94,12 +94,32 @@
   align-items: center;
 }
 
-.submission-badge {
+.submission-badge-red {
   display: inline-block;
   padding: 1em;
   border-radius: 50%;
   text-align: center;
-  background: #51cbcf;
+  background: #ef8157;
+  color: #fefefe;
+  border: 10px double #fefefe;
+}
+
+.submission-badge-yellow {
+  display: inline-block;
+  padding: 1em;
+  border-radius: 50%;
+  text-align: center;
+  background: #fbc658;
+  color: #2c2b2b;
+  border: 10px double #fefefe;
+}
+
+.submission-badge-green {
+  display: inline-block;
+  padding: 1em;
+  border-radius: 50%;
+  text-align: center;
+  background: #4eba64;
   color: #fefefe;
   border: 10px double #fefefe;
 }

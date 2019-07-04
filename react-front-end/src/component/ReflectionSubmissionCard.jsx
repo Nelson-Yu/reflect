@@ -30,24 +30,42 @@ class ReflectionResult extends Component {
         // handle success
         console.log("Response is" + response.data.rank); // The entire response from the Rails API
 
-        setTimeout(() => {
-          if (response.data.rank.length !== 0) {
-            this.setState({
-              mood: response.data.rank[response.data.rank.length - 1]['rank'],
-              loading: true
-            });
-          }
-        }, 3000);
-      });
+        if (response.data.rank.length !== 0) {
+          this.setState({
+            mood: response.data.rank[response.data.rank.length - 1]['rank'],
+            loading: true
+          });
+        }
+      })
+      .catch (error => {
+        console.log(error);
+      })
   };
 
   componentDidMount() {
-    this.fetchData();
+    setTimeout(() => { this.fetchData() }, 3500) 
+    // this.fetchData();
   }
 
   render() {
     const { loading } = this.state
     const moodRating = ((Math.round((this.state.mood) * 10)) / 10).toFixed(1);
+
+    const submissionColorBadge = () => {
+      if (moodRating < 3.4) {
+        return (
+          <p className="submission-badge-red">{moodRating}</p>
+        )
+      } else if (moodRating > 6.6){
+        return (
+          <p className="submission-badge-green">{moodRating}</p>
+        )
+      } else {
+        return (
+          <p className="submission-badge-yellow">{moodRating}</p>
+        )
+      }
+    }
 
     return (
       <> 
@@ -72,7 +90,8 @@ class ReflectionResult extends Component {
             <div class="submission-wrapper">
               <div className="submission-text"> 
                 <p><strong>SentiBOT Calculated Your Mood:</strong></p>
-                <p class="submission-badge">{moodRating}</p>
+                {/* <p class="submission-badge">{moodRating}</p> */}
+                {submissionColorBadge()}
               </div>
               <br/>
             </div>
