@@ -11,8 +11,8 @@ Each day, users are prompted to fill out a "reflection" form. The app then uses 
 
 ## Final Product
 
-![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/Reflection.gif)
 ![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/LandingPage.png)
+![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/Reflection.gif)
 ![](https://github.com/turnerschumann/reflect/blob/README.md/screenshots/Dashboard.gif)
 
 ## Features
